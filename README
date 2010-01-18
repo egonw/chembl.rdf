@@ -1,0 +1,16 @@
+*Requirements*
+
+ChEMBL 2.
+
+*Installation*
+
+The scripts expect a script only readble by the server software called vars.php, with content like:
+
+<?php
+
+$user = 'user';
+$pwd = 'secret';
+
+?>
+
+to access the MySQL database with the ChEMBL content.
