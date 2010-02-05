@@ -55,7 +55,7 @@ $allIDs = mysql_query("SELECT * FROM compounds, compound_properties WHERE compou
 
 $num = mysql_numrows($allIDs);
 
-if ($row = mysql_fetch_assoc($allIDs)) {
+while ($row = mysql_fetch_assoc($allIDs)) {
   echo "<rdf:Description rdf:about=\"" . $ns . "moleculeId=" . $row['molregno'] . "\">\n";
   echo "  <rdf:type rdf:resource=\"" . $ns . "Compound\" />\n";
   if ($row['inchi']) {
