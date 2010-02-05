@@ -1,28 +1,25 @@
-<?php header('Content-type: application/rdf+xml');
-print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"); 
-?>
-<!DOCTYPE rdf:RDF [
-  <!ENTITY gt "&#62;">
-  <!ENTITY lt "&#60;">
-  <!ENTITY ch "http://pele.farmbio.uu.se/chembl/?">
-  <!ENTITY bodo "http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#">
-]>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-         xmlns:nmr="http://www.nmrshiftdb.org/onto#"
-         xmlns:chembl="&ch;"
-         xmlns:chem="http://www.blueobelisk.org/chemistryblogs/"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:foaf="http://xmlns.com/foaf/0.1/"
-         xmlns:bodo="&bodo;"
-         xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xmlns:bibo="http://purl.org/ontology/bibo/">
+<?php header('Content-type: text/n3'); ?>
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+@prefix bodo: <http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#> .
+@prefix chem: <http://www.blueobelisk.org/chemistryblogs/> .
+@prefix nmr: <http://www.nmrshiftdb.org/onto#> .
+
+@prefix : <http://pele.farmbio.uu.se/chembl/onto/#> .
+@prefix act: <http://rdf.farmbio.uu.se/chembl/activitiy/> .
+@prefix res: <http://rdf.farmbio.uu.se/chembl/resource/> .
+@prefix mol: <http://rdf.farmbio.uu.se/chembl/molecule/> .
+@prefix ass: <http://rdf.farmbio.uu.se/chembl/assay/> .
 
 <?php 
 
 include 'vars.php';
-
-$ns = "&ch;";
 
 #$limit = " LIMIT 5";
 $limit = "";
@@ -39,40 +36,31 @@ $relations = array(
   ">=" => "RelationGE",
   "<" => "RelationLT"
 );
-$relationLabels = array(
-  "<" => "&lt;",
-  "=" => "=",
-  ">" => "&gt;",
-  ">=" => "&gt;="
-);
 
 foreach ($relations as $value => $type) {
-  echo "<rdf:Description rdf:about=\"" . $ns . "relationId=" . $type . "\">\n";
-  echo "  <rdf:type rdf:resource=\"" . $ns . "RelationType\" />\n";
-  echo "  <rdfs:label>" . $relationLabels[$value] . "</rdfs:label>\n";
-  echo "</rdf:Description>\n";
+  echo ":" . $type . " a :RelationType ;";
+  echo " rdfs:label \"" . $value . "\" .\n";
 }
+echo "\n";
 
 $allIDs = mysql_query("SELECT DISTINCT * FROM activities" . $limit);
 
-$num = mysql_numrows($allIDs);
-
 while ($row = mysql_fetch_assoc($allIDs)) {
-  echo "<rdf:Description rdf:about=\"" . $ns . "activityId=" . $row['activity_id'] . "\">\n";
-  echo "  <rdf:type rdf:resource=\"" . $ns . "Activity\" />\n";
-  echo "  <chembl:extractedFrom rdf:resource=\"" . $ns . "resourceId=" . $row['doc_id'] . "\" />\n";
-  echo "  <chembl:onAssay rdf:resource=\"" . $ns . "assayId=" . $row['assay_id'] . "\" />\n";
-  echo "  <chembl:forMolecule rdf:resource=\"" . $ns . "moleculeId=" . $row['molregno'] . "\" />\n";
+  echo "act:" . $row['activity_id'] . " a :Activity ;\n";
+  echo " :extractedFrom res:" . $row['doc_id'] . " ;\n";
+  echo " :onAssay ass:" . $row['assay_id'] . " ;\n";
+  $chebi = mysql_query("SELECT DISTINCT * FROM compounds WHERE molregno = \"" . $row['molregno'] . "\"");
+  if ($chebiRow = mysql_fetch_assoc($chebi)) {
+    echo " :forMolecule mol:" . $chebiRow['chebi_id'] . " ;\n";
+  }
   if ($row['relation']) {
     if ($relations[$row['relation']])
-      echo "  <chembl:relation rdf:resource=\"" . $ns . "relationId=" . $relations[$row['relation']] . "\" />\n";
+      echo " :relation :" . $relations[$row['relation']] . " ;\n";
   }
-  echo "  <chembl:standardValue>" . $row['standard_value'] . "</chembl:standardValue>\n";
-  echo "  <chembl:standardUnits>" . $row['standard_units'] . "</chembl:standardUnits>\n";
-  echo "  <chembl:type>" . $row['standard_type'] . "</chembl:type>\n";  
-  echo "</rdf:Description>\n";
+  echo " :standardValue \"" . $row['standard_value'] . "\" ;\n";
+  echo " :standardUnits \"" . $row['standard_units'] . "\" ;\n";
+  echo " :type \"" . $row['standard_type'] . "\" .\n";  
+  flush();
 }
 
 ?>
-
-</rdf:RDF>
