@@ -20,10 +20,6 @@
 @prefix trg: <http://rdf.farmbio.uu.se/chembl/target/> .
 @prefix trt: <http://rdf.farmbio.uu.se/chembl/targetType/> .
 
-@prefix bec: <http://bio2rdf.org/ec:> .
-@prefix bup: <http://bio2rdf.org/uniprot:> .
-@prefix but: <http://bio2rdf.org/page/taxon:> .
-
 <?php 
 
 include 'vars.php';
@@ -46,20 +42,22 @@ $allIDs = mysql_query(
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
-  echo "ass:" . $row['assay_id'] . " a :Assay ;\n";
-  echo " :hasAssayType :" . $row['assay_desc'] . " ;\n";
+  echo "ass:a" . $row['assay_id'] . " a :Assay ;\n";
   if ($row['description'])
     echo " :hasDescription \"" . str_replace("\"", "\\\"", $row['description']) . "\" ;\n";
   if ($row['doc_id'])
-    echo " :extractedFrom res:" . $row['doc_id'] . " ;\n";
+    echo " :extractedFrom res:r" . $row['doc_id'] . " ;\n";
 
   $props = mysql_query("SELECT DISTINCT * FROM assay2target WHERE assay_id = " . $row['assay_id']);
   while ($prop = mysql_fetch_assoc($props)) {
-    echo " :organism \"" . $prop['assay_organism'] . "\" ;\n";
-    echo " :hasTarget trg:" . $prop['tid'] . " ;\n";
-    echo " :hasConfScore \"" . $prop['confidence_score'] . "\"^^xsd:integer ;\n";
+    if ($prop['assay_organism'])
+      echo " :organism \"" . $prop['assay_organism'] . "\" ;\n";
+    if ($prop['tid'])
+      echo " :hasTarget trg:t" . $prop['tid'] . " ;\n";
+    if ($prop['confidence_score'])
+      echo " :hasConfScore \"" . $prop['confidence_score'] . "\"^^xsd:integer ;\n";
   }
-  echo " :extractedFrom res:" . $row['doc_id'] . " .\n";
+  echo " :hasAssayType :" . $row['assay_desc'] . " .\n";
 }
 
 ?>

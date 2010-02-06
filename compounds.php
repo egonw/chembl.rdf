@@ -21,8 +21,8 @@
 
 include 'vars.php';
 
-#$limit = " LIMIT 5";
-$limit = "";
+$limit = " LIMIT 5";
+#$limit = "";
 
 mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 # echo "<!-- Connection to the server was successful! -->\n";
@@ -53,13 +53,14 @@ $allIDs = mysql_query("SELECT * FROM compounds, compound_properties WHERE compou
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
-  echo "mol:" . $row['chebi_id'] . " a :Compound ;\n";
-  if ($row['inchi']) {
+  echo "mol:m" . $row['chebi_id'] . " a :Compound ;\n";
+  #if ($row['inchi']) {
+  if (false)
     echo " = <http://rdf.openmolecules.net/?" . $row['inchi'] . "> ;\n";
     echo " chem:inchi \"" . $row['inchi'] . "\" ;\n";
   }
-  if ($row['inchi_key'])
-    echo " chem:inchikey \"" . $row['inchi_key'] . "\" ;\n";
+  #if ($row['inchi_key'])
+  #  echo " chem:inchikey \"" . $row['inchi_key'] . "\" ;\n";
   if ($row['canonical_smiles'])
     echo " chem:smiles \"" . $row['canonical_smiles'] . "\" ;\n";
 

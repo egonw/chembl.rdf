@@ -18,8 +18,6 @@
 @prefix ass: <http://rdf.farmbio.uu.se/chembl/assay/> .
 @prefix jrn: <http://rdf.farmbio.uu.se/chembl/assay/> .
 
-@prefix bpm: <http://bio2rdf.org/pubmed:> .
-
 <?php 
 
 include 'vars.php';
@@ -38,7 +36,7 @@ $allIDs = mysql_query("SELECT DISTINCT journal FROM docs" . $limit);
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
-  echo "jrn:" . md5($row['journal']) . " a bibo:Journal ;\n";
+  echo "jrn:j" . md5($row['journal']) . " a bibo:Journal ;\n";
   echo " dc:title \"" . $row['journal'] . "\" .\n";
 }
 
@@ -47,19 +45,18 @@ $allIDs = mysql_query("SELECT DISTINCT * FROM docs" . $limit);
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
-  echo "res:" . $row['doc_id'] . " a bibo:Article ;\n";
+  echo "res:r" . $row['doc_id'] . " a bibo:Article ;\n";
   if ($row['doi'])
     echo " bibo:doi \"" . $row['doi'] . "\" ;\n";
   if ($row['pubmed_id']) {
-    echo " bibo:pmid bpm:" . $row['pubmed_id'] . " ;\n";
-    echo " = bpm:" . $row['pubmed_id'] . " ;\n";
+    echo " bibo:pmid <http://bio2rdf.org/pubmed:" . $row['pubmed_id'] . "> ;\n";
   }
   echo " dc:date \"" . $row['year'] . "\" ;\n";
   echo " bibo:volume \"" . $row['volume'] . "\" ;\n";
   echo " bibo:issue \"" . $row['issue'] . "\" ;\n";
   echo " bibo:pageStart \"" . $row['first_page'] . "\" ;\n";
   echo " bibo:pageEnd \"" . $row['last_page'] . "\" ;\n";
-  echo " dc:isPartOf jrn:" . md5($row['journal']) . " .\n";
+  echo " dc:isPartOf jrn:j" . md5($row['journal']) . " .\n";
 }
 
 ?>

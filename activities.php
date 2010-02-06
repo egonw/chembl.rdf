@@ -46,12 +46,12 @@ echo "\n";
 $allIDs = mysql_query("SELECT DISTINCT * FROM activities" . $limit);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
-  echo "act:" . $row['activity_id'] . " a :Activity ;\n";
-  echo " :extractedFrom res:" . $row['doc_id'] . " ;\n";
-  echo " :onAssay ass:" . $row['assay_id'] . " ;\n";
+  echo "act:a" . $row['activity_id'] . " a :Activity ;\n";
+  echo " :extractedFrom res:r" . $row['doc_id'] . " ;\n";
+  echo " :onAssay ass:a" . $row['assay_id'] . " ;\n";
   $chebi = mysql_query("SELECT DISTINCT * FROM compounds WHERE molregno = \"" . $row['molregno'] . "\"");
   if ($chebiRow = mysql_fetch_assoc($chebi)) {
-    echo " :forMolecule mol:" . $chebiRow['chebi_id'] . " ;\n";
+    echo " :forMolecule mol:m" . $chebiRow['chebi_id'] . " ;\n";
   }
   if ($row['relation']) {
     if ($relations[$row['relation']])
