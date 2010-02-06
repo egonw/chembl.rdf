@@ -1,28 +1,32 @@
-<?php header('Content-type: application/rdf+xml');
-print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"); 
-?>
-<!DOCTYPE rdf:RDF [
-  <!ENTITY gt "&#62;">
-  <!ENTITY lt "&#60;">
-  <!ENTITY ch "http://pele.farmbio.uu.se/chembl/?">
-  <!ENTITY bodo "http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#">
-]>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-         xmlns:nmr="http://www.nmrshiftdb.org/onto#"
-         xmlns:chembl="&ch;"
-         xmlns:chem="http://www.blueobelisk.org/chemistryblogs/"
-         xmlns:dc="http://purl.org/dc/elements/1.1/"
-         xmlns:foaf="http://xmlns.com/foaf/0.1/"
-         xmlns:bodo="&bodo;"
-         xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xmlns:bibo="http://purl.org/ontology/bibo/">
+<?php header('Content-type: text/n3'); ?>
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema-datatypes> .
+
+@prefix bodo: <http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#> .
+@prefix chem: <http://www.blueobelisk.org/chemistryblogs/> .
+@prefix nmr: <http://www.nmrshiftdb.org/onto#> .
+
+@prefix : <http://pele.farmbio.uu.se/chembl/onto/#> .
+@prefix act: <http://rdf.farmbio.uu.se/chembl/activitiy/> .
+@prefix res: <http://rdf.farmbio.uu.se/chembl/resource/> .
+@prefix mol: <http://rdf.farmbio.uu.se/chembl/molecule/> .
+@prefix ass: <http://rdf.farmbio.uu.se/chembl/assay/> .
+@prefix trg: <http://rdf.farmbio.uu.se/chembl/target/> .
+@prefix trt: <http://rdf.farmbio.uu.se/chembl/targetType/> .
+
+@prefix bec: <http://bio2rdf.org/ec:> .
+@prefix bup: <http://bio2rdf.org/uniprot:> .
+@prefix but: <http://bio2rdf.org/page/taxon:> .
 
 <?php 
 
 include 'vars.php';
-
-$ns = "&ch;";
 
 #$limit = " LIMIT 5";
 $limit = "";
@@ -42,20 +46,20 @@ $allIDs = mysql_query(
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
-  echo "<rdf:Description rdf:about=\"" . $ns . "assayId=" . $row['assay_id'] . "\">\n";
-  echo "  <rdf:type rdf:resource=\"" . $ns . "Assay\" />\n";
-  echo "  <chembl:hasAssayType rdf:resource=\"" . $ns . $row['assay_desc'] . "\" />\n";
-  echo "  <chembl:extractedFrom rdf:resource=\"" . $ns . "resourceId=" . $row['doc_id'] . "\" />\n";
+  echo "ass:" . $row['assay_id'] . " a :Assay ;\n";
+  echo " :hasAssayType :" . $row['assay_desc'] . " ;\n";
+  if ($row['description'])
+    echo " :hasDescription \"" . str_replace("\"", "\\\"", $row['description']) . "\" ;\n";
+  if ($row['doc_id'])
+    echo " :extractedFrom res:" . $row['doc_id'] . " ;\n";
 
   $props = mysql_query("SELECT DISTINCT * FROM assay2target WHERE assay_id = " . $row['assay_id']);
   while ($prop = mysql_fetch_assoc($props)) {
-    echo "  <chembl:organism>" . $prop['assay_organism'] . "</chembl:organism>\n";
-    echo "  <chembl:hasTarget rdf:resource=\"" . $ns . "tid=" . $prop['tid'] . "\" />\n";
+    echo " :organism \"" . $prop['assay_organism'] . "\" ;\n";
+    echo " :hasTarget trg:" . $prop['tid'] . " ;\n";
+    echo " :hasConfScore \"" . $prop['confidence_score'] . "\"^^xsd:integer ;\n";
   }
-
-  echo "</rdf:Description>\n";
+  echo " :extractedFrom res:" . $row['doc_id'] . " .\n";
 }
 
 ?>
-
-</rdf:RDF>
