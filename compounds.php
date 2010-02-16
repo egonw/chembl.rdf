@@ -87,7 +87,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
       echo " dc:title \"" . str_replace("\"", "\\\"", $name['synonyms']) . "\" ;\n";
   }
 
-  echo " = <http://bio2rdf.org/ebi:" . $row['chebi_id'] . "> .\n";
+  echo " = <http://bio2rdf.org/chebi:" . $row['chebi_id'] . "> .\n";
 }
 
 ?>
