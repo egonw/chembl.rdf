@@ -1,4 +1,4 @@
-*About*
+# About
 
 ChEMBL is medicinal chemistry database by the team of dr. J. Overington at the EBI.
 
@@ -11,15 +11,15 @@ The data is copyrighted by them, and licensed CC-BY-SA:
 as explained on:
 
   http://www.ebi.ac.uk/chembldb/
-  ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_02/LICENSE
+  ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_06/LICENSE
 
-These scripts were tested against version 2 of ChEMBL, as downloaded from:
+These scripts were tested against version 06 of ChEMBL, as downloaded from:
 
-  ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_02/
+  ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_06/
 
-*Requirements*
+# Requirements
 
-ChEMBL 2.
+ChEMBL 06.
 
 *Installation*
 
