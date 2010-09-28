@@ -21,12 +21,13 @@ These scripts were tested against version 06 of ChEMBL, as downloaded from:
 
 ChEMBL 06.
 
-*Installation*
+# Installation
 
 The scripts expect a script only readble by the server software called vars.php, with content like:
 
 <?php
 
+$db = 'chembl_06';
 $user = 'user';
 $pwd = 'secret';
 
