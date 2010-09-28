@@ -56,12 +56,13 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     echo " :sequence \"" . $row['protein_sequence'] . "\" ;\n";
   if ($row['ec_number']) {
     echo " dc:identifier \"" . $row['ec_number'] . "\" ;\n";
-    echo " = <http://www.bio2rdf/ec:" . $row['ec_number'] . "> ;\n";
+    echo " = <http://bio2rdf.org/ec:" . $row['ec_number'] . "> ;\n";
   }
   if ($row['protein_accession'])
-    echo " = <http://www.bio2rdf/uniprot:" . $row['protein_accession'] . "> ;\n";
+    echo " dc:identifier \"uniprot:" . $row['protein_accession'] . "\" ;\n";
+    echo " = <http://bio2rdf.org/uniprot:" . $row['protein_accession'] . "> ;\n";
   if ($row['tax_id'])
-    echo " :hasTaxonomy <http://www.bio2rdf/taxonomy:" . $row['tax_id'] . "> ;\n";
+    echo " :hasTaxonomy <http://bio2rdf.org/taxonomy:" . $row['tax_id'] . "> ;\n";
 
   # classifications
   $class = mysql_query("SELECT DISTINCT * FROM target_class WHERE tid = \"" . $row['tid'] . "\"");
