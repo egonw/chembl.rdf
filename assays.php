@@ -24,13 +24,10 @@
 
 include 'vars.php';
 
-#$limit = " LIMIT 5";
-$limit = "";
-
 mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 # echo "<!-- Connection to the server was successful! -->\n";
 
-mysql_select_db("chembl_02") or die(mysql_error());
+mysql_select_db($db) or die(mysql_error());
 # echo "<!-- Database was selected! -->\n";
 
 $allIDs = mysql_query(
