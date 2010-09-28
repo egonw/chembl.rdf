@@ -31,6 +31,10 @@ $db = 'chembl_06';
 $user = 'user';
 $pwd = 'secret';
 
+// use the next line to limit the output 
+// $limit = ' LIMIT 5';
+$limit = '';
+
 ?>
 
 to access the MySQL database with the ChEMBL content.
