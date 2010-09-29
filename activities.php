@@ -27,19 +27,6 @@ echo "# Connection to the server was successful!\n";
 mysql_select_db($db) or die(mysql_error());
 echo "# Database " . $db . " was selected!\n";
 
-$relations = array(
-  ">" => "RelationGT",
-  "=" => "RelationEQ",
-  ">=" => "RelationGE",
-  "<" => "RelationLT"
-);
-
-foreach ($relations as $value => $type) {
-  echo ":" . $type . " a :RelationType ;";
-  echo " rdfs:label \"" . $value . "\" .\n";
-}
-echo "\n";
-
 $allIDs = mysql_query("SELECT DISTINCT * FROM activities" . $limit);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
@@ -51,8 +38,8 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     echo " :forMolecule mol:m" . $chebiRow['chebi_id'] . " ;\n";
   }
   if ($row['relation']) {
-    if ($relations[$row['relation']])
-      echo " :relation :" . $relations[$row['relation']] . " ;\n";
+    if ($row['relation'])
+      echo " :relation \"" . $row['relation'] . "\" ;\n";
   }
   echo " :standardValue \"" . $row['standard_value'] . "\" ;\n";
   echo " :standardUnits \"" . $row['standard_units'] . "\" ;\n";
