@@ -37,7 +37,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   echo " dc:title \"" . $row['journal'] . "\" .\n";
 }
 
-$allIDs = mysql_query("SELECT DISTINCT * FROM docs" . $limit);
+$allIDs = mysql_query("SELECT DISTINCT * FROM docs WHERE doc_id > 0" . $limit);
 
 $num = mysql_numrows($allIDs);
 
