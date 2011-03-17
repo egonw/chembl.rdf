@@ -45,46 +45,71 @@ $descs = array(
 #  echo "</rdf:Description>\n";
 #}
 
-$allIDs = mysql_query("SELECT * FROM compounds, compound_properties WHERE compounds.molregno = compound_properties.molregno" . $limit);
+$allIDs = mysql_query("SELECT * FROM compound_records, compound_properties WHERE compound_records.molregno = compound_properties.molregno" . $limit);
 
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
-  echo "mol:m" . $row['chebi_id'] . " a :Compound ;\n";
-  #if ($row['inchi']) {
-  if (false)
-    echo " = <http://rdf.openmolecules.net/?" . $row['inchi'] . "> ;\n";
-    echo " chem:inchi \"" . $row['inchi'] . "\" ;\n";
-  }
-  #if ($row['inchi_key'])
-  #  echo " chem:inchikey \"" . $row['inchi_key'] . "\" ;\n";
-  if ($row['canonical_smiles'])
-    echo " chem:smiles \"" . $row['canonical_smiles'] . "\" ;\n";
-
-  #foreach ($descs as $value => $type) {
-    #if ($row[$row[$value]]) {
-    if (false) {
-      echo "  <bodo:hasDescriptorValue>\n";
-      echo "    <bodo:DescriptorValue>\n";
-      echo "      <bodo:hasPart>\n";
-      echo "        <bodo:DescriptorValuePoint>\n";
-      echo "          <bodo:hasValue rdf:datatype=\"http://www.w3.org/2001/XMLSchema#" .
-           $type . "\">" . $row[$value] . "</bodo:hasValue>\n";
-      echo "          <bodo:valuePointFor rdf:resource=\"" . $ns . "descriptorId=" . md5($value) . "\" />\n";
-      echo "        </bodo:DescriptorValuePoint>\n";
-      echo "      </bodo:hasPart>\n";
-      echo "    </bodo:DescriptorValue>\n";
-      echo "  </bodo:hasDescriptorValue>\n";
+  $chebi = mysql_query("SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = \"" . $row['molregno'] . "\"");
+  if ($chebiRow = mysql_fetch_assoc($chebi)) {
+    echo "mol:m" . $chebiRow['chebi_id'] . " a ";
+    if ($chebiRow['molecule_type']) {
+      if ($chebiRow['molecule_type'] = "Small molecule") {
+        echo ":SmallMolecule ;\n";
+      } else if ($chebiRow['molecule_type'] = "Protein") {
+        echo ":Protein ;\n";
+      } else if ($chebiRow['molecule_type'] = "Cell") {
+        echo ":Cell ;\n";
+      } else if ($chebiRow['molecule_type'] = "Oligosaccharide") {
+        echo ":Oligosaccharide ;\n";
+      } else if ($chebiRow['molecule_type'] = "Oligonucleotide") {
+        echo ":Oligonucleotide ;\n";
+      } else if ($chebiRow['molecule_type'] = "Antibody") {
+        echo ":Antibody ;\n";
+      } else {
+        echo ":Drug ;\n";
+      }
+    } else {
+      echo ":Drug ;\n";
     }
-  #}
+    #if ($row['inchi']) {
+    if (false) {
+      echo " = <http://rdf.openmolecules.net/?" . $row['inchi'] . "> ;\n";
+      echo " chem:inchi \"" . $row['inchi'] . "\" ;\n";
+    }
+    #if ($row['inchi_key'])
+    #  echo " chem:inchikey \"" . $row['inchi_key'] . "\" ;\n";
+    $structs = mysql_query("SELECT DISTINCT * FROM compound_structures WHERE molregno = " . $row['molregno']);
+    while ($struct = mysql_fetch_assoc($structs)) {
+      if ($struct['canonical_smiles'])
+        echo " chem:smiles \"" . $struct['canonical_smiles'] . "\" ;\n";
+    }
 
-  $names = mysql_query("SELECT DISTINCT * FROM compound_synonyms WHERE molregno = " . $row['molregno']);
-  while ($name = mysql_fetch_assoc($names)) {
-    if ($name['synonyms'])
-      echo " dc:title \"" . str_replace("\"", "\\\"", $name['synonyms']) . "\" ;\n";
+    #foreach ($descs as $value => $type) {
+      #if ($row[$row[$value]]) {
+      if (false) {
+        echo "  <bodo:hasDescriptorValue>\n";
+        echo "    <bodo:DescriptorValue>\n";
+        echo "      <bodo:hasPart>\n";
+        echo "        <bodo:DescriptorValuePoint>\n";
+        echo "          <bodo:hasValue rdf:datatype=\"http://www.w3.org/2001/XMLSchema#" .
+            $type . "\">" . $row[$value] . "</bodo:hasValue>\n";
+        echo "          <bodo:valuePointFor rdf:resource=\"" . $ns . "descriptorId=" . md5($value) . "\" />\n";
+        echo "        </bodo:DescriptorValuePoint>\n";
+        echo "      </bodo:hasPart>\n";
+        echo "    </bodo:DescriptorValue>\n";
+        echo "  </bodo:hasDescriptorValue>\n";
+      }
+    #}
+
+    $names = mysql_query("SELECT DISTINCT * FROM molecule_synonyms WHERE molregno = " . $row['molregno']);
+    while ($name = mysql_fetch_assoc($names)) {
+      if ($name['synonyms'])
+        echo " dc:title \"" . str_replace("\"", "\\\"", $name['synonyms']) . "\" ;\n";
+    }
+
+    echo " = <http://bio2rdf.org/chebi:" . $chebiRow['chebi_id'] . "> .\n";
   }
-
-  echo " = <http://bio2rdf.org/chebi:" . $row['chebi_id'] . "> .\n";
 }
 
 ?>

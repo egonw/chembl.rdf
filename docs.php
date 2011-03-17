@@ -16,7 +16,7 @@
 @prefix res: <http://rdf.farmbio.uu.se/chembl/resource/> .
 @prefix mol: <http://rdf.farmbio.uu.se/chembl/molecule/> .
 @prefix ass: <http://rdf.farmbio.uu.se/chembl/assay/> .
-@prefix jrn: <http://rdf.farmbio.uu.se/chembl/assay/> .
+@prefix jrn: <http://rdf.farmbio.uu.se/chembl/journal/> .
 
 <?php 
 

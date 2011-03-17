@@ -1,0 +1,112 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
+@prefix : <http://pele.farmbio.uu.se/chembl/onto/#> .
+
+:Drug owl:equivalentClass :Compound ;
+  a owl:Class .
+
+:SmallMolecule rdfs:subClassOf :Drug .
+:Protein rdfs:subClassOf :Drug .
+:Cell rdfs:subClassOf :Drug .
+:Oligosaccharide rdfs:subClassOf :Drug .
+:Oligonucleotide rdfs:subClassOf :Drug .
+:Antibody rdfs:subClassOf :Drug .
+
+:Activity a owl:Class .
+:Assay a owl:Class .
+:Target a owl:Class .
+
+:extractedFrom a owl:ObjectProperty ;
+  rdfs:domain :Activity ;
+  rdfs:range bibo:Document .
+
+:onAssay a owl:ObjectProperty ;
+  rdfs:domain :Activity ;
+  rdfs:range :Assay .
+
+:forMolecule a owl:ObjectPropery ;
+  rdfs:domain :Activity ;
+  rdfs:range :Drug .
+
+:relation a owl:DatatypeProperty ;
+  rdfs:domain :Activity .
+
+:standardValue a owl:DatatypeProperty ;
+  rdfs:domain :Activity .
+
+:standardUnits a owl:DatatypeProperty ;
+  rdfs:domain :Activity .
+
+:type a owl:DatatypeProperty ;
+  rdfs:domain :Activity .
+
+:hasDescription a owl:DatatypeProperty ;
+  rdfs:domain :Assay .
+
+:extractedFrom a owl:ObjectProperty ;
+  rdfs:domain :Assay ;
+  rdfs:range bibo:Document .
+
+:organism a owl:DatatypeProperty ;
+  rdfs:domain :Assay .
+
+:hasTarget a owl:ObjectProperty ;
+  rdfs:domain :Assay ;
+  rdfs:range  :Target .
+
+:hasConfScore a owl:DatatypeProperty ;
+  rdfs:domain :Assay .
+
+:hasAssayType a owl:ObjectProperty ;
+  rdfs:domain :Assay .
+
+:hasTargetType a owl:ObjectProperty ;
+  rdfs:domain :Target .
+
+:organism a owl:DatatypeProperty ;
+  rdfs:domain :Target .
+
+:hasDescription a owl:DatatypeProperty ;
+  rdfs:domain :Target .
+
+:hasKeyword a owl:DatatypeProperty ;
+  rdfs:domain :Target .
+
+:sequence a owl:DatatypeProperty ;
+  rdfs:domain :Target .
+
+:hasTaxonomy a owl:ObjectProperty ;
+  rdfs:domain :Target ;
+  rdfs:range  <http://bio2rdf.org/uniprot_resource:Taxon> .
+
+:classL1 a owl:DatatypeProperty ;
+  rdfs:domain :Target ;
+  rdfs:label "Level 1 classification".
+
+:classL2 a owl:DatatypeProperty ;
+  rdfs:domain :Target ;
+  rdfs:label "Level 2 classification".
+
+:classL3 a owl:DatatypeProperty ;
+  rdfs:domain :Target ;
+  rdfs:label "Level 3 classification".
+
+:classL4 a owl:DatatypeProperty ;
+  rdfs:domain :Target ;
+  rdfs:label "Level 4 classification".
+
+:classL5 a owl:DatatypeProperty ;
+  rdfs:domain :Target ;
+  rdfs:label "Level 5 classification".
+
+:classL6 a owl:DatatypeProperty ;
+  rdfs:domain :Target ;
+  rdfs:label "Level 6 classification".
+
+:classL7 a owl:DatatypeProperty ;
+  rdfs:domain :Target ;
+  rdfs:label "Level 7 classification".

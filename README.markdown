@@ -11,30 +11,30 @@ The data is copyrighted by them, and licensed CC-BY-SA:
 as explained on:
 
   http://www.ebi.ac.uk/chembldb/
-  ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_06/LICENSE
+  ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_09/LICENSE
 
 These scripts were tested against version 06 of ChEMBL, as downloaded from:
 
-  ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_06/
+  ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_00/
 
 # Requirements
 
-ChEMBL 06.
+ChEMBL 09.
 
 # Installation
 
 The scripts expect a script only readble by the server software called vars.php, with content like:
 
-<?php
+    <?php
 
-$db = 'chembl_06';
-$user = 'user';
-$pwd = 'secret';
+    $db = 'chembl_09';
+    $user = 'user';
+    $pwd = 'secret';
 
-// use the next line to limit the output 
-// $limit = ' LIMIT 5';
-$limit = '';
+    // use the next line to limit the output 
+    // $limit = ' LIMIT 5';
+    $limit = '';
 
-?>
+    ?>
 
 to access the MySQL database with the ChEMBL content.
