@@ -14,6 +14,12 @@ Or as SNORQL at:
 
     http://rdf.farmbio.uu.se/chembl/snorql
 
+# Download
+
+Alternatively, you can download the full set of triples as n3 from:
+
+    https://github.com/downloads/egonw/chembl.rdf/chembl.n3.tar.bz2
+
 # Copyright / License
 
 The ChEMBL database is copyrighted by John Overington et al., and licensed CC-BY-SA:
@@ -29,7 +35,7 @@ The ChEMBL FAQ explains how you can fullfil the attribution part of the license:
 
     https://www.ebi.ac.uk/chembldb/index.php/faq#faq29
 
-If you use this RDF version of ChEMBL, you are invited to cite this paper, pending
+If you use this RDF version of ChEMBL, you should cite this paper, pending
 a more dedicated paper, where the RDF version of ChEMBL has been used and
 demonstrated:
 
