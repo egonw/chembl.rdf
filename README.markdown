@@ -5,6 +5,15 @@ ChEMBL is medicinal chemistry database by the team of dr. J. Overington at the E
 
     http://www.ebi.ac.uk/chembl/
 
+This project develops, releases, and hosts a RDF version of ChEMBL. The main SPARQL
+end point is available from Uppsala University at:
+
+    http://rdf.farmbio.uu.se/chembl/sparql
+
+Or as SNORQL at:
+
+    http://rdf.farmbio.uu.se/chembl/snorql
+
 # Copyright / License
 
 The ChEMBL database is copyrighted by John Overington et al., and licensed CC-BY-SA:
