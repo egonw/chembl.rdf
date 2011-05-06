@@ -43,8 +43,10 @@ $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
   echo "res:r" . $row['doc_id'] . " a bibo:Article ;\n";
-  if ($row['doi'])
+  if ($row['doi']) {
     echo " bibo:doi \"" . $row['doi'] . "\" ;\n";
+    echo " owl:sameAs <http://dx.doi.org/" . $row['doi'] . "> ;\n";
+  }
   if ($row['pubmed_id']) {
     echo " bibo:pmid <http://bio2rdf.org/pubmed:" . $row['pubmed_id'] . "> ;\n";
   }
