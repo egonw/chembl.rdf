@@ -45,7 +45,7 @@ $descs = array(
 #  echo "</rdf:Description>\n";
 #}
 
-$allIDs = mysql_query("SELECT * FROM compound_records, compound_properties WHERE compound_records.molregno = compound_properties.molregno" . $limit);
+$allIDs = mysql_query("SELECT DISTINCT compound_records.molregno FROM compound_records, compound_properties WHERE compound_records.molregno = compound_properties.molregno" . $limit);
 
 $num = mysql_numrows($allIDs);
 
