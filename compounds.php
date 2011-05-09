@@ -72,17 +72,17 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     } else {
       echo ":Drug ;\n";
     }
-    #if ($row['inchi']) {
-    if (false) {
-      echo " = <http://rdf.openmolecules.net/?" . $row['inchi'] . "> ;\n";
-      echo " chem:inchi \"" . $row['inchi'] . "\" ;\n";
-    }
-    #if ($row['inchi_key'])
-    #  echo " chem:inchikey \"" . $row['inchi_key'] . "\" ;\n";
     $structs = mysql_query("SELECT DISTINCT * FROM compound_structures WHERE molregno = " . $row['molregno']);
     while ($struct = mysql_fetch_assoc($structs)) {
       if ($struct['canonical_smiles'])
         echo " chem:smiles \"" . $struct['canonical_smiles'] . "\" ;\n";
+      if ($struct['standard_inchi']) {
+      #if (false) {
+        echo " = <http://rdf.openmolecules.net/?" . $struct['standard_inchi'] . "> ;\n";
+        echo " chem:inchi \"" . $struct['standard_inchi'] . "\" ;\n";
+      }
+      #if ($row['inchi_key'])
+      #  echo " chem:inchikey \"" . $row['inchi_key'] . "\" ;\n";
     }
 
     #foreach ($descs as $value => $type) {
