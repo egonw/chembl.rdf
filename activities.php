@@ -35,17 +35,17 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   echo " :onAssay ass:a" . $row['assay_id'] . " ;\n";
   $chebi = mysql_query("SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = \"" . $row['molregno'] . "\"");
   if ($chebiRow = mysql_fetch_assoc($chebi)) {
-    echo " :forMolecule mol:m" . $chebiRow['chebi_id'] . " ;\n";
+    echo " :forMolecule mol:m" . $chebiRow['chebi_id'] . " ";
   }
   if ($row['relation']) {
-    if ($row['relation'])
-      echo " :relation \"" . $row['relation'] . "\" ;\n";
+    echo ";\n :relation \"" . $row['relation'] . "\" ";
   }
   if ($row['standard_value']) {
-    echo " :standardValue \"" . $row['standard_value'] . "\"^^xsd:float ;\n";
+    echo ";\n :standardValue \"" . $row['standard_value'] . "\"^^xsd:float ;\n";
     echo " :standardUnits \"" . $row['standard_units'] . "\" ;\n";
-    echo " :type \"" . $row['standard_type'] . "\" .\n";
+    echo " :type \"" . $row['standard_type'] . "\" ";
   }
+  echo ".\n";
   flush();
 }
 
