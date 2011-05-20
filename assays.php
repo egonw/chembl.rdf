@@ -42,8 +42,9 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   echo "ass:a" . $row['assay_id'] . " a :Assay ;\n";
   if ($row['description']) {
     # clean up description
-    $description = str_replace("\"", "\\\"", $row['description']);
+    $description = $row['description'];
     $description = str_replace("\\", "\\\\", $description);
+    $description = str_replace("\"", "\\\"", $description);
     echo " :hasDescription \"$description\" ;\n";
   }
   if ($row['doc_id'])
