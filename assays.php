@@ -40,8 +40,12 @@ $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
   echo "ass:a" . $row['assay_id'] . " a :Assay ;\n";
-  if ($row['description'])
-    echo " :hasDescription \"" . str_replace("\"", "\\\"", $row['description']) . "\" ;\n";
+  if ($row['description']) {
+    # clean up description
+    $description = str_replace("\"", "\\\"", $row['description']);
+    $description = str_replace("\\", "\\\\", $description);
+    echo " :hasDescription \"$description\" ;\n";
+  }
   if ($row['doc_id'])
     echo " :extractedFrom res:r" . $row['doc_id'] . " ;\n";
 
