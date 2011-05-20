@@ -10,6 +10,7 @@
 @prefix bodo: <http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#> .
 @prefix chem: <http://www.blueobelisk.org/chemistryblogs/> .
 @prefix nmr: <http://www.nmrshiftdb.org/onto#> .
+@prefix cheminf: <http://semanticscience.org/resource/> .
 
 @prefix : <http://pele.farmbio.uu.se/chembl/onto/#> .
 @prefix act: <http://rdf.farmbio.uu.se/chembl/activitiy/> .
@@ -74,8 +75,10 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     }
     $structs = mysql_query("SELECT DISTINCT * FROM compound_structures WHERE molregno = " . $row['molregno']);
     while ($struct = mysql_fetch_assoc($structs)) {
-      if ($struct['canonical_smiles'])
+      if ($struct['canonical_smiles']) {
         echo " chem:smiles \"" . $struct['canonical_smiles'] . "\" ;\n";
+        echo " cheminf:CHEMINF_000200 [ a cheminf:CHEMINF_000018 ; cheminf:SIO_000300 \"" . $struct['canonical_smiles'] . "\" ] ;\n";
+      }
       if ($struct['standard_inchi']) {
       #if (false) {
         echo " = <http://rdf.openmolecules.net/?" . $struct['standard_inchi'] . "> ;\n";
