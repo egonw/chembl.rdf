@@ -86,8 +86,9 @@ while ($row = mysql_fetch_assoc($allIDs)) {
       #if (false) {
         echo " chem:inchi \"" . $struct['standard_inchi'] . "\" ;\n";
         echo " cheminf:CHEMINF_000200 [ a cheminf:CHEMINF_000113 ; cheminf:SIO_000300 \"" . $struct['standard_inchi'] . "\" ] ;\n";
-        if (strlen($struct['standard_inchi']) < 512)
+        if (strlen($struct['standard_inchi']) < 1500) {
           echo " = <http://rdf.openmolecules.net/?" . $struct['standard_inchi'] . "> ;\n";
+        }
       }
       if ($struct['standard_inchi_key'])
         echo " chem:inchikey \"" . $struct['standard_inchi_key'] . "\" ;\n";
