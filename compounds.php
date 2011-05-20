@@ -81,11 +81,13 @@ while ($row = mysql_fetch_assoc($allIDs)) {
       }
       if ($struct['standard_inchi']) {
       #if (false) {
-        echo " = <http://rdf.openmolecules.net/?" . $struct['standard_inchi'] . "> ;\n";
         echo " chem:inchi \"" . $struct['standard_inchi'] . "\" ;\n";
+        echo " cheminf:CHEMINF_000200 [ a cheminf:CHEMINF_000113 ; cheminf:SIO_000300 \"" . $struct['standard_inchi'] . "\" ] ;\n";
+        if (strlen($struct['standard_inchi']) < 512)
+          echo " = <http://rdf.openmolecules.net/?" . $struct['standard_inchi'] . "> ;\n";
       }
-      #if ($row['inchi_key'])
-      #  echo " chem:inchikey \"" . $row['inchi_key'] . "\" ;\n";
+      if ($struct['standard_inchi_key'])
+        echo " chem:inchikey \"" . $struct['standard_inchi_key'] . "\" ;\n";
     }
 
     #foreach ($descs as $value => $type) {
