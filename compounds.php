@@ -76,8 +76,11 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     $structs = mysql_query("SELECT DISTINCT * FROM compound_structures WHERE molregno = " . $row['molregno']);
     while ($struct = mysql_fetch_assoc($structs)) {
       if ($struct['canonical_smiles']) {
-        echo " chem:smiles \"" . $struct['canonical_smiles'] . "\" ;\n";
-        echo " cheminf:CHEMINF_000200 [ a cheminf:CHEMINF_000018 ; cheminf:SIO_000300 \"" . $struct['canonical_smiles'] . "\" ] ;\n";
+        $smiles = $struct['canonical_smiles'];
+        $smiles = str_replace("\\", "\\\\", $smiles);
+        $smiles = str_replace("\n", "", $smiles);
+        echo " chem:smiles \"$smiles\" ;\n";
+        echo " cheminf:CHEMINF_000200 [ a cheminf:CHEMINF_000018 ; cheminf:SIO_000300 \"$smiles\" ] ;\n";
       }
       if ($struct['standard_inchi']) {
       #if (false) {
