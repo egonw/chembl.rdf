@@ -29,7 +29,7 @@ The ChEMBL database is copyrighted by John Overington et al., and licensed CC-BY
 as explained on:
 
     http://www.ebi.ac.uk/chembldb/
-    ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_09/LICENSE
+    ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_09/LICENSE    
 
 The ChEMBL FAQ explains how you can fullfil the attribution part of the license:
 
