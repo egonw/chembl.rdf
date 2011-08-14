@@ -12,15 +12,17 @@
 @prefix nmr: <http://www.nmrshiftdb.org/onto#> .
 @prefix cheminf: <http://semanticscience.org/resource/> .
 
-@prefix : <http://pele.farmbio.uu.se/chembl/onto/#> .
-@prefix act: <http://rdf.farmbio.uu.se/chembl/activitiy/> .
-@prefix res: <http://rdf.farmbio.uu.se/chembl/resource/> .
-@prefix mol: <http://rdf.farmbio.uu.se/chembl/molecule/> .
-@prefix ass: <http://rdf.farmbio.uu.se/chembl/assay/> .
-
 <?php
 
 include 'vars.php';
+
+echo "@prefix : <http://rdf.farmbio.uu.se/chembl/onto/#> .\n";
+echo "@prefix act: <" . $rooturi . "activitiy/> .\n";
+echo "@prefix res: <" . $rooturi . "resource/> .\n";
+echo "@prefix mol: <" . $rooturi . "molecule/> .\n";
+echo "@prefix ass: <" . $rooturi . "assay/> .\n";
+echo "@prefix jrn: <" . $rooturi . "journal/> .\n";
+echo "\n"; 
 
 mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 # echo "<!-- Connection to the server was successful! -->\n";
@@ -87,7 +89,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
         echo " chem:inchi \"" . $struct['standard_inchi'] . "\" ;\n";
         echo " cheminf:CHEMINF_000200 [ a cheminf:CHEMINF_000113 ; cheminf:SIO_000300 \"" . $struct['standard_inchi'] . "\" ] ;\n";
         if (strlen($struct['standard_inchi']) < 1500) {
-          echo " = <http://rdf.openmolecules.net/?" . $struct['standard_inchi'] . "> ;\n";
+          echo " owl:sameAs <http://rdf.openmolecules.net/?" . $struct['standard_inchi'] . "> ;\n";
         }
       }
       if ($struct['standard_inchi_key'])
@@ -117,7 +119,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
         echo " dc:title \"" . str_replace("\"", "\\\"", $name['synonyms']) . "\" ;\n";
     }
 
-    echo " = <http://bio2rdf.org/chebi:" . $chebiRow['chebi_id'] . "> .\n";
+    echo " owl:sameAs <http://bio2rdf.org/chebi:" . $chebiRow['chebi_id'] . "> .\n";
   }
 }
 

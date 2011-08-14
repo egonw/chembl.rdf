@@ -11,16 +11,17 @@
 @prefix chem: <http://www.blueobelisk.org/chemistryblogs/> .
 @prefix nmr: <http://www.nmrshiftdb.org/onto#> .
 
-@prefix : <http://pele.farmbio.uu.se/chembl/onto/#> .
-@prefix act: <http://rdf.farmbio.uu.se/chembl/activitiy/> .
-@prefix res: <http://rdf.farmbio.uu.se/chembl/resource/> .
-@prefix mol: <http://rdf.farmbio.uu.se/chembl/molecule/> .
-@prefix ass: <http://rdf.farmbio.uu.se/chembl/assay/> .
-@prefix jrn: <http://rdf.farmbio.uu.se/chembl/journal/> .
-
-<?php 
+<?php
 
 include 'vars.php';
+
+echo "@prefix : <http://rdf.farmbio.uu.se/chembl/onto/#> .\n";
+echo "@prefix act: <" . $rooturi . "activitiy/> .\n";
+echo "@prefix res: <" . $rooturi . "resource/> .\n";
+echo "@prefix mol: <" . $rooturi . "molecule/> .\n";
+echo "@prefix ass: <" . $rooturi . "assay/> .\n";
+echo "@prefix jrn: <" . $rooturi . "journal/> .\n";
+echo "\n";
 
 mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 # echo "<!-- Connection to the server was successful! -->\n";

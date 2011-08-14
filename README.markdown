@@ -55,7 +55,10 @@ The scripts expect a script only readble by the server software called vars.php,
 
     <?php
 
-    $db = 'chembl_09';
+    $version = '09';
+    $rooturi = 'http://data.kasabi.com/dataset/chembl-rdf/' . $version . '/';
+
+    $db = 'chembl_' . $version;
     $user = 'user';
     $pwd = 'secret';
 
