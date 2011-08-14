@@ -13,7 +13,7 @@
 @prefix nmr: <http://www.nmrshiftdb.org/onto#> .
 
 @prefix : <http://pele.farmbio.uu.se/chembl/onto/#> .
-@prefix act: <http://rdf.farmbio.uu.se/chembl/activitiy/> .
+@prefix act: <http://rdf.farmbio.uu.se/chembl/activity/> .
 @prefix res: <http://rdf.farmbio.uu.se/chembl/resource/> .
 @prefix mol: <http://rdf.farmbio.uu.se/chembl/molecule/> .
 @prefix ass: <http://rdf.farmbio.uu.se/chembl/assay/> .

@@ -16,7 +16,7 @@
 include 'vars.php';
 
 echo "@prefix : <http://rdf.farmbio.uu.se/chembl/onto/#> .\n";
-echo "@prefix act: <" . $rooturi . "activitiy/> .\n";
+echo "@prefix act: <" . $rooturi . "activity/> .\n";
 echo "@prefix res: <" . $rooturi . "resource/> .\n";
 echo "@prefix mol: <" . $rooturi . "molecule/> .\n";
 echo "@prefix ass: <" . $rooturi . "assay/> .\n";
