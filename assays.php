@@ -12,17 +12,19 @@
 @prefix chem: <http://www.blueobelisk.org/chemistryblogs/> .
 @prefix nmr: <http://www.nmrshiftdb.org/onto#> .
 
-@prefix : <http://pele.farmbio.uu.se/chembl/onto/#> .
-@prefix act: <http://rdf.farmbio.uu.se/chembl/activity/> .
-@prefix res: <http://rdf.farmbio.uu.se/chembl/resource/> .
-@prefix mol: <http://rdf.farmbio.uu.se/chembl/molecule/> .
-@prefix ass: <http://rdf.farmbio.uu.se/chembl/assay/> .
-@prefix trg: <http://rdf.farmbio.uu.se/chembl/target/> .
-@prefix trt: <http://rdf.farmbio.uu.se/chembl/targetType/> .
-
 <?php 
 
 include 'vars.php';
+
+echo "@prefix : <http://rdf.farmbio.uu.se/chembl/onto/#> .\n";
+echo "@prefix act: <" . $rooturi . "activity/> .\n";
+echo "@prefix res: <" . $rooturi . "resource/> .\n";
+echo "@prefix mol: <" . $rooturi . "molecule/> .\n";
+echo "@prefix ass: <" . $rooturi . "assay/> .\n";
+echo "@prefix jrn: <" . $rooturi . "journal/> .\n";
+echo "@prefix trg: <" . $rooturi . "target/> .\n";
+echo "@prefix tgt: <" . $rooturi . "targetType/> .\n";
+echo "\n";
 
 mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 # echo "<!-- Connection to the server was successful! -->\n";
