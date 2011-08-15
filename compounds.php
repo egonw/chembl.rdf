@@ -1,28 +1,10 @@
 <?php header('Content-type: text/n3'); ?>
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix bibo: <http://purl.org/ontology/bibo/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-
-@prefix bodo: <http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#> .
-@prefix chem: <http://www.blueobelisk.org/chemistryblogs/> .
-@prefix nmr: <http://www.nmrshiftdb.org/onto#> .
-@prefix cheminf: <http://semanticscience.org/resource/> .
 
 <?php
 
 include 'vars.php';
-
-echo "@prefix : <http://rdf.farmbio.uu.se/chembl/onto/#> .\n";
-echo "@prefix act: <" . $rooturi . "activity/> .\n";
-echo "@prefix res: <" . $rooturi . "resource/> .\n";
-echo "@prefix mol: <" . $rooturi . "molecule/> .\n";
-echo "@prefix ass: <" . $rooturi . "assay/> .\n";
-echo "@prefix jrn: <" . $rooturi . "journal/> .\n";
-echo "\n"; 
+include 'namespaces.php';
+include 'functions.php';
 
 mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 # echo "<!-- Connection to the server was successful! -->\n";
@@ -55,25 +37,25 @@ $num = mysql_numrows($allIDs);
 while ($row = mysql_fetch_assoc($allIDs)) {
   $chebi = mysql_query("SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = \"" . $row['molregno'] . "\"");
   if ($chebiRow = mysql_fetch_assoc($chebi)) {
-    echo "mol:m" . $chebiRow['chebi_id'] . " a ";
+    $molecule = $MOL . "m" . $chebiRow['chebi_id'];
     if ($chebiRow['molecule_type']) {
       if ($chebiRow['molecule_type'] = "Small molecule") {
-        echo ":SmallMolecule ;\n";
+        echo triple( $molecule, $RDF . "type", $ONTO . "SmallMolecule" );
       } else if ($chebiRow['molecule_type'] = "Protein") {
-        echo ":Protein ;\n";
+        echo triple( $molecule, $RDF . "type", $ONTO . "Protein" );
       } else if ($chebiRow['molecule_type'] = "Cell") {
-        echo ":Cell ;\n";
+        echo triple( $molecule, $RDF . "type", $ONTO . "Cell" );
       } else if ($chebiRow['molecule_type'] = "Oligosaccharide") {
-        echo ":Oligosaccharide ;\n";
+        echo triple( $molecule, $RDF . "type", $ONTO . "Oligosaccharide" );
       } else if ($chebiRow['molecule_type'] = "Oligonucleotide") {
-        echo ":Oligonucleotide ;\n";
+        echo triple( $molecule, $RDF . "type", $ONTO . "Oligonucleotide" );
       } else if ($chebiRow['molecule_type'] = "Antibody") {
-        echo ":Antibody ;\n";
+        echo triple( $molecule, $RDF . "type", $ONTO . "Antibody" );
       } else {
-        echo ":Drug ;\n";
+        echo triple( $molecule, $RDF . "type", $ONTO . "Drug" );
       }
     } else {
-      echo ":Drug ;\n";
+      echo triple( $molecule, $RDF . "type", $ONTO . "Drug" );
     }
     $structs = mysql_query("SELECT DISTINCT * FROM compound_structures WHERE molregno = " . $row['molregno']);
     while ($struct = mysql_fetch_assoc($structs)) {
@@ -81,11 +63,11 @@ while ($row = mysql_fetch_assoc($allIDs)) {
         $smiles = $struct['canonical_smiles'];
         $smiles = str_replace("\\", "\\\\", $smiles);
         $smiles = str_replace("\n", "", $smiles);
-        echo " chem:smiles \"$smiles\" ;\n";
-        echo " cheminf:CHEMINF_000200 [ a cheminf:CHEMINF_000018 ; cheminf:SIO_000300 \"$smiles\" ] ;\n";
+        echo dataTriple( $molecule, $CHEM . "smiles", $smiles );
+        #echo " cheminf:CHEMINF_000200 [ a cheminf:CHEMINF_000018 ; cheminf:SIO_000300 \"$smiles\" ] ;\n";
       }
-      if ($struct['standard_inchi']) {
-      #if (false) {
+      #if ($struct['standard_inchi']) {
+      if (false) {
         echo " chem:inchi \"" . $struct['standard_inchi'] . "\" ;\n";
         echo " cheminf:CHEMINF_000200 [ a cheminf:CHEMINF_000113 ; cheminf:SIO_000300 \"" . $struct['standard_inchi'] . "\" ] ;\n";
         if (strlen($struct['standard_inchi']) < 1500) {
@@ -93,7 +75,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
         }
       }
       if ($struct['standard_inchi_key'])
-        echo " chem:inchikey \"" . $struct['standard_inchi_key'] . "\" ;\n";
+        echo dataTriple( $molecule, $CHEM . "inchikey", $struct['standard_inchi_key'] );
     }
 
     #foreach ($descs as $value => $type) {
@@ -116,10 +98,10 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     $names = mysql_query("SELECT DISTINCT * FROM molecule_synonyms WHERE molregno = " . $row['molregno']);
     while ($name = mysql_fetch_assoc($names)) {
       if ($name['synonyms'])
-        echo " dc:title \"" . str_replace("\"", "\\\"", $name['synonyms']) . "\" ;\n";
+        echo dataTriple( $molecule, $DC . "title", str_replace("\"", "\\\"", $name['synonyms']) );
     }
 
-    echo " owl:sameAs <http://bio2rdf.org/chebi:" . $chebiRow['chebi_id'] . "> .\n";
+    echo triple( $molecule, $OWL . "sameAs", "http://bio2rdf.org/chebi:" . $chebiRow['chebi_id'] );
   }
 }
 

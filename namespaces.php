@@ -8,6 +8,7 @@ $XSD = "http://www.w3.org/2001/XMLSchema#";
 $DC = "http://purl.org/dc/elements/1.1/";
 $BIBO = "http://purl.org/ontology/bibo/";
 $FOAF = "http://xmlns.com/foaf/0.1/";
+$CITO = "http://purl.org/spar/cito/";
 
 $BODO = "http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#";
 $CHEM = "http://www.blueobelisk.org/chemistryblogs/";
