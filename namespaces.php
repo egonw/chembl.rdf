@@ -12,4 +12,13 @@ $BODO = "http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#";
 $CHEM = "http://www.blueobelisk.org/chemistryblogs/";
 $NMR = "http://www.nmrshiftdb.org/onto#";
 
+$ONTO = "http://rdf.farmbio.uu.se/chembl/onto/#";
+$ACT = $rooturi . "activity/";
+$RES = $rooturi . "resource/";
+$MOL = $rooturi . "molecule/";
+$ASS = $rooturi . "assay/";
+$JRN = $rooturi . "journal/";
+$TRG = $rooturi . "target/";
+$TGT = $rooturi . "targetType/";
+
 ?>

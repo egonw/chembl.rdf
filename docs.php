@@ -4,20 +4,7 @@
 
 include 'vars.php';
 include 'namespaces.php';
-
-function triple($subject, $predicate, $object) {
-  return "<" . $subject . "> <" . $predicate . "> <" . $object . "> .\n";
-}
-function dataTriple($subject, $predicate, $object) {
-  return "<" . $subject . "> <" . $predicate . "> \"" . $object . "\" .\n";
-}
-
-$ONTO = "http://rdf.farmbio.uu.se/chembl/onto/#";
-$ACT = $rooturi . "activity/";
-$RES = $rooturi . "resource/";
-$MOL = $rooturi . "molecule/";
-$ASS = $rooturi . "assay/";
-$JRN = $rooturi . "journal/";
+include 'functions.php';
 
 mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 # echo "<!-- Connection to the server was successful! -->\n";
