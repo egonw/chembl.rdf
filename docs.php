@@ -30,7 +30,7 @@ $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
   $resource = $RES . "r" . $row['doc_id'];
-  echo triple( $resource, $RDF . "type", $BIBO . ":Article" );
+  echo triple( $resource, $RDF . "type", $BIBO . "Article" );
   if ($row['doi']) {
     echo dataTriple( $resource, $BIBO . "doi", $row['doi'] );
     echo triple( $resource, $OWL . "sameAs",  "http://dx.doi.org/" . $row['doi'] );
