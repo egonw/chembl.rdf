@@ -37,8 +37,10 @@ $num = mysql_numrows($allIDs);
 while ($row = mysql_fetch_assoc($allIDs)) {
   $chebi = mysql_query("SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = \"" . $row['molregno'] . "\"");
   if ($chebiRow = mysql_fetch_assoc($chebi)) {
-    $molecule = $MOL . "m" . $chebiRow['chebi_id'];
+    $molecule = $MOL . "m" . $chebiRow['molregno'];
     if ($chebiRow['molecule_type']) {
+      echo triple( $molecule, $RDFS . "subClassOf", $CHEMINF . "CHEMINF_000000"); # chemical entity
+      if (false) {
       if ($chebiRow['molecule_type'] = "Small molecule") {
         echo triple( $molecule, $RDF . "type", $ONTO . "SmallMolecule" );
       } else if ($chebiRow['molecule_type'] = "Protein") {
@@ -54,6 +56,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
       } else {
         echo triple( $molecule, $RDF . "type", $ONTO . "Drug" );
       }
+      }
     } else {
       echo triple( $molecule, $RDF . "type", $ONTO . "Drug" );
     }
@@ -64,14 +67,19 @@ while ($row = mysql_fetch_assoc($allIDs)) {
         $smiles = str_replace("\\", "\\\\", $smiles);
         $smiles = str_replace("\n", "", $smiles);
         echo dataTriple( $molecule, $CHEM . "smiles", $smiles );
-        #echo " cheminf:CHEMINF_000200 [ a cheminf:CHEMINF_000018 ; cheminf:SIO_000300 \"$smiles\" ] ;\n";
+        $molsmiles = $molecule . "/smiles";
+        echo triple($molecule, $CHEMINF . "CHEMINF_000200", $molsmiles);
+        echo triple($molsmiles, $RDF . "type", $CHEMINF . "CHEMINF_000018");
+        echo dataTriple($molsmiles, $CHEMINF . "SIO_000300", $smiles);
       }
-      #if ($struct['standard_inchi']) {
-      if (false) {
-        echo " chem:inchi \"" . $struct['standard_inchi'] . "\" ;\n";
-        echo " cheminf:CHEMINF_000200 [ a cheminf:CHEMINF_000113 ; cheminf:SIO_000300 \"" . $struct['standard_inchi'] . "\" ] ;\n";
+      if ($struct['standard_inchi']) {
+        echo dataTriple($molecule, $CHEM . "inchi", $struct['standard_inchi']);
+        $molsmiles = $molecule . "/inchi";
+        echo triple($molecule, $CHEMINF . "CHEMINF_000200", $molsmiles);
+        echo triple($molsmiles, $RDF . "type", $CHEMINF . "CHEMINF_000113");
+        echo dataTriple($molsmiles, $CHEMINF . "SIO_000300", $struct['standard_inchi']);
         if (strlen($struct['standard_inchi']) < 1500) {
-          echo " owl:sameAs <http://rdf.openmolecules.net/?" . $struct['standard_inchi'] . "> ;\n";
+          echo triple($molecule, $OWL . "equivalentClass", "http://rdf.openmolecules.net/?" . $struct['standard_inchi']);
         }
       }
       if ($struct['standard_inchi_key'])
@@ -98,10 +106,10 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     $names = mysql_query("SELECT DISTINCT * FROM molecule_synonyms WHERE molregno = " . $row['molregno']);
     while ($name = mysql_fetch_assoc($names)) {
       if ($name['synonyms'])
-        echo dataTriple( $molecule, $DC . "title", str_replace("\"", "\\\"", $name['synonyms']) );
+        echo dataTriple( $molecule, $RDFS . "label", str_replace("\"", "\\\"", $name['synonyms']) );
     }
 
-    echo triple( $molecule, $OWL . "sameAs", "http://bio2rdf.org/chebi:" . $chebiRow['chebi_id'] );
+    echo triple( $molecule, $OWL . "equivalentClass", "http://bio2rdf.org/chebi:" . $chebiRow['chebi_id'] );
   }
 }
 
