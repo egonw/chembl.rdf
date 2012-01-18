@@ -39,26 +39,23 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   if ($chebiRow = mysql_fetch_assoc($chebi)) {
     $molecule = $MOL . "m" . $chebiRow['molregno'];
     if ($chebiRow['molecule_type']) {
-      echo triple( $molecule, $RDFS . "subClassOf", $CHEMINF . "CHEMINF_000000"); # chemical entity
-      if (false) {
       if ($chebiRow['molecule_type'] = "Small molecule") {
-        echo triple( $molecule, $RDF . "type", $ONTO . "SmallMolecule" );
+        echo triple( $molecule, $RDFS . "subClassOf", $CHEMINF . "CHEMINF_000000"); # chemical entity
       } else if ($chebiRow['molecule_type'] = "Protein") {
-        echo triple( $molecule, $RDF . "type", $ONTO . "Protein" );
+        echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Protein" );
       } else if ($chebiRow['molecule_type'] = "Cell") {
-        echo triple( $molecule, $RDF . "type", $ONTO . "Cell" );
+        echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Cell" );
       } else if ($chebiRow['molecule_type'] = "Oligosaccharide") {
-        echo triple( $molecule, $RDF . "type", $ONTO . "Oligosaccharide" );
+        echo triple( $molecule, $RDFS . "subClassOf", $CHEBI . "CHEBI_50699");
       } else if ($chebiRow['molecule_type'] = "Oligonucleotide") {
-        echo triple( $molecule, $RDF . "type", $ONTO . "Oligonucleotide" );
+        echo triple( $molecule, $RDFS . "subClassOf", $CHEBI . "CHEBI_7754");
       } else if ($chebiRow['molecule_type'] = "Antibody") {
-        echo triple( $molecule, $RDF . "type", $ONTO . "Antibody" );
+        echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Antibody" );
       } else {
-        echo triple( $molecule, $RDF . "type", $ONTO . "Drug" );
-      }
+        echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Drug" );
       }
     } else {
-      echo triple( $molecule, $RDF . "type", $ONTO . "Drug" );
+      echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Drug" );
     }
     $structs = mysql_query("SELECT DISTINCT * FROM compound_structures WHERE molregno = " . $row['molregno']);
     while ($struct = mysql_fetch_assoc($structs)) {
