@@ -91,6 +91,19 @@ while ($row = mysql_fetch_assoc($allIDs)) {
       echo data_triple( $molecule, $RDFS . "label", str_replace("\"", "\\\"", $name['synonyms']) );
   }
 
+  # get parent/child information
+  $hierarchies = mysql_query("SELECT DISTINCT * FROM molecule_hierarchy WHERE molregno = " . $row['molregno']);
+  while ($hierarchy = mysql_fetch_assoc($hierarchies)) {
+    if ($hierarchy['parent_molregno'] != $row['molregno']) {
+      $parent = $MOL . "m" . $hierarchy['parent_molregno'];
+      echo triple( $molecule, $ONTO . "parentCompound", $parent );
+    }
+    if ($hierarchy['active_molregno'] != $row['molregno']) {
+      $child = $MOL . "m" . $hierarchy['active_molregno'];
+      echo triple( $molecule, $ONTO . "activeCompound", $child );
+    }
+  }
+
 }
 
 ?>
