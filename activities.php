@@ -15,7 +15,9 @@ $allIDs = mysql_query("SELECT DISTINCT * FROM activities" . $limit);
 while ($row = mysql_fetch_assoc($allIDs)) {
   $activity = $ACT . "a" . $row['activity_id'];
   echo triple( $activity, $RDF . "type",  $ONTO . "Activity" );
-  echo triple( $activity, $CITO . "citesAsDataSource", $RES . "r" . $row['doc_id'] );
+  if ($row['doc_id'] != '-1') {
+    echo triple( $activity, $CITO . "citesAsDataSource", $RES . "r" . $row['doc_id'] );
+  }
   echo triple( $activity, $ONTO . "onAssay", $ASS . "a" . $row['assay_id'] );
   echo triple( $activity, $ONTO . "forMolecule", $MOL . "m" . $row['molregno'] );
   if ($row['relation']) {
