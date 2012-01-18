@@ -30,14 +30,17 @@ $descs = array(
 #  echo "</rdf:Description>\n";
 #}
 
-$allIDs = mysql_query("SELECT DISTINCT compound_records.molregno FROM compound_records, compound_properties WHERE compound_records.molregno = compound_properties.molregno" . $limit);
+$allIDs = mysql_query(
+  "SELECT DISTINCT compound_records.molregno FROM compound_records, compound_properties " .
+  "WHERE compound_records.molregno = compound_properties.molregno " . $limit
+);
 
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
+  $molecule = $MOL . "m" . $row['molregno'];
   $chebi = mysql_query("SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = \"" . $row['molregno'] . "\"");
   if ($chebiRow = mysql_fetch_assoc($chebi)) {
-    $molecule = $MOL . "m" . $chebiRow['molregno'];
     if ($chebiRow['molecule_type']) {
       if ($chebiRow['molecule_type'] = "Small molecule") {
         echo triple( $molecule, $RDFS . "subClassOf", $CHEMINF . "CHEMINF_000000"); # chemical entity
