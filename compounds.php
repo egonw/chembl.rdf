@@ -82,8 +82,13 @@ while ($row = mysql_fetch_assoc($allIDs)) {
           echo triple($molecule, $OWL . "equivalentClass", "http://rdf.openmolecules.net/?" . $struct['standard_inchi']);
         }
       }
-      if ($struct['standard_inchi_key'])
+      if ($struct['standard_inchi_key']) {
         echo dataTriple( $molecule, $CHEM . "inchikey", $struct['standard_inchi_key'] );
+        $molsmiles = $molecule . "/inchikey";
+        echo triple($molecule, $CHEMINF . "CHEMINF_000200", $molsmiles);
+        echo triple($molsmiles, $RDF . "type", $CHEMINF . "CHEMINF_000059");
+        echo dataTriple($molsmiles, $CHEMINF . "SIO_000300", $struct['standard_inchi_key']);
+      }
     }
 
     #foreach ($descs as $value => $type) {
