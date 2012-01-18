@@ -81,6 +81,11 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     }
 
     echo triple( $molecule, $OWL . "equivalentClass", "http://bio2rdf.org/chebi:" . $chebiRow['chebi_id'] );
+
+    $chembl = $CHEMBL . $chebiRow['chembl_id'];
+    echo triple( $chembl, $OWL . "equivalentClass", $molecule );
+    echo triple( $molecule, $OWL . "equivalentClass", $chembl );
+    echo data_triple( $molecule, $RDFS . "label", $chebiRow['chembl_id'] );
   }
 }
 
