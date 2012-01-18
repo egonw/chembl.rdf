@@ -28,7 +28,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     $description = $row['description'];
     $description = str_replace("\\", "\\\\", $description);
     $description = str_replace("\"", "\\\"", $description);
-    echo dataTriple( $assay, $ONTO . "hasDescription", $description );
+    echo data_triple( $assay, $ONTO . "hasDescription", $description );
   }
   if ($row['doc_id'])
     echo triple( $assay, $ONTO . "extractedFrom", $RES . "r" . $row['doc_id'] );
@@ -36,11 +36,11 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   $props = mysql_query("SELECT DISTINCT * FROM assay2target WHERE assay_id = " . $row['assay_id']);
   while ($prop = mysql_fetch_assoc($props)) {
     if ($prop['assay_organism'])
-      echo dataTriple( $assay, $ONTO . "organism", $prop['assay_organism'] );
+      echo data_triple( $assay, $ONTO . "organism", $prop['assay_organism'] );
     if ($prop['tid'])
       echo triple( $assay, $ONTO . "hasTarget", $TRG . "t" . $prop['tid'] );
     if ($prop['confidence_score'])
-      echo typeddataTriple( $assay, $ONTO . "hasConfScore", $prop['confidence_score'], $XSD . "int" );
+      echo typeddata_triple( $assay, $ONTO . "hasConfScore", $prop['confidence_score'], $XSD . "int" );
   }
   echo triple( $assay, $ONTO . "hasAssayType", $ONTO . $row['assay_desc'] );
 }

@@ -3,10 +3,10 @@
 function triple($subject, $predicate, $object) {
   return "<" . $subject . "> <" . $predicate . "> <" . $object . "> .\n";
 }
-function dataTriple($subject, $predicate, $object) {
+function data_triple($subject, $predicate, $object) {
   return "<" . $subject . "> <" . $predicate . "> \"" . $object . "\" .\n";
 }
-function typeddataTriple($subject, $predicate, $object, $type) {
+function typeddata_triple($subject, $predicate, $object, $type) {
   return "<" . $subject . "> <" . $predicate . "> \"" . $object . "\"^^<" . $type . "> .\n";
 }
 

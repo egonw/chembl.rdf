@@ -32,17 +32,17 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   $resource = $RES . "r" . $row['doc_id'];
   echo triple( $resource, $RDF . "type", $BIBO . "Article" );
   if ($row['doi']) {
-    echo dataTriple( $resource, $BIBO . "doi", $row['doi'] );
+    echo data_triple( $resource, $BIBO . "doi", $row['doi'] );
     echo triple( $resource, $OWL . "sameAs",  "http://dx.doi.org/" . $row['doi'] );
   }
   if ($row['pubmed_id']) {
     echo triple( $resource, $BIBO . "pmid", "http://bio2rdf.org/pubmed:" . $row['pubmed_id'] );
   }
-  echo dataTriple( $resource, $DC . "date", $row['year'] );
-  echo dataTriple( $resource, $BIBO . "volume", $row['volume'] );
-  echo dataTriple( $resource, $BIBO . "issue", $row['issue'] );
-  echo dataTriple( $resource, $BIBO . "pageStart", $row['first_page'] );
-  echo dataTriple( $resource, $BIBO . "pageEnd", $row['last_page'] );
+  echo data_triple( $resource, $DC . "date", $row['year'] );
+  echo data_triple( $resource, $BIBO . "volume", $row['volume'] );
+  echo data_triple( $resource, $BIBO . "issue", $row['issue'] );
+  echo data_triple( $resource, $BIBO . "pageStart", $row['first_page'] );
+  echo data_triple( $resource, $BIBO . "pageEnd", $row['last_page'] );
   echo triple( $resource, $DC . "isPartOf", $JRN . "j" . md5($row['journal']) );
 }
 

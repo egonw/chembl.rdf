@@ -19,12 +19,12 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   echo triple( $activity, $ONTO . "onAssay", $ASS . "a" . $row['assay_id'] );
   echo triple( $activity, $ONTO . "forMolecule", $MOL . "m" . $row['molregno'] );
   if ($row['relation']) {
-    echo dataTriple( $activity, $ONTO . "relation",  $row['relation'] );
+    echo data_triple( $activity, $ONTO . "relation",  $row['relation'] );
   }
   if ($row['standard_value']) {
-    echo typeddataTriple( $activity, $ONTO . "standardValue", $row['standard_value'], $XSD . "float" );
-    echo dataTriple( $activity, $ONTO . "standardUnits", $row['standard_units'] );
-    echo dataTriple( $activity, $ONTO . "type",  $row['standard_type'] );
+    echo typeddata_triple( $activity, $ONTO . "standardValue", $row['standard_value'], $XSD . "float" );
+    echo data_triple( $activity, $ONTO . "standardUnits", $row['standard_units'] );
+    echo data_triple( $activity, $ONTO . "type",  $row['standard_type'] );
   }
   flush();
 }
