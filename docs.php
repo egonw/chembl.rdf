@@ -12,19 +12,19 @@ mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 mysql_select_db($db) or die(mysql_error());
 # echo "<!-- Database was selected! -->\n";
 
-$allIDs = mysql_query("SELECT DISTINCT journal FROM docs" . $limit);
+$allIDs = mysql_query("SELECT DISTINCT journal FROM docs WHERE doc_id > 0 " . $limit);
 
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
   if (strlen($row['journal']) > 0) {
     echo triple($JRN . "j" . md5($row['journal']), $RDF . "type", $BIBO . "Journal");
-    echo datatriple($JRN . "j" . md5($row['journal']), $DC . "title", $row['journal']);
+    echo data_triple($JRN . "j" . md5($row['journal']), $DC . "title", $row['journal']);
   }
 }
 echo "\n";
 
-$allIDs = mysql_query("SELECT DISTINCT * FROM docs WHERE doc_id > 0" . $limit);
+$allIDs = mysql_query("SELECT DISTINCT * FROM docs WHERE doc_id > 0 " . $limit);
 
 $num = mysql_numrows($allIDs);
 
