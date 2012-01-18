@@ -13,14 +13,15 @@ mysql_select_db($db) or die(mysql_error());
 # echo "<!-- Database was selected! -->\n";
 
 $allIDs = mysql_query(
-  "SELECT DISTINCT compound_records.molregno FROM compound_records, compound_properties " .
-  "WHERE compound_records.molregno = compound_properties.molregno " . $limit
+  "SELECT DISTINCT * FROM compound_records " . $limit
 );
 
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
   $molecule = $MOL . "m" . $row['molregno'];
+  if ($row['compound_name'])
+    echo dataTriple( $molecule, $RDFS . "label", $row['compound_name']);
   $chebi = mysql_query("SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = \"" . $row['molregno'] . "\"");
   if ($chebiRow = mysql_fetch_assoc($chebi)) {
     if ($chebiRow['molecule_type']) {
