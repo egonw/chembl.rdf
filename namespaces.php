@@ -14,6 +14,7 @@ $BODO = "http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#";
 $CHEM = "http://www.blueobelisk.org/chemistryblogs/";
 $NMR = "http://www.nmrshiftdb.org/onto#";
 $CHEMINF = "http://semanticscience.org/resource/";
+$CHEBI = "http://purl.org/obo/owl/CHEBI#";
 
 $ONTO = "http://rdf.farmbio.uu.se/chembl/onto/#";
 $ACT = $rooturi . "activity/";
