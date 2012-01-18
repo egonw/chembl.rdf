@@ -43,11 +43,11 @@ demonstrated:
 
 These scripts were tested against version 09 of ChEMBL, as downloaded from:
 
-    ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_09/
+    ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_12/
 
 # Requirements
 
-ChEMBL 09.
+ChEMBL 12 and the MySQL JDBC plugin.
 
 # Installation
 
