@@ -1,6 +1,6 @@
 <?php
 
-$version = '09';
+$version = '12';
 $rooturi = 'http://data.kasabi.com/dataset/chembl-rdf/' . $version . '/';
 
 $db = 'chembl_' . $version;
