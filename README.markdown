@@ -29,7 +29,7 @@ The ChEMBL database is copyrighted by John Overington et al., and licensed CC-BY
 as explained on:
 
     http://www.ebi.ac.uk/chembldb/
-    ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_09/LICENSE    
+    ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_12/LICENSE    
 
 The ChEMBL FAQ explains how you can fullfil the attribution part of the license:
 
@@ -41,7 +41,7 @@ demonstrated:
 
     http://www.jbiomedsem.com/content/2/S1/S6
 
-These scripts were tested against version 09 of ChEMBL, as downloaded from:
+These scripts were tested against version 12 of ChEMBL, as downloaded from:
 
     ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_12/
 
@@ -55,7 +55,7 @@ The scripts expect a script only readble by the server software called vars.php,
 
     <?php
 
-    $version = '09';
+    $version = '12';
     $rooturi = 'http://data.kasabi.com/dataset/chembl-rdf/' . $version . '/';
 
     $db = 'chembl_' . $version;
