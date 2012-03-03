@@ -35,8 +35,6 @@ while ($row = mysql_fetch_assoc($allIDs)) {
 
   $props = mysql_query("SELECT DISTINCT * FROM assay2target WHERE assay_id = " . $row['assay_id']);
   while ($prop = mysql_fetch_assoc($props)) {
-    if ($prop['assay_organism'])
-      echo data_triple( $assay, $ONTO . "organism", $prop['assay_organism'] );
     if ($prop['tid'])
       echo triple( $assay, $ONTO . "hasTarget", $TRG . "t" . $prop['tid'] );
     if ($prop['confidence_score'])
