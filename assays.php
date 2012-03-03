@@ -31,7 +31,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     echo data_triple( $assay, $ONTO . "hasDescription", $description );
   }
   if ($row['doc_id'])
-    echo triple( $assay, $ONTO . "extractedFrom", $RES . "r" . $row['doc_id'] );
+    echo triple( $assay, $CITO . "citesAsDataSource", $RES . "r" . $row['doc_id'] );
 
   $props = mysql_query("SELECT DISTINCT * FROM assay2target WHERE assay_id = " . $row['assay_id']);
   while ($prop = mysql_fetch_assoc($props)) {
