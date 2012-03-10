@@ -3,7 +3,7 @@
 
 ChEMBL is medicinal chemistry database by the team of dr. J. Overington at the EBI.
 
-    http://www.ebi.ac.uk/chembl/
+  http://www.ebi.ac.uk/chembl/
 
 This project develops, releases, and hosts a RDF version of ChEMBL. The main SPARQL
 end point is available from Uppsala University at:
