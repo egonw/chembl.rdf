@@ -23,6 +23,12 @@ $num = mysql_numrows($allIDs);
 while ($row = mysql_fetch_assoc($allIDs)) {
   $assay = $ASS . "a" . $row['assay_id'];
   echo triple( $assay, $RDF . "type", $ONTO . "Assay" );
+
+  $chembl = $CHEMBL . $row['chembl_id'];
+  echo data_triple( $assay, $RDFS . "label", $row['chembl_id'] );
+  echo triple( $chembl, $OWL . "equivalentClass", $assay );
+  echo triple( $assay, $OWL . "equivalentClass", $chembl );
+
   if ($row['description']) {
     # clean up description
     $description = $row['description'];
