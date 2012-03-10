@@ -28,7 +28,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
       if ($chebiRow['molecule_type'] = "Small molecule") {
         echo triple( $molecule, $RDFS . "subClassOf", $CHEMINF . "CHEMINF_000000"); # chemical entity
       } else if ($chebiRow['molecule_type'] = "Protein") {
-        echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Protein" );
+        echo triple( $molecule, $RDFS . "subClassOf", $PRO . "PR_000000001" );
       } else if ($chebiRow['molecule_type'] = "Cell") {
         echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Cell" );
       } else if ($chebiRow['molecule_type'] = "Oligosaccharide") {
