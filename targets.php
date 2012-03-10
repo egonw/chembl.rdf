@@ -26,7 +26,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   }
 
   $chembl = $CHEMBL . $row['chembl_id'];
-  echo triple( $chembl, $OWL . "equivalentClass", $molecule );
+  echo triple( $chembl, $OWL . "equivalentClass", $target );
   echo triple( $target, $OWL . "equivalentClass", $chembl );
   echo data_triple( $target, $RDFS . "label", $row['chembl_id'] );
 
