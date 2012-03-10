@@ -24,6 +24,12 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   } else {
     echo triple( $target, $ONTO . "hasTargetType", $TGT . $row['target_type'] );
   }
+
+  $chembl = $CHEMBL . $row['chembl_id'];
+  echo triple( $chembl, $OWL . "equivalentClass", $molecule );
+  echo triple( $target, $OWL . "equivalentClass", $chembl );
+  echo data_triple( $target, $RDFS . "label", $row['chembl_id'] );
+
   if ($row['organism'])
     echo data_triple( $target, $ONTO . "organism", $row['organism'] );
   if ($row['description'])
