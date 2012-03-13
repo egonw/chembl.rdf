@@ -27,6 +27,13 @@ while ($row = mysql_fetch_assoc($allIDs)) {
       echo data_triple( $molecule, $RDFS . "label", $nameRow['compound_name']);
   }
 
+  # get the literature references
+  $refs = mysql_query("SELECT DISTINCT doc_id FROM compound_records WHERE molregno = $molregno");
+  while ($refRow = mysql_fetch_assoc($refs)) {
+    if ($refRow['doc_id'])
+      echo triple( $molecule, $CITO . "citesAsDataSource", $RES . "r" . $refRow['doc_id']);
+  }
+
   # get the compound type, ChEBI, and ChEMBL identifiers
   $chebi = mysql_query("SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = $molregno");
   if ($chebiRow = mysql_fetch_assoc($chebi)) {
