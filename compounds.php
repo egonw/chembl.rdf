@@ -11,31 +11,37 @@ mysql_select_db($db) or die(mysql_error());
 # echo "<!-- Database was selected! -->\n";
 
 $allIDs = mysql_query(
-  "SELECT DISTINCT * FROM compound_records " . $limit
+  "SELECT DISTINCT molregno FROM compound_records " . $limit
 );
 
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
-  $molecule = $MOL . "m" . $row['molregno'];
-  if ($row['compound_name'])
-    echo data_triple( $molecule, $RDFS . "label", $row['compound_name']);
+  $molregno = $row['molregno'];
+  $molecule = $MOL . "m" . $molregno;
+
+  # get the compound names
+  $names = mysql_query("SELECT DISTINCT compound_name FROM compound_records WHERE molregno = $molregno");
+  while ($nameRow = mysql_fetch_assoc($names)) {
+    if ($nameRow['compound_name'])
+      echo data_triple( $molecule, $RDFS . "label", $nameRow['compound_name']);
+  }
 
   # get the compound type, ChEBI, and ChEMBL identifiers
-  $chebi = mysql_query("SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = \"" . $row['molregno'] . "\"");
+  $chebi = mysql_query("SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = $molregno");
   if ($chebiRow = mysql_fetch_assoc($chebi)) {
     if ($chebiRow['molecule_type']) {
-      if ($chebiRow['molecule_type'] = "Small molecule") {
+      if ($chebiRow['molecule_type'] == "Small molecule") {
         echo triple( $molecule, $RDFS . "subClassOf", $CHEMINF . "CHEMINF_000000"); # chemical entity
-      } else if ($chebiRow['molecule_type'] = "Protein") {
+      } else if ($chebiRow['molecule_type'] == "Protein") {
         echo triple( $molecule, $RDFS . "subClassOf", $PRO . "PR_000000001" );
-      } else if ($chebiRow['molecule_type'] = "Cell") {
+      } else if ($chebiRow['molecule_type'] == "Cell") {
         echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Cell" );
-      } else if ($chebiRow['molecule_type'] = "Oligosaccharide") {
+      } else if ($chebiRow['molecule_type'] == "Oligosaccharide") {
         echo triple( $molecule, $RDFS . "subClassOf", $CHEBI . "CHEBI_50699");
-      } else if ($chebiRow['molecule_type'] = "Oligonucleotide") {
+      } else if ($chebiRow['molecule_type'] == "Oligonucleotide") {
         echo triple( $molecule, $RDFS . "subClassOf", $CHEBI . "CHEBI_7754");
-      } else if ($chebiRow['molecule_type'] = "Antibody") {
+      } else if ($chebiRow['molecule_type'] == "Antibody") {
         echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Antibody" );
       } else {
         echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Drug" );
@@ -53,7 +59,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   }
 
   # get the structure information
-  $structs = mysql_query("SELECT DISTINCT * FROM compound_structures WHERE molregno = " . $row['molregno']);
+  $structs = mysql_query("SELECT DISTINCT * FROM compound_structures WHERE molregno = $molregno");
   while ($struct = mysql_fetch_assoc($structs)) {
     if ($struct['canonical_smiles']) {
       $smiles = $struct['canonical_smiles'];
@@ -85,20 +91,20 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   }
 
   # get the synonyms
-  $names = mysql_query("SELECT DISTINCT * FROM molecule_synonyms WHERE molregno = " . $row['molregno']);
+  $names = mysql_query("SELECT DISTINCT * FROM molecule_synonyms WHERE molregno = $molregno");
   while ($name = mysql_fetch_assoc($names)) {
     if ($name['synonyms'])
       echo data_triple( $molecule, $RDFS . "label", str_replace("\"", "\\\"", $name['synonyms']) );
   }
 
   # get parent/child information
-  $hierarchies = mysql_query("SELECT DISTINCT * FROM molecule_hierarchy WHERE molregno = " . $row['molregno']);
+  $hierarchies = mysql_query("SELECT DISTINCT * FROM molecule_hierarchy WHERE molregno = $molregno");
   while ($hierarchy = mysql_fetch_assoc($hierarchies)) {
-    if ($hierarchy['parent_molregno'] != $row['molregno']) {
+    if ($hierarchy['parent_molregno'] != $molregno) {
       $parent = $MOL . "m" . $hierarchy['parent_molregno'];
       echo triple( $molecule, $ONTO . "parentCompound", $parent );
     }
-    if ($hierarchy['active_molregno'] != $row['molregno']) {
+    if ($hierarchy['active_molregno'] != $molregno) {
       $child = $MOL . "m" . $hierarchy['active_molregno'];
       echo triple( $molecule, $ONTO . "activeCompound", $child );
     }
