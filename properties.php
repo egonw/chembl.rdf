@@ -19,9 +19,33 @@ $num = mysql_numrows($allIDs);
 # CHEMINF mappings
 $descs = array(
   "alogp" => "CHEMINF_000305",
+  "hba" => "CHEMINF_000309",
+  "hbd" => "CHEMINF_000310",
+  "psa" => "CHEMINF_000308",
+  "rtb" => "CHEMINF_000311",
+  "acd_most_apka" => "CHEMINF_000324",
+  "acd_most_bpka" => "CHEMINF_000325",
+  "acd_logp" => "CHEMINF_000321",
+  "acd_logd" => "CHEMINF_000323",
+  "num_ro5_violations" => "CHEMINF_000314",
+  "ro3_pass" => "CHEMINF_000317",
+  "med_chem_friendly" => "CHEMINF_000319",
+  "full_mwt" => "CHEMINF_000198",
 );
 $descTypes = array(
   "alogp" => "double",
+  "hba" => "nonNegativeInteger",
+  "hbd" => "nonNegativeInteger",
+  "psa" => "double",
+  "rtb" => "nonNegativeInteger",
+  "acd_most_apka" => "double",
+  "acd_most_bpka" => "double",
+  "acd_logp" => "double",
+  "acd_logd" => "double",
+  "num_ro5_violations" => "nonNegativeInteger",
+  "ro3_pass" => "string",
+  "med_chem_friendly" => "string",
+  "full_mwt" => "double",
 );
 
 while ($row = mysql_fetch_assoc($allIDs)) {
