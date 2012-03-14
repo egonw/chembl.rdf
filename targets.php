@@ -19,7 +19,7 @@ $num = mysql_numrows($allIDs);
 while ($row = mysql_fetch_assoc($allIDs)) {
   $target = $TRG . "t" . $row['tid'];
   echo triple( $target, $RDF . "type", $ONTO . "Target" );
-  if ($row['target_type'] = 'PROTEIN') {
+  if ($row['target_type'] == 'PROTEIN') {
     echo triple( $target, $RDFS . "subClassOf", $PRO . "PR_000000001" );
   } else {
     echo triple( $target, $ONTO . "hasTargetType", $TGT . $row['target_type'] );
