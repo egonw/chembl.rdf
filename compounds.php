@@ -68,6 +68,14 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   # get the structure information
   $structs = mysql_query("SELECT DISTINCT * FROM compound_structures WHERE molregno = $molregno");
   while ($struct = mysql_fetch_assoc($structs)) {
+    if ($struct['molformula']) {
+      $molform = $struct['molformula'];
+      $molform = str_replace(" ", "", $molform);
+      $molformRes = $molecule . "/molform";
+      echo triple($molecule, $CHEMINF . "CHEMINF_000200", $molformRes);
+      echo triple($molformRes, $RDF . "type", $CHEMINF . "CHEMINF_000042");
+      echo data_triple($molformRes, $CHEMINF . "SIO_000300", $molform);
+    }
     if ($struct['canonical_smiles']) {
       $smiles = $struct['canonical_smiles'];
       $smiles = str_replace("\\", "\\\\", $smiles);
