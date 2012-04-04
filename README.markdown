@@ -49,6 +49,10 @@ demonstrated:
 
   http://www.jbiomedsem.com/content/2/S1/S6
 
+Authors that contributed (see also the Git commit history) are:
+
+  Egon Willighagen, Peter Ansell
+
 These scripts were tested against version 13 of ChEMBL, as downloaded from:
 
   ftp://ftp.ebi.ac.uk/pub/databases/chembl/releases/chembl_13/
