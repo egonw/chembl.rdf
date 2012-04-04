@@ -31,6 +31,7 @@ $descs = array(
   "ro3_pass" => "CHEMINF_000317",
   "med_chem_friendly" => "CHEMINF_000319",
   "full_mwt" => "CHEMINF_000198",
+  "mw_freebase" => "CHEMINF_000350",
 );
 $descTypes = array(
   "alogp" => "double",
@@ -46,6 +47,7 @@ $descTypes = array(
   "ro3_pass" => "string",
   "med_chem_friendly" => "string",
   "full_mwt" => "double",
+  "mw_freebase" => "double",
 );
 
 while ($row = mysql_fetch_assoc($allIDs)) {
