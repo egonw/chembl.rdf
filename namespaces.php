@@ -18,6 +18,7 @@ $NMR = "http://www.nmrshiftdb.org/onto#";
 $CHEMINF = "http://semanticscience.org/resource/";
 $CHEBI = "http://purl.org/obo/owl/CHEBI#";
 $PRO = "http://purl.obolibrary.org/obo/";
+$UNIPROT = "http://www.uniprot.org/uniprot/";
 
 $ONTO = "http://rdf.farmbio.uu.se/chembl/onto/#";
 $ACT = $rooturi . "activity/";
