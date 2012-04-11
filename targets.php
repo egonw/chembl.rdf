@@ -5,6 +5,7 @@
 include 'vars.php';
 include 'namespaces.php';
 include 'functions.php';
+include 'to.php';
 
 mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 # echo "<!-- Connection to the server was successful! -->\n";
@@ -66,14 +67,23 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   # classifications
   $class = mysql_query("SELECT DISTINCT * FROM target_class WHERE tid = \"" . $row['tid'] . "\"");
   if ($classRow = mysql_fetch_assoc($class)) {
-    if ($classRow['l1']) echo data_triple( $target, $ONTO . "classL1", str_replace("\"", "\\\"", $classRow['l1']) );
-    if ($classRow['l2']) echo data_triple( $target, $ONTO . "classL2", str_replace("\"", "\\\"", $classRow['l2']) );
-    if ($classRow['l3']) echo data_triple( $target, $ONTO . "classL3", str_replace("\"", "\\\"", $classRow['l3']) );
-    if ($classRow['l4']) echo data_triple( $target, $ONTO . "classL4", str_replace("\"", "\\\"", $classRow['l4']) );
-    if ($classRow['l5']) echo data_triple( $target, $ONTO . "classL5", str_replace("\"", "\\\"", $classRow['l5']) );
-    if ($classRow['l6']) echo data_triple( $target, $ONTO . "classL6", str_replace("\"", "\\\"", $classRow['l6']) );
-    if ($classRow['l7']) echo data_triple( $target, $ONTO . "classL7", str_replace("\"", "\\\"", $classRow['l7']) );
-    if ($classRow['l8']) echo data_triple( $target, $ONTO . "classL8", str_replace("\"", "\\\"", $classRow['l8']) );
+    if ($classRow['l8']) {
+      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l8']]["uri"] );
+    } elseif (($classRow['l7'])) {
+      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l7']]["uri"] );
+    } elseif (($classRow['l6'])) {
+      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l6']]["uri"] );
+    } elseif (($classRow['l5'])) {
+      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l5']]["uri"] );
+    } elseif (($classRow['l4'])) {
+      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l4']]["uri"] );
+    } elseif (($classRow['l3'])) {
+      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l3']]["uri"] );
+    } elseif (($classRow['l2'])) {
+      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l2']]["uri"] );
+    } elseif (($classRow['l1'])) {
+      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l1']]["uri"] );
+    }
   }
 
   if ($row['pref_name'])
