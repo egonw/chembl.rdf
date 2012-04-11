@@ -28,4 +28,6 @@ $JRN = $rooturi . "journal/";
 $TRG = $rooturi . "target/";
 $TGT = $rooturi . "targetType/";
 
+$OPS = "http://www.openphacts.org/units/";
+
 ?>

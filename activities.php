@@ -4,6 +4,13 @@ include 'vars.php';
 include 'namespaces.php';
 include 'functions.php';
 
+$unitMappings = [
+  "nM" => "NanoMolar",
+  "mM" => "Millimolar",
+  "uM" => "Micromolar",
+  "pM" => "Picomolar",
+];
+
 mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 echo "# Connection to the server was successful!\n";
 
@@ -25,8 +32,12 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   }
   if ($row['standard_value']) {
     echo typeddata_triple( $activity, $ONTO . "standardValue", $row['standard_value'], $XSD . "float" );
-    echo data_triple( $activity, $ONTO . "standardUnits", $row['standard_units'] );
     echo data_triple( $activity, $ONTO . "type",  $row['standard_type'] );
+    $units = $row['standard_units'];
+    echo data_triple( $activity, $ONTO . "standardUnits", $units );
+    if (array_key_exists($units, $unitMappings)) {
+      echo triple( $activity, $ONTO . "standardsUnitsClass", $OPS . $unitMappings[$units] );
+    }
   }
   flush();
 }
