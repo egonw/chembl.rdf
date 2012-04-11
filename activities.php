@@ -5,10 +5,11 @@ include 'namespaces.php';
 include 'functions.php';
 
 $unitMappings = [
-  "nM" => "NanoMolar",
-  "mM" => "Millimolar",
-  "uM" => "Micromolar",
-  "pM" => "Picomolar",
+  "nM" => $OPS . "Nanomolar",
+  "mM" => $OPS . "Millimolar",
+  "uM" => $OPS . "Micromolar",
+  "pM" => $OPS . "Picomolar",
+  "%"  => $QUDT . "floatPercentage",
 ];
 
 mysql_connect("localhost", $user, $pwd) or die(mysql_error());

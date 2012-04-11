@@ -15,7 +15,7 @@ ops:Molar
   1000 ;
  qudt:conversionOffset
   "0.0"^^xsd:double ;
- qudt:symbol "mol/m^3"^^xsd:string ;
+ qudt:symbol "mol/dm^3"^^xsd:string ;
  skos:exactMatch <http://dbpedia.org/resource/Molar_concentration> .
 
 ops:Millimolar    
@@ -26,7 +26,7 @@ ops:Millimolar
   1 ;
  qudt:conversionOffset
   "0.0"^^xsd:double ; 
- qudt:symbol "mol/m^3"^^xsd:string .
+ qudt:symbol "mmol/dm^3"^^xsd:string .
 
 ops:Micromolar
  rdf:type qudt:MolarConcentrationUnit , qudt:SIDerivedUnit ;
@@ -36,7 +36,7 @@ ops:Micromolar
   0.001 ;
  qudt:conversionOffset
   "0.0"^^xsd:double ; 
- qudt:symbol "mol/m^3"^^xsd:string .
+ qudt:symbol "μmol/dm^3"^^xsd:string .
 
 ops:Nanomolar
  rdf:type qudt:MolarConcentrationUnit , qudt:SIDerivedUnit ;
@@ -46,7 +46,7 @@ ops:Nanomolar
   0.000001 ;
  qudt:conversionOffset
   "0.0"^^xsd:double ;
- qudt:symbol "mol/m^3"^^xsd:string .
+ qudt:symbol "nmol/dm^3"^^xsd:string .
 
 ops:Picomolar
  rdf:type qudt:MolarConcentrationUnit , qudt:SIDerivedUnit ;
@@ -56,5 +56,5 @@ ops:Picomolar
   0.000000001 ;
  qudt:conversionOffset
   "0.0"^^xsd:double ;
- qudt:symbol "mol/m^3"^^xsd:string .
+ qudt:symbol "pmol/dm^3"^^xsd:string .
 
