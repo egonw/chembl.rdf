@@ -27,7 +27,10 @@ function level($classRow, $level, $ontology) {
     if (!$ontology[$desc]) {
       $counter = $counter + 1;
       $ontology[$desc] = "http://www.openphacts.org/chembl/target/TARONT" . $counter;
-      echo " \"" . $desc . "\" => \"" . $ontology[$desc] . "\",\n";
+      echo " \"" . $desc . "\" => [\n";
+      echo "  \"uri\" => \"" . $ontology[$desc] . "\",\n";
+      echo "  \"higher\" => \"" . $higher . "\",\n";
+      echo " ],\n";
       $ontology["ops:counter"] = $counter;
     }
     $ontology["ops:higher"] = $ontology[$desc];
