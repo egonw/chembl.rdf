@@ -11,6 +11,7 @@ $BIBO = "http://purl.org/ontology/bibo/";
 $FOAF = "http://xmlns.com/foaf/0.1/";
 $CITO = "http://purl.org/spar/cito/";
 $SKOS = "http://www.w3.org/2004/02/skos/core#";
+$QUDT = "http://qudt.org/schema/qudt#";
 
 $OBO  =  "http://purl.obolibrary.org/obo#";
 $BODO = "http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#";
