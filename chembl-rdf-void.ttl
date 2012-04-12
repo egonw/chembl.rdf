@@ -1,0 +1,38 @@
+@prefix : <http://rdf.chemspider.com/chemspider-drugbank-example.rdf#>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix pav: <http://purl.org/pav/2.0/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<http://data.kasabi.com/dataset/chembl-rdf/chembl-rdf-void.ttl> 
+  a void:DatasetDescription;
+  dcterms:title "ChEMBL-RDF VoID Description"^^xsd:string;
+  dcterms:description 
+    """This is the VoID description for a ChEMBL-RDF dataset."""^^xsd:string;
+  pav:createdBy <http://egonw.github.com/#me> ;
+  pav:createdOn "2012-05-15"^^xsd:date;
+  foaf:primaryTopic :chemblrdf_dataset;
+
+:chemblrdf_dataset
+  a void:Dataset;
+  pav:derivedFrom :chembl_dataset;
+  foaf:homepage <http://github.com/egonw/chembl.rdf/>;
+  dcterms:title "ChEMBL-RDF 13.OPS.2";
+  pav:createdBy <http://egonw.github.com/#me> ;
+  pav:createdOn "2012-05-15"^^xsd:date;
+  dcterms:description "The ChEMBL database." .
+
+:chembl_dataset
+  a void:Dataset;
+  foaf:homepage <http://www.ebi.ac.uk/chembl/>;
+  dcterms:title "ChEMBL";
+  dcterms:description "The ChEMBL database.";
+  pav:importedFrom <http://ftp....>;
+  pav:importedBy <http://egonw.github.com/#me> .
+
+
+
