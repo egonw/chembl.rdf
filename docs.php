@@ -37,7 +37,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   }
   if ($row['pubmed_id']) {
     echo data_triple( $resource, $BIBO . "pmid", $row['pubmed_id'] );
-    echo triple( $resource, $RDFS . "seeAlso", "http://bio2rdf.org/pubmed:" . $row['pubmed_id'] );
+    echo triple( $resource, $SKOS . "exactMatch", "http://bio2rdf.org/pubmed:" . $row['pubmed_id'] );
   }
   echo data_triple( $resource, $DC . "date", $row['year'] );
   echo data_triple( $resource, $BIBO . "volume", $row['volume'] );
