@@ -10,12 +10,15 @@ $BIBO = "http://purl.org/ontology/bibo/";
 $FOAF = "http://xmlns.com/foaf/0.1/";
 $CITO = "http://purl.org/spar/cito/";
 
+$OBO  =  "http://purl.obolibrary.org/obo#";
 $BODO = "http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#";
 $CHEM = "http://www.blueobelisk.org/chemistryblogs/";
 $NMR = "http://www.nmrshiftdb.org/onto#";
 $CHEMINF = "http://semanticscience.org/resource/";
 $CHEBI = "http://purl.org/obo/owl/CHEBI#";
-$PRO = "http://purl.obolibrary.org/obo/";
+$PRO = $OBO;
+$VO = $OBO;
+$CL = $OBO;
 
 $ONTO = "http://rdf.farmbio.uu.se/chembl/onto/#";
 $ACT = $rooturi . "activity/";

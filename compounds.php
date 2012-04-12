@@ -43,19 +43,17 @@ while ($row = mysql_fetch_assoc($allIDs)) {
       } else if ($chebiRow['molecule_type'] == "Protein") {
         echo triple( $molecule, $RDFS . "subClassOf", $PRO . "PR_000000001" );
       } else if ($chebiRow['molecule_type'] == "Cell") {
-        echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Cell" );
+        echo triple( $molecule, $RDFS . "subClassOf", $CL . "CL_0000000" );
       } else if ($chebiRow['molecule_type'] == "Oligosaccharide") {
         echo triple( $molecule, $RDFS . "subClassOf", $CHEBI . "CHEBI_50699");
       } else if ($chebiRow['molecule_type'] == "Oligonucleotide") {
         echo triple( $molecule, $RDFS . "subClassOf", $CHEBI . "CHEBI_7754");
       } else if ($chebiRow['molecule_type'] == "Antibody") {
-        echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Antibody" );
-      } else {
-        echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Drug" );
+        echo triple( $molecule, $OBO . "has_role", $VO . "VO_0000148" ); // Vaccin Ontology: Antibody
+        echo triple( $molecule, $RDFS . "subClassOf", $PRO . "PR_000000001" );
       }
-    } else {
-      echo triple( $molecule, $RDFS . "subClassOf", $ONTO . "Drug" );
     }
+    echo triple( $molecule, $OBO . "has_role", $CHEBI . "CHEBI_23888" ); // Drug
 
     echo triple( $molecule, $OWL . "equivalentClass", "http://bio2rdf.org/chebi:" . $chebiRow['chebi_id'] );
 
