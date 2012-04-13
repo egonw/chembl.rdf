@@ -59,7 +59,7 @@ These scripts were tested against version 13 of ChEMBL, as downloaded from:
 
 # Requirements
 
-ChEMBL 13 and the MySQL JDBC plugin.
+ChEMBL 13, OpenRDF (aka Sesame), SLF4J, and the MySQL JDBC plugin.
 
 # Installation
 

@@ -1,0 +1,8 @@
+version=13
+rooturi=http://data.kasabi.com/dataset/chembl-rdf/
+
+dbprefix=chembl_
+user=user
+pwd=secret
+
+limit=LIMIT 1

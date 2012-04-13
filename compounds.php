@@ -20,13 +20,6 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   $molregno = $row['molregno'];
   $molecule = $MOL . "m" . $molregno;
 
-  # get the compound names
-  $names = mysql_query("SELECT DISTINCT compound_name FROM compound_records WHERE molregno = $molregno");
-  while ($nameRow = mysql_fetch_assoc($names)) {
-    if ($nameRow['compound_name'])
-      echo data_triple( $molecule, $RDFS . "label", str_replace("\"", "\\\"", $nameRow['compound_name']) );
-  }
-
   # get the literature references
   $refs = mysql_query("SELECT DISTINCT doc_id FROM compound_records WHERE molregno = $molregno");
   while ($refRow = mysql_fetch_assoc($refs)) {
@@ -93,13 +86,6 @@ while ($row = mysql_fetch_assoc($allIDs)) {
       echo triple($molsmiles, $RDF . "type", $CHEMINF . "CHEMINF_000059");
       echo data_triple($molsmiles, $CHEMINF . "SIO_000300", $struct['standard_inchi_key']);
     }
-  }
-
-  # get the synonyms
-  $names = mysql_query("SELECT DISTINCT synonyms FROM molecule_synonyms WHERE molregno = $molregno");
-  while ($name = mysql_fetch_assoc($names)) {
-    if ($name['synonyms'])
-      echo data_triple( $molecule, $RDFS . "label", str_replace("\"", "\\\"", $name['synonyms']) );
   }
 
   # get parent/child information
