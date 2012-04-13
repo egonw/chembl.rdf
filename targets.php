@@ -12,7 +12,7 @@ mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 mysql_select_db($db) or die(mysql_error());
 # echo "<!-- Database was selected! -->\n";
 
-$allIDs = mysql_query("SELECT DISTINCT * FROM target_dictionary" . $limit);
+$allIDs = mysql_query("SELECT DISTINCT * FROM target_dictionary where tid = 22226" . $limit);
 
 $num = mysql_numrows($allIDs);
 
@@ -72,7 +72,8 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     if ($classRow['l8']) echo data_triple( $target, $ONTO . "classL8", str_replace("\"", "\\\"", $classRow['l8']) );
   }
 
-  echo data_triple( $target, $DC . "title", $row['pref_name'] );
+  if ($row['pref_name'])
+    echo data_triple( $target, $DC . "title", $row['pref_name'] );
 }
 
 ?>
