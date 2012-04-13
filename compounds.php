@@ -24,7 +24,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   $names = mysql_query("SELECT DISTINCT compound_name FROM compound_records WHERE molregno = $molregno");
   while ($nameRow = mysql_fetch_assoc($names)) {
     if ($nameRow['compound_name'])
-      echo data_triple( $molecule, $RDFS . "label", $nameRow['compound_name']);
+      echo data_triple( $molecule, $RDFS . "label", str_replace("\"", "\\\"", $nameRow['compound_name']) );
   }
 
   # get the literature references
