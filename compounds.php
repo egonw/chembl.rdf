@@ -96,7 +96,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   }
 
   # get the synonyms
-  $names = mysql_query("SELECT DISTINCT * FROM molecule_synonyms WHERE molregno = $molregno");
+  $names = mysql_query("SELECT DISTINCT synonyms FROM molecule_synonyms WHERE molregno = $molregno");
   while ($name = mysql_fetch_assoc($names)) {
     if ($name['synonyms'])
       echo data_triple( $molecule, $RDFS . "label", str_replace("\"", "\\\"", $name['synonyms']) );
