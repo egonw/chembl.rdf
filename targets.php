@@ -12,7 +12,7 @@ mysql_connect("localhost", $user, $pwd) or die(mysql_error());
 mysql_select_db($db) or die(mysql_error());
 # echo "<!-- Database was selected! -->\n";
 
-$allIDs = mysql_query("SELECT DISTINCT * FROM target_dictionary where tid = 22226" . $limit);
+$allIDs = mysql_query("SELECT DISTINCT * FROM target_dictionary" . $limit);
 
 $num = mysql_numrows($allIDs);
 
