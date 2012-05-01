@@ -29,6 +29,10 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   echo triple( $chembl, $OWL . "equivalentClass", $target );
   echo triple( $target, $OWL . "equivalentClass", $chembl );
   echo data_triple( $target, $RDFS . "label", $row['chembl_id'] );
+  $chemblChemInfRes = $chembl . "/chemblid";
+  echo triple($chembl, $CHEMINF . "CHEMINF_000200", $chemblChemInfRes);
+  echo triple($chemblChemInfRes, $RDF . "type", $CHEMINF . "CHEMINF_000412");
+  echo data_triple($chemblChemInfRes, $CHEMINF . "SIO_000300", $row['chembl_id']);
 
   if ($row['organism'])
     echo data_triple( $target, $ONTO . "organism", $row['organism'] );

@@ -54,6 +54,10 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     echo triple( $chembl, $OWL . "equivalentClass", $molecule );
     echo triple( $molecule, $OWL . "equivalentClass", $chembl );
     echo data_triple( $molecule, $RDFS . "label", $chebiRow['chembl_id'] );
+    $chemblChemInfRes = $chembl . "/chemblid";
+    echo triple($chembl, $CHEMINF . "CHEMINF_000200", $chemblChemInfRes);
+    echo triple($chemblChemInfRes, $RDF . "type", $CHEMINF . "CHEMINF_000412");
+    echo data_triple($chemblChemInfRes, $CHEMINF . "SIO_000300", $chebiRow['chembl_id']);
   }
 
   # get the structure information
