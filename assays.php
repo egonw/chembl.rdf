@@ -35,6 +35,8 @@ while ($row = mysql_fetch_assoc($allIDs)) {
 
   if ($row['assay_organism'])
     echo data_triple( $assay, $ONTO . "organism", $row['assay_organism'] );
+  if ($row['assay_tax_id'])
+    echo triple( $assay, $ONTO . "hasTaxonomy", "http://bio2rdf.org/taxonomy:" . $row['assay_tax_id'] );
 
   if ($row['description']) {
     # clean up description
