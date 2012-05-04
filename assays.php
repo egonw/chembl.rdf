@@ -33,6 +33,9 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   echo triple($chemblChemInfRes, $RDF . "type", $CHEMINF . "CHEMINF_000412");
   echo data_triple($chemblChemInfRes, $CHEMINF . "SIO_000300", $row['chembl_id']);
 
+  if ($row['assay_organism'])
+    echo data_triple( $assay, $ONTO . "organism", $row['assay_organism'] );
+
   if ($row['description']) {
     # clean up description
     $description = $row['description'];
