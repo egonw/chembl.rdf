@@ -1,0 +1,17 @@
+
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/CELL-LINE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/CELL-LINE> <http://www.w3.org/2000/01/rdf-schema#> "cell line" .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/TISSUE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/TISSUE> <http://www.w3.org/2000/01/rdf-schema#> "tissue" .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/ADMET> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/ADMET> <http://www.w3.org/2000/01/rdf-schema#> "ADMET" .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/NUCLEIC-ACID> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/NUCLEIC-ACID> <http://www.w3.org/2000/01/rdf-schema#> "nucleic acid" .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/UNCHECKED> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/UNCHECKED> <http://www.w3.org/2000/01/rdf-schema#> "unchecked" .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/UNKNOWN> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/UNKNOWN> <http://www.w3.org/2000/01/rdf-schema#> "unknown" .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/ORGANISM> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/ORGANISM> <http://www.w3.org/2000/01/rdf-schema#> "organism" .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/SUBCELLULAR> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://data.kasabi.com/dataset/chembl-rdf/targetType/SUBCELLULAR> <http://www.w3.org/2000/01/rdf-schema#> "subcellular" .
