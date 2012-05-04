@@ -23,7 +23,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   if ($row['target_type'] == 'PROTEIN') {
     echo triple( $target, $RDFS . "subClassOf", $PRO . "PR_000000001" );
   } else {
-    echo triple( $target, $ONTO . "hasTargetType", $TGT . $row['target_type'] );
+    echo triple( $target, $RDFS . "subClassOf", $TGT . $row['target_type'] );
   }
 
   $chembl = $CHEMBL . $row['chembl_id'];
