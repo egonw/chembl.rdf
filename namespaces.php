@@ -24,6 +24,7 @@ $PRO = $OBO;
 $VO = $OBO;
 $CL = $OBO;
 $UNIPROT = "http://purl.uniprot.org/uniprot/";
+$ENZYME = "http://purl.uniprot.org/enzyme/";
 
 $ONTO = "http://rdf.farmbio.uu.se/chembl/onto/#";
 $ACT = $rooturi . "activity/";

@@ -56,6 +56,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   if ($row['ec_number']) {
     echo data_triple( $target, $DC . "identifier", $row['ec_number'] );
     echo triple( $target, $RDFS . "subClassOf", "http://bio2rdf.org/ec:" . $row['ec_number'] );
+    echo triple( $target, $SKOS . "exactMatch", $ENZYME . $row['ec_number'] );
   }
   if ($row['protein_accession']) {
     echo data_triple( $target, $DC . "identifier",  "uniprot:" . $row['protein_accession'] );
