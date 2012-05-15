@@ -34,5 +34,20 @@
   pav:importedFrom <http://ftp....>;
   pav:importedBy <http://egonw.github.com/#me> .
 
+:uniprot_dataset
+  a void:Dataset ;
+  dcterms:title "Uniprot" ;
+  dcterms:description "The Uniprot database in RDF format." .
 
+:chembl_uniprot_linkset
+  a void:Linkset;
+  dcterms:title "ChEMBL Uniprot Linkset"^^xsd:string;
+  dcterms:description "Linkset relating ChEMBL targets to Uniprot proteins."^^xsd:string;
+  dcterms:license <cc-sa-by> ;
+  pav:authoredBy <http://www.chemspider.com/>;
+  void:subjectsTarget :chemblrdf_dataset ;
+  void:objectsTarget :uniprot_dataset;
+  void:linkPredicate skos:exactMatch;
+  # void:triples "6428"^^xsd:nonNegativeInteger;
+  void:dataDump <https://www.dropbox.com/s/1slf6m5qi4gr2cc/DrugBank20120426.zip> .
 
