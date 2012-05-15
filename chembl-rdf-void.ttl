@@ -24,7 +24,8 @@
   dcterms:title "ChEMBL-RDF 13.OPS.2";
   pav:createdBy <http://egonw.github.com/#me> ;
   pav:createdOn "2012-05-15"^^xsd:date;
-  dcterms:description "The ChEMBL database." .
+  dcterms:description "The ChEMBL database in RDF format." ;
+  void:dataDump <https://semantics.bigcat.unimaas.nl/chembl12/...> .
 
 :chembl_dataset
   a void:Dataset;
@@ -48,6 +49,5 @@
   void:subjectsTarget :chemblrdf_dataset ;
   void:objectsTarget :uniprot_dataset;
   void:linkPredicate skos:exactMatch;
-  # void:triples "6428"^^xsd:nonNegativeInteger;
-  void:dataDump <https://www.dropbox.com/s/1slf6m5qi4gr2cc/DrugBank20120426.zip> .
+  # void:triples "6428"^^xsd:nonNegativeInteger .
 
