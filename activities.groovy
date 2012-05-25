@@ -26,15 +26,6 @@ unitMappings = [
   "%":"http://qudt.org/schema/qudt#floatPercentage"
 ]
 
-normalizationMappings = [
-  "IC50" : [
-    nM:"nM",
-    uM:"nM",
-    mM:"nM",
-    pM:"nM"
-  ]
-]
-
 ACT = props.rooturi + "activity/"
 RES = props.rooturi + "resource/"
 ONTO = "http://rdf.farmbio.uu.se/chembl/onto/#"
@@ -72,31 +63,15 @@ sql.eachRow(allMolregno) { row ->
       quantityValue = factory.createURI(ACT + "a" + row.activity_id + "/standardValue")
       con.add(actURI, factory.createURI(ONTO + "hasStandardValue"), quantityValue)
       con.add(quantityValue, RDF.TYPE, factory.createURI("http://qudt.org/schema/qudt#QuantityValue"))
-      if (normalizationMappings.containsKey(type)) {
-        // use a normalized value
-        originalUnit = unitFactory.getUnit(unitMappings[units])
-        originalQuantity = new Quantity(row.standard_value, originalUnit);
-        normalizedUnit = unitFactory.getUnit(unitMappings[normalizationMappings[type][units]])
-        normalizedQuantity = originalQuantity.convertTo(normalizedUnit)
-        con.add(quantityValue,
-          factory.createURI("http://qudt.org/schema/qudt#numericValue"),
-          factory.createLiteral((double)normalizedQuantity.value)
-        )
-        con.add(quantityValue,
-          factory.createURI("http://qudt.org/schema/qudt#unit"),
-          factory.createURI(normalizedQuantity.unit.resource.toString())
-        )
-      } else {
-        // use QUDT on the original value
-        con.add(quantityValue,
-          factory.createURI("http://qudt.org/schema/qudt#numericValue"),
-          factory.createLiteral((float)row.standard_value)
-        )
-        con.add(quantityValue,
-          factory.createURI("http://qudt.org/schema/qudt#unit"),
-          factory.createURI(unitMappings[units])
-        )
-      }
+      // use QUDT on the original value
+      con.add(quantityValue,
+        factory.createURI("http://qudt.org/schema/qudt#numericValue"),
+        factory.createLiteral((float)row.standard_value)
+      )
+      con.add(quantityValue,
+        factory.createURI("http://qudt.org/schema/qudt#unit"),
+        factory.createURI(unitMappings[units])
+      )
     } else {
       // use the old approach
       con.add(actURI, factory.createURI(ONTO + "standardValue"), factory.createLiteral((float)row.standard_value))
