@@ -23,9 +23,29 @@ unitMappings = [
   uM:"http://www.openphacts.org/units/Micromolar",
   mM:"http://www.openphacts.org/units/Millimolar",
   pM:"http://www.openphacts.org/units/Picomolar",
-  "%":"http://qudt.org/schema/qudt#floatPercentage"
+  "%":"http://qudt.org/schema/qudt#floatPercentage",
+  "ug.mL-1":"http://www.openphacts.org/units/MicrogramPerMilliliter",
+  "ug/ml":"http://www.openphacts.org/units/MicrogramPerMilliliter",
+  "ug ml-1":"http://www.openphacts.org/units/MicrogramPerMilliliter",
+  "pg ml-1":"http://www.openphacts.org/units/PicogramPerMilliliter",
 ]
 
+normalizationMappings = [
+  "IC50" : [
+    nM:"nM",
+    uM:"nM",
+    mM:"nM",
+    pM:"nM",
+    "ug.mL-1":"ug/ml",
+    "ug/ml":"ug/ml",
+    "ug ml-1":"ug/ml",
+    "pg ml-1":"ug/ml"
+  ],
+  "Potency" : [
+    M:"uM",
+    uM:"uM",
+    nM:"uM",
+    mM:"uM"
 ACT = props.rooturi + "activity/"
 RES = props.rooturi + "resource/"
 ONTO = "http://rdf.farmbio.uu.se/chembl/onto/#"
