@@ -78,7 +78,10 @@ sql.eachRow(allMolregno) { row ->
 
     // now do the units: check if we need to use QUDT and if we normalize
     units = row.standard_units
-    if (unitMappings.containsKey(units)) {
+    if (units == null) {
+      // use the old approach, but only give the value
+      con.add(actURI, factory.createURI(ONTO + "standardValue"), factory.createLiteral((float)row.standard_value))
+    } else if (unitMappings.containsKey(units)) {
       // use qudt:QuantityValue
       quantityValue = factory.createURI(ACT + "a" + row.activity_id + "/standardValue")
       con.add(actURI, factory.createURI(ONTO + "hasStandardValue"), quantityValue)
@@ -95,7 +98,7 @@ sql.eachRow(allMolregno) { row ->
     } else {
       // use the old approach
       con.add(actURI, factory.createURI(ONTO + "standardValue"), factory.createLiteral((float)row.standard_value))
-      con.add(actURI, factory.createURI(ONTO + "standardUnits"), factory.createLiteral(row.units))
+      con.add(actURI, factory.createURI(ONTO + "standardUnits"), factory.createLiteral(units))
     }
   }
 
