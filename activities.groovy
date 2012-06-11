@@ -5,8 +5,6 @@ import org.openrdf.sail.memory.MemoryStore
 import org.openrdf.model.vocabulary.RDFS
 import org.openrdf.model.vocabulary.RDF
 import org.openrdf.rio.ntriples.NTriplesWriter
-import com.github.jqudt.Quantity
-import com.github.jqudt.onto.UnitFactory
 
 // export CLASSPATH=$(JARS=(*.jar); IFS=:; echo "${JARS[*]}")
 
@@ -18,34 +16,6 @@ def sql = Sql.newInstance(url, props.user, props.pwd, "com.mysql.jdbc.Driver")
 
 allMolregno = "SELECT DISTINCT * FROM activities " + props.limit
 
-unitMappings = [
-  nM:"http://www.openphacts.org/units/Nanomolar",
-  uM:"http://www.openphacts.org/units/Micromolar",
-  mM:"http://www.openphacts.org/units/Millimolar",
-  pM:"http://www.openphacts.org/units/Picomolar",
-  "%":"http://qudt.org/schema/qudt#floatPercentage",
-  "ug.mL-1":"http://www.openphacts.org/units/MicrogramPerMilliliter",
-  "ug/ml":"http://www.openphacts.org/units/MicrogramPerMilliliter",
-  "ug ml-1":"http://www.openphacts.org/units/MicrogramPerMilliliter",
-  "pg ml-1":"http://www.openphacts.org/units/PicogramPerMilliliter",
-]
-
-normalizationMappings = [
-  "IC50" : [
-    nM:"nM",
-    uM:"nM",
-    mM:"nM",
-    pM:"nM",
-    "ug.mL-1":"ug/ml",
-    "ug/ml":"ug/ml",
-    "ug ml-1":"ug/ml",
-    "pg ml-1":"ug/ml"
-  ],
-  "Potency" : [
-    M:"uM",
-    uM:"uM",
-    nM:"uM",
-    mM:"uM"
 ACT = props.rooturi + "activity/"
 RES = props.rooturi + "resource/"
 ONTO = "http://rdf.farmbio.uu.se/chembl/onto/#"
@@ -53,8 +23,6 @@ CITO = "http://purl.org/spar/cito/"
 MOL = props.rooturi + "molecule/"
 CHEMBL = props.rooturi + "chemblid/"
 ASS = props.rooturi + "assay/"
-
-unitFactory = UnitFactory.getInstance();
 
 sql.eachRow(allMolregno) { row ->
   def repos = new SailRepository(new MemoryStore())
@@ -78,30 +46,15 @@ sql.eachRow(allMolregno) { row ->
 
     // now do the units: check if we need to use QUDT and if we normalize
     units = row.standard_units
-    if (units == null) {
-      // use the old approach, but only give the value
-      con.add(actURI, factory.createURI(ONTO + "standardValue"), factory.createLiteral((float)row.standard_value))
-    } else if (unitMappings.containsKey(units)) {
-      // use qudt:QuantityValue
-      quantityValue = factory.createURI(ACT + "a" + row.activity_id + "/standardValue")
-      con.add(actURI, factory.createURI(ONTO + "hasStandardValue"), quantityValue)
-      con.add(quantityValue, RDF.TYPE, factory.createURI("http://qudt.org/schema/qudt#QuantityValue"))
-      // use QUDT on the original value
-      con.add(quantityValue,
-        factory.createURI("http://qudt.org/schema/qudt#numericValue"),
-        factory.createLiteral((float)row.standard_value)
-      )
-      con.add(quantityValue,
-        factory.createURI("http://qudt.org/schema/qudt#unit"),
-        factory.createURI(unitMappings[units])
-      )
-    } else {
-      // use the old approach
-      con.add(actURI, factory.createURI(ONTO + "standardValue"), factory.createLiteral((float)row.standard_value))
+    // use the old approach
+    con.add(actURI, factory.createURI(ONTO + "standardValue"), factory.createLiteral((float)row.standard_value))
+    if (units != null) {
+      // units are sometimes null, but the value should always be given
       con.add(actURI, factory.createURI(ONTO + "standardUnits"), factory.createLiteral(units))
     }
   }
 
   con.export(new NTriplesWriter(System.out))
   con.close()
+  repos.shutDown()
 }
