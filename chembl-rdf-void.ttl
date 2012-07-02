@@ -14,7 +14,7 @@
   dcterms:description 
     """This is the VoID description for a ChEMBL-RDF dataset."""^^xsd:string;
   pav:createdBy <http://egonw.github.com/#me> ;
-  pav:createdOn "2012-05-15"^^xsd:date;
+  pav:createdOn "2012-06-11"^^xsd:date;
   foaf:primaryTopic :chemblrdf_dataset;
 
 :chemblrdf_dataset
@@ -23,7 +23,7 @@
   foaf:homepage <http://github.com/egonw/chembl.rdf/>;
   dcterms:title "ChEMBL-RDF 13.OPS.2";
   pav:createdBy <http://egonw.github.com/#me> ;
-  pav:createdOn "2012-05-15"^^xsd:date;
+  pav:createdOn "2012-06-11"^^xsd:date;
   dcterms:description "The ChEMBL database in RDF format." ;
   void:dataDump <https://semantics.bigcat.unimaas.nl/chembl12/...> .
 
