@@ -34,7 +34,7 @@ function level($classRow, $level, $ontology) {
       $counter = $counter + 1;
       $ontology[$desc] = "http://www.openphacts.org/chembl/target/TARONT" . $counter;
       $ontology[$stack] = "http://www.openphacts.org/chembl/target/TARONT" . $counter;
-      echo " \"" . $desc . "\" => [\n";
+      echo " \"" . $stack . "\" => [\n";
       echo "  \"uri\" => \"" . $ontology[$stack] . "\",\n";
       echo "  \"higher\" => \"" . $higher . "\",\n";
       // echo "  \"classification\" => \"" . $classification . "\",\n";
@@ -46,7 +46,7 @@ function level($classRow, $level, $ontology) {
       // old label, new stack -> new ID, TARONT > 1000
       $counter2 = $counter2 + 1;
       $ontology[$stack] = "http://www.openphacts.org/chembl/target/TARONT" . $counter2;
-      echo " \"" . $desc . "\" => [\n";
+      echo " \"" . $stack . "\" => [\n";
       echo "  \"uri\" => \"" . $ontology[$stack] . "\",\n";
       echo "  \"higher\" => \"" . $higher . "\",\n";
       // echo "  \"classification\" => \"" . $classification . "\",\n";

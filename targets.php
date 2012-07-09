@@ -71,20 +71,21 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   if ($classRow = mysql_fetch_assoc($class)) {
     if ($classRow['l8']) {
       echo triple( $target, $ONTO . "targetClass", $array[$classRow['l8']]["uri"] );
-    } elseif (($classRow['l7'])) {
+    } elseif ($classRow['l7']) {
       echo triple( $target, $ONTO . "targetClass", $array[$classRow['l7']]["uri"] );
-    } elseif (($classRow['l6'])) {
+    } elseif ($classRow['l6']) {
       echo triple( $target, $ONTO . "targetClass", $array[$classRow['l6']]["uri"] );
-    } elseif (($classRow['l5'])) {
+    } elseif ($classRow['l5']) {
       echo triple( $target, $ONTO . "targetClass", $array[$classRow['l5']]["uri"] );
-    } elseif (($classRow['l4'])) {
+    } elseif ($classRow['l4']) {
       echo triple( $target, $ONTO . "targetClass", $array[$classRow['l4']]["uri"] );
-    } elseif (($classRow['l3'])) {
+    } elseif ($classRow['l3']) {
       echo triple( $target, $ONTO . "targetClass", $array[$classRow['l3']]["uri"] );
-    } elseif (($classRow['l2'])) {
+    } elseif ($classRow['l2']) {
       echo triple( $target, $ONTO . "targetClass", $array[$classRow['l2']]["uri"] );
-    } elseif (($classRow['l1'])) {
-      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l1']]["uri"] );
+    } elseif ($classRow['l1']) {
+      $hier = "/" . $classRow['l1'];
+      echo triple( $target, $ONTO . "targetClass", $array[$hier]["uri"] );
     }
   }
 
