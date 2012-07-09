@@ -138,6 +138,10 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT35",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT27",
  ],
+ "Mapkapk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1001",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT35",
+ ],
  "Mnk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT36",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT35",
@@ -149,6 +153,10 @@ $array = [
  "Rgc" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT38",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT37",
+ ],
+ "Rgc" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1002",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT38",
  ],
  "Nim1" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT39",
@@ -182,9 +190,17 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT46",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT45",
  ],
+ "Reg" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1003",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT46",
+ ],
  "C2" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT47",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT21",
+ ],
+ "Reg" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1004",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT47",
  ],
  "Camk1" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT48",
@@ -214,9 +230,17 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT54",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT51",
  ],
+ "Reg" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1005",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT54",
+ ],
  "Ck1" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT55",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT7",
+ ],
+ "Ck1" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1006",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT55",
  ],
  "Ck2" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT56",
@@ -598,13 +622,25 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT150",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT6",
  ],
+ "Ste" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1007",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT150",
+ ],
  "Ste7" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT151",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT30",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1007",
+ ],
+ "Ser_Thr_Tyr" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1008",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT46",
+ ],
+ "Cmgc" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1009",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT150",
  ],
  "Dyrk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT152",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT59",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1009",
  ],
  "Dyrk1" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT153",
@@ -686,9 +722,17 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT172",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT171",
  ],
+ "Tyr" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1010",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT46",
+ ],
  "S29" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT173",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT13",
+ ],
+ "Reg" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1011",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT173",
  ],
  "C-" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT174",
@@ -705,6 +749,10 @@ $array = [
  "Ser" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT177",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT6",
+ ],
+ "Agc" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1012",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT177",
  ],
  "SH" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT178",
@@ -733,6 +781,10 @@ $array = [
  "InsR" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT184",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT156",
+ ],
+ "Ser_Thr" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1013",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT46",
  ],
  "Tkl" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT185",
@@ -786,6 +838,10 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT197",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT185",
  ],
+ "Mlk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1014",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT197",
+ ],
  "Mlck" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT198",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT27",
@@ -802,13 +858,21 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT201",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT200",
  ],
+ "Reg" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1015",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT201",
+ ],
  "His" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT202",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT6",
  ],
+ "Atypical" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1016",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT202",
+ ],
  "Histk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT203",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT148",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1016",
  ],
  "Unclassified" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT204",
@@ -1032,7 +1096,7 @@ $array = [
  ],
  "Receptor" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT259",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT155",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1010",
  ],
  "Pdhk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT260",
@@ -1062,6 +1126,10 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT266",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT265",
  ],
+ "Rsk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1017",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT265",
+ ],
  "Msk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT267",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT265",
@@ -1070,9 +1138,13 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT268",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT6",
  ],
+ "Other" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1018",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT268",
+ ],
  "Other-Unique" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT269",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT23",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1018",
  ],
  "S12" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT270",
@@ -1102,13 +1174,25 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT276",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT28",
  ],
+ "Alpha" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1019",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT148",
+ ],
  "Nak" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT277",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT23",
  ],
+ "Tkl" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1020",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT7",
+ ],
+ "Mlk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1021",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1020",
+ ],
  "Ilk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT278",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT197",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1021",
  ],
  "Paka" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT279",
@@ -1124,11 +1208,19 @@ $array = [
  ],
  "Ripk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT282",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT185",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1020",
  ],
  "Sgk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT283",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT9",
+ ],
+ "Atypical" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1022",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT177",
+ ],
+ "PIKK" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1023",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1022",
  ],
  "SF" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT284",
@@ -1278,37 +1370,53 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT320",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT319",
  ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1024",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT320",
+ ],
+ "NS" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1025",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1024",
+ ],
  "CHRN alpha" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT321",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT318",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1025",
  ],
  "CHRN beta" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT322",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT318",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1025",
  ],
  "CHRN delta" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT323",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT318",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1025",
  ],
  "CHRN epsilon" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT324",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT318",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1025",
  ],
  "CHRN gamma" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT325",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT318",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1025",
  ],
  "ASIC" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT326",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT313",
  ],
+ "ASIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1026",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT326",
+ ],
  "ALDOSTERONE" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT327",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT326",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1026",
+ ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1027",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT327",
  ],
  "NA" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT328",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT317",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1027",
  ],
  "GABAA" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT329",
@@ -1362,33 +1470,89 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT341",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT315",
  ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1028",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT341",
+ ],
+ "NS" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1029",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1028",
+ ],
+ "NMDA" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1030",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT319",
+ ],
+ "ANIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1031",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1030",
+ ],
+ "CL" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1032",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1031",
+ ],
+ "GLUT" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1033",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT315",
+ ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1034",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1033",
+ ],
+ "NS" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1035",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1034",
+ ],
  "KAINATE" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT342",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT315",
+ ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1036",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT342",
+ ],
+ "NS" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1037",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1036",
  ],
  "GLY" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT343",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT319",
  ],
+ "ANIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1038",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT343",
+ ],
+ "CL" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1039",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1038",
+ ],
  "GLR alpha" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT344",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT331",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1039",
  ],
  "GLR beta" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT345",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT331",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1039",
  ],
  "VGC" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT346",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT313",
  ],
+ "VGC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1040",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT346",
+ ],
  "VOLT" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT347",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT346",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1040",
+ ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1041",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT347",
  ],
  "K" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT348",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT317",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1041",
  ],
  "KCNH, Kv10-12.x (Ether-a-go-go)" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT349",
@@ -1398,13 +1562,41 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT350",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT313",
  ],
+ "M2" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1042",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT350",
+ ],
+ "VOLT" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1043",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1042",
+ ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1044",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1043",
+ ],
  "H" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT351",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT317",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1044",
  ],
  "IP3" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT352",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT313",
+ ],
+ "IP3" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1045",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT352",
+ ],
+ "IP3" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1046",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1045",
+ ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1047",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1046",
+ ],
+ "CA" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1048",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1047",
  ],
  "KCNN, KCa2-3.x (Small conductance)" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT353",
@@ -1418,61 +1610,137 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT355",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT314",
  ],
+ "P2X" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1049",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT355",
+ ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1050",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1049",
+ ],
+ "NS" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1051",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1050",
+ ],
  "KIR" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT356",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT313",
  ],
+ "KIR" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1052",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT356",
+ ],
  "G_PROTEIN" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT357",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT356",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1052",
+ ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1053",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT357",
+ ],
+ "K" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1054",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1053",
  ],
  "RYR" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT358",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT313",
  ],
+ "RYR" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1055",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT358",
+ ],
  "RYANODINE" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT359",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT358",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1055",
+ ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1056",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT359",
+ ],
+ "CA" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1057",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1056",
  ],
  "5HT3" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT360",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT319",
  ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1058",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT360",
+ ],
+ "NS" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1059",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1058",
+ ],
+ "NA" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1060",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1041",
+ ],
  "SCN beta" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT361",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT328",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1060",
  ],
  "SCN alpha, NaV1.x" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT362",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT328",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1060",
  ],
  "SUR" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT363",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT313",
  ],
+ "SUR" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1061",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT363",
+ ],
  "SULFONYLUREA" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT364",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT363",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1061",
+ ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1062",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT364",
+ ],
+ "K" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1063",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1062",
  ],
  "TRP" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT365",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT313",
  ],
+ "TRP" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1064",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT365",
+ ],
  "VANILLOID" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT366",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT365",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1064",
+ ],
+ "CATIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1065",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT366",
+ ],
+ "NS" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1066",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1065",
  ],
  "TRPV (Vanilloid)" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT367",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT318",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1066",
+ ],
+ "CA" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1067",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1041",
  ],
  "CACN alpha-2 delta" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT368",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT21",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1067",
  ],
  "CACN alpha-1, CaVx.x" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT369",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT21",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1067",
  ],
  "L-TYPE" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT370",
@@ -1666,9 +1934,21 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT417",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT383",
  ],
+ "Glycohormone receptor" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1068",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT417",
+ ],
  "N-formyl methionyl peptide receptor" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT418",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT383",
+ ],
+ "N-formyl methionyl peptide receptor" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1069",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT418",
+ ],
+ "Nucleotide-like receptor" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1070",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT381",
  ],
  "GABA-B receptor" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT419",
@@ -1777,6 +2057,10 @@ $array = [
  "Protease-activated receptor" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT445",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT383",
+ ],
+ "Protease-activated receptor" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1071",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT445",
  ],
  "Secretin receptor" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT446",
@@ -2114,9 +2398,13 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT529",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT503",
  ],
+ "Neurotransmitter" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1072",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT529",
+ ],
  "GABA" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT530",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT511",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1072",
  ],
  "Sugar" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT531",
@@ -2134,9 +2422,13 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT534",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT526",
  ],
+ "Amino acid" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1073",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT507",
+ ],
  "Neutral amino acid" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT535",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT534",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1073",
  ],
  "MRP" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT536",
@@ -2154,6 +2446,14 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT539",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT538",
  ],
+ "Amino acid" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1074",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT510",
+ ],
+ "Neutral amino acid" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1075",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1074",
+ ],
  "Norepinephrine" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT540",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT511",
@@ -2166,9 +2466,13 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT542",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT503",
  ],
+ "Peptide" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1076",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT542",
+ ],
  "Dipeptide" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT543",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT383",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1076",
  ],
  "MDR" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT544",
@@ -2193,6 +2497,10 @@ $array = [
  "beta_subunit" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT549",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT546",
+ ],
+ "potassium" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1077",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT549",
  ],
  "Inorganic anion" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT550",
@@ -2230,29 +2538,81 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT558",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT503",
  ],
+ "Cation" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1078",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT558",
+ ],
+ "Calcium" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1079",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1078",
+ ],
+ "Sugar" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1080",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT510",
+ ],
+ "Glucose" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1081",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1080",
+ ],
+ "Cation" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1082",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT504",
+ ],
  "Sodium_hydrogen" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT559",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT556",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1082",
  ],
  "potassium_sodium" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT560",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT547",
  ],
+ "potassium_sodium" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1083",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT549",
+ ],
  "gamma_subunit" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT561",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT546",
  ],
+ "potassium_sodium" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1084",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT561",
+ ],
+ "Vitamin" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1085",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT510",
+ ],
  "Ascorbate" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT562",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT527",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1085",
  ],
  "Amine" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT563",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT511",
  ],
+ "Neurotransmitter" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1086",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT507",
+ ],
+ "Amine" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1087",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1086",
+ ],
+ "Vitamin" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1088",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT542",
+ ],
  "Thiamine" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT564",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT527",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1088",
+ ],
+ "Cation" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1089",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT529",
+ ],
+ "Sodium" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1090",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1089",
  ],
  "F-type ATPase" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT565",
@@ -2268,7 +2628,11 @@ $array = [
  ],
  "Acetylcholine" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT568",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT511",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1086",
+ ],
+ "Amine" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1091",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT538",
  ],
  "Glutamate" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT569",
@@ -2282,17 +2646,21 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT571",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT31",
  ],
+ "Other" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1092",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT150",
+ ],
  "Ttk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT572",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT23",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1092",
  ],
  "Clk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT573",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT59",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1009",
  ],
  "Lisk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT574",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT185",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1020",
  ],
  "Limk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT575",
@@ -2313,6 +2681,10 @@ $array = [
  "Meta" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT579",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT578",
+ ],
+ "Wee" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1093",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1092",
  ],
  "Ulk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT580",
@@ -2342,6 +2714,10 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT586",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT156",
  ],
+ "Rskb" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1094",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT584",
+ ],
  "Axl" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT587",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT156",
@@ -2349,6 +2725,14 @@ $array = [
  "Topk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT588",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT23",
+ ],
+ "Stkr" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1095",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1020",
+ ],
+ "Type1" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1096",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1095",
  ],
  "Trace amine receptor" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT589",
@@ -2380,23 +2764,43 @@ $array = [
  ],
  "TRPV(Vanilloid)" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT596",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT318",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1066",
  ],
  "CACNalpha2-delta" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT597",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT21",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1067",
  ],
  "AA " => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT598",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT40",
  ],
+ "A1A" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1097",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT598",
+ ],
  "c-GMP" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT599",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT346",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1040",
  ],
  "CATIONINC" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT600",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT599",
+ ],
+ "NS" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1098",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT600",
+ ],
+ "GABA" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1099",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT319",
+ ],
+ "ANIONIC" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1100",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1099",
+ ],
+ "CL" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1101",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1100",
  ],
  "Gastric inhibitory polypeptide receptor" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT601",
@@ -2413,6 +2817,18 @@ $array = [
  "Monocarboxylate" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT604",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT603",
+ ],
+ "Neurotransmitter" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1102",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT542",
+ ],
+ "Amino acid" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1103",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1102",
+ ],
+ "Ck2" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1104",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT59",
  ],
  "Bud 32" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT605",
@@ -2446,6 +2862,10 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT612",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT400",
  ],
+ "Ser" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1105",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT46",
+ ],
  "Ysk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT613",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT31",
@@ -2458,6 +2878,10 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT615",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT27",
  ],
+ "Dcamkl" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1106",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT615",
+ ],
  "Nuak" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT616",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT28",
@@ -2465,6 +2889,10 @@ $array = [
  "Pftaire" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT617",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT65",
+ ],
+ "Ndr" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1107",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT582",
  ],
  "Pek" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT618",
@@ -2478,6 +2906,10 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT620",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT65",
  ],
+ "Type2" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1108",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1095",
+ ],
  "Erk3" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT621",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT60",
@@ -2486,9 +2918,17 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT622",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT65",
  ],
+ "Pka" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1109",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT50",
+ ],
  "Qik" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT623",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT28",
+ ],
+ "Srpk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1110",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT161",
  ],
  "Pctaire" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT624",
@@ -2498,17 +2938,37 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT625",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT60",
  ],
+ "Ripk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1111",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT282",
+ ],
  "Lkb" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT626",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT28",
+ ],
+ "Nek" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1112",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT24",
+ ],
+ "Tlk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1113",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT23",
+ ],
+ "Tlk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1114",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1113",
  ],
  "Yank" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT627",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT9",
  ],
+ "Yank" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1115",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT627",
+ ],
  "Ck1-a" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT628",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT55",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1006",
  ],
  "NinaC" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT629",
@@ -2518,9 +2978,17 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT630",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT27",
  ],
+ "Tssk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1116",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT630",
+ ],
  "Camk-Unique" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT631",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT27",
+ ],
+ "Camk-Unique" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1117",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT631",
  ],
  "Gcn2" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT632",
@@ -2530,33 +2998,93 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT633",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT30",
  ],
+ "Ste-Unique" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1118",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT633",
+ ],
  "nmo" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT634",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT60",
  ],
+ "Irak" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1119",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1020",
+ ],
+ "Irak" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1120",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1119",
+ ],
  "Ck1-g" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT635",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT55",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1006",
+ ],
+ "Lisk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1121",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT185",
  ],
  "Tesk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT636",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT574",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1121",
  ],
  "Musk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT637",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT156",
  ],
+ "Musk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1122",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT637",
+ ],
  "Sev" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT638",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT156",
+ ],
+ "Sev" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1123",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT638",
+ ],
+ "InsR" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1124",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT184",
+ ],
+ "Eph" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1125",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT157",
  ],
  "Alk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT639",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT156",
  ],
+ "Alk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1126",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT639",
+ ],
+ "Tie" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1127",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT303",
+ ],
+ "Axl" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1128",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT587",
+ ],
  "Ddr" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT640",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT156",
+ ],
+ "Ddr" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1129",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT640",
+ ],
+ "Ack" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1130",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT577",
+ ],
+ "Fak" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1131",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT164",
+ ],
+ "Trk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1132",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT199",
  ],
  "Srm" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT641",
@@ -2570,29 +3098,61 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT643",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT15",
  ],
+ "M14A" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1133",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT643",
+ ],
  "M13 " => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT644",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT25",
+ ],
+ "Grk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1134",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT171",
+ ],
+ "Ulk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1135",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT580",
  ],
  "Tao" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT645",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT31",
  ],
+ "Dyrk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1136",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT59",
+ ],
+ "Hipk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1137",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1136",
+ ],
  "Nkf4" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT646",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT23",
+ ],
+ "Nkf4" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1138",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT646",
  ],
  "Cdkl" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT647",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT59",
  ],
+ "Cdkl" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1139",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT647",
+ ],
  "Tak1" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT648",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT197",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1021",
  ],
  "Mekk2" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT649",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT196",
+ ],
+ "Sgk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1140",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT283",
  ],
  "Plk2" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT650",
@@ -2610,9 +3170,17 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT653",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT15",
  ],
+ "M24A" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1141",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT653",
+ ],
  "CA " => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT654",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT20",
+ ],
+ "C1A" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1142",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT654",
  ],
  "C19 " => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT655",
@@ -2629,6 +3197,10 @@ $array = [
  "SC " => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT658",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT12",
+ ],
+ "S9A" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1143",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT658",
  ],
  "C12" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT659",
@@ -2649,6 +3221,10 @@ $array = [
  "MF " => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT663",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT15",
+ ],
+ "M17" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1144",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT663",
  ],
  "S10" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT664",
@@ -2706,6 +3282,14 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT677",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT7",
  ],
+ "Camkl" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1145",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT677",
+ ],
+ "Ampk" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1146",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1145",
+ ],
  "Ask" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT678",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT196",
@@ -2736,7 +3320,7 @@ $array = [
  ],
  "HH498" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT685",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT197",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1021",
  ],
  "Hri" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT686",
@@ -2744,7 +3328,7 @@ $array = [
  ],
  "Lzk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT687",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT197",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1021",
  ],
  "Rck" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT688",
@@ -2758,9 +3342,21 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT690",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT9",
  ],
+ "Mast" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1147",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT690",
+ ],
+ "Ste" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1148",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT30",
+ ],
  "Mekk15" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT691",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT30",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1148",
+ ],
+ "Mekk2" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1149",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1148",
  ],
  "Nek1" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT692",
@@ -2774,6 +3370,10 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT694",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT28",
  ],
+ "Pek" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1150",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT618",
+ ],
  "Pkc-Unclassified" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT695",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT252",
@@ -2781,6 +3381,14 @@ $array = [
  "Pkcd" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT696",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT252",
+ ],
+ "Raf" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1151",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1020",
+ ],
+ "Raf" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1152",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1151",
  ],
  "Rio" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT697",
@@ -2804,7 +3412,7 @@ $array = [
  ],
  "Stkr1" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT702",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT291",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1095",
  ],
  "Wee1" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT703",
@@ -2820,7 +3428,7 @@ $array = [
  ],
  "Lrrk" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT706",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT185",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1020",
  ],
  "Mos" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT707",
@@ -2828,6 +3436,10 @@ $array = [
  ],
  "Nkf1" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT708",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT23",
+ ],
+ "Other-Unique" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1153",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT23",
  ],
  "Wnk" => [
@@ -2838,9 +3450,13 @@ $array = [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT710",
   "higher" => "http://www.openphacts.org/chembl/target/TARONT6",
  ],
+ "Atypical" => [
+  "uri" => "http://www.openphacts.org/chembl/target/TARONT1154",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT710",
+ ],
  "Bcr" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT711",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT148",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1154",
  ],
  "Jak" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT712",
@@ -2852,7 +3468,7 @@ $array = [
  ],
  "CHRN" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT714",
-  "higher" => "http://www.openphacts.org/chembl/target/TARONT318",
+  "higher" => "http://www.openphacts.org/chembl/target/TARONT1025",
  ],
  "GABA-A" => [
   "uri" => "http://www.openphacts.org/chembl/target/TARONT715",

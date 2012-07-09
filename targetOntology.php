@@ -18,22 +18,45 @@ $root = $NS . "1";
 
 $ontology["ops:root"] = $root;
 $ontology["ops:counter"] = 1;
+$ontology["ops:counter2"] = 1000;
 
 function level($classRow, $level, $ontology) {
   $counter = $ontology["ops:counter"];
+  $counter2 = $ontology["ops:counter2"];
   $higher = $ontology["ops:higher"];
+  $stack = $ontology["ops:stack"];
+  $classification = $classRow["target_classification"];
   if ($classRow[$level]) {
     $desc = $classRow[$level];
+    $stack = $stack . "/" . $desc;
     if (!$ontology[$desc]) {
+      // new label -> new ID, TARONT < 1000
       $counter = $counter + 1;
       $ontology[$desc] = "http://www.openphacts.org/chembl/target/TARONT" . $counter;
+      $ontology[$stack] = "http://www.openphacts.org/chembl/target/TARONT" . $counter;
       echo " \"" . $desc . "\" => [\n";
-      echo "  \"uri\" => \"" . $ontology[$desc] . "\",\n";
+      echo "  \"uri\" => \"" . $ontology[$stack] . "\",\n";
       echo "  \"higher\" => \"" . $higher . "\",\n";
+      // echo "  \"classification\" => \"" . $classification . "\",\n";
+      // echo "  \"stack\" => \"" . $stack . "\",\n";
+      // echo "  \"level\" => \"" . $level . "\",\n";
       echo " ],\n";
       $ontology["ops:counter"] = $counter;
-    }
-    $ontology["ops:higher"] = $ontology[$desc];
+    } else  if (!$ontology[$stack]) {
+      // old label, new stack -> new ID, TARONT > 1000
+      $counter2 = $counter2 + 1;
+      $ontology[$stack] = "http://www.openphacts.org/chembl/target/TARONT" . $counter2;
+      echo " \"" . $desc . "\" => [\n";
+      echo "  \"uri\" => \"" . $ontology[$stack] . "\",\n";
+      echo "  \"higher\" => \"" . $higher . "\",\n";
+      // echo "  \"classification\" => \"" . $classification . "\",\n";
+      // echo "  \"stack\" => \"" . $stack . "\",\n";
+      // echo "  \"level\" => \"" . $level . "\",\n";
+      echo " ],\n";
+      $ontology["ops:counter2"] = $counter2;
+    } // else: old label, old stack -> no new entry
+    $ontology["ops:higher"] = $ontology[$stack];
+    $ontology["ops:stack"] = $stack;
   }
   return $ontology;
 }
@@ -45,6 +68,7 @@ echo "\$array = [\n";
 $class = mysql_query("SELECT DISTINCT * FROM target_class");
 while ($classRow = mysql_fetch_assoc($class)) {
   $ontology["ops:higher"] = $root;
+  $ontology["ops:stack"] = "";
   $ontology = level($classRow, "l1", $ontology);
   $ontology = level($classRow, "l2", $ontology);
   $ontology = level($classRow, "l3", $ontology);
