@@ -40,6 +40,7 @@ function level($classRow, $level, $ontology) {
       // echo "  \"classification\" => \"" . $classification . "\",\n";
       // echo "  \"stack\" => \"" . $stack . "\",\n";
       // echo "  \"level\" => \"" . $level . "\",\n";
+      echo "  \"label\" => \"" . $desc . "\",\n";
       echo " ],\n";
       $ontology["ops:counter"] = $counter;
     } else  if (!$ontology[$stack]) {
@@ -52,6 +53,7 @@ function level($classRow, $level, $ontology) {
       // echo "  \"classification\" => \"" . $classification . "\",\n";
       // echo "  \"stack\" => \"" . $stack . "\",\n";
       // echo "  \"level\" => \"" . $level . "\",\n";
+      echo "  \"label\" => \"" . $desc . "\",\n";
       echo " ],\n";
       $ontology["ops:counter2"] = $counter2;
     } // else: old label, old stack -> no new entry
