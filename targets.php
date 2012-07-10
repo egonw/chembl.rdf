@@ -17,6 +17,13 @@ $allIDs = mysql_query("SELECT DISTINCT * FROM target_dictionary" . $limit);
 
 $num = mysql_numrows($allIDs);
 
+function appendTo($appendTo, $string) {
+  if (strlen($string) > 0) {
+    return $appendTo . "/" . $string;
+  }
+  return $appendTo;
+}
+
 while ($row = mysql_fetch_assoc($allIDs)) {
   $target = $TRG . "t" . $row['tid'];
   echo triple( $target, $RDF . "type", $ONTO . "Target" );
@@ -69,24 +76,16 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   # classifications
   $class = mysql_query("SELECT DISTINCT * FROM target_class WHERE tid = \"" . $row['tid'] . "\"");
   if ($classRow = mysql_fetch_assoc($class)) {
-    if ($classRow['l8']) {
-      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l8']]["uri"] );
-    } elseif ($classRow['l7']) {
-      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l7']]["uri"] );
-    } elseif ($classRow['l6']) {
-      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l6']]["uri"] );
-    } elseif ($classRow['l5']) {
-      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l5']]["uri"] );
-    } elseif ($classRow['l4']) {
-      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l4']]["uri"] );
-    } elseif ($classRow['l3']) {
-      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l3']]["uri"] );
-    } elseif ($classRow['l2']) {
-      echo triple( $target, $ONTO . "targetClass", $array[$classRow['l2']]["uri"] );
-    } elseif ($classRow['l1']) {
-      $hier = "/" . $classRow['l1'];
-      echo triple( $target, $ONTO . "targetClass", $array[$hier]["uri"] );
-    }
+    $hier = "";
+    if ($classRow['l1']) $hier = appendTo($hier, $classRow['l1']);
+    if ($classRow['l2']) $hier = appendTo($hier, $classRow['l2']);
+    if ($classRow['l3']) $hier = appendTo($hier, $classRow['l3']);
+    if ($classRow['l4']) $hier = appendTo($hier, $classRow['l4']);
+    if ($classRow['l5']) $hier = appendTo($hier, $classRow['l5']);
+    if ($classRow['l6']) $hier = appendTo($hier, $classRow['l6']);
+    if ($classRow['l7']) $hier = appendTo($hier, $classRow['l7']);
+    if ($classRow['l8']) $hier = appendTo($hier, $classRow['l8']);
+    echo triple( $target, $ONTO . "targetClass", $array[$hier]["uri"] );
   }
 
   if ($row['pref_name'])
