@@ -37,9 +37,9 @@ function level($classRow, $level, $ontology) {
       echo " \"" . $stack . "\" => [\n";
       echo "  \"uri\" => \"" . $ontology[$stack] . "\",\n";
       echo "  \"higher\" => \"" . $higher . "\",\n";
-      // echo "  \"classification\" => \"" . $classification . "\",\n";
+      echo "  \"classification\" => \"" . $classification . "\",\n";
       // echo "  \"stack\" => \"" . $stack . "\",\n";
-      // echo "  \"level\" => \"" . $level . "\",\n";
+      echo "  \"level\" => \"" . $level . "\",\n";
       echo "  \"label\" => \"" . $desc . "\",\n";
       echo " ],\n";
       $ontology["ops:counter"] = $counter;
@@ -50,9 +50,9 @@ function level($classRow, $level, $ontology) {
       echo " \"" . $stack . "\" => [\n";
       echo "  \"uri\" => \"" . $ontology[$stack] . "\",\n";
       echo "  \"higher\" => \"" . $higher . "\",\n";
-      // echo "  \"classification\" => \"" . $classification . "\",\n";
+      echo "  \"classification\" => \"" . $classification . "\",\n";
       // echo "  \"stack\" => \"" . $stack . "\",\n";
-      // echo "  \"level\" => \"" . $level . "\",\n";
+      echo "  \"level\" => \"" . $level . "\",\n";
       echo "  \"label\" => \"" . $desc . "\",\n";
       echo " ],\n";
       $ontology["ops:counter2"] = $counter2;
