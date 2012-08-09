@@ -46,7 +46,9 @@ while ($row = mysql_fetch_assoc($allIDs)) {
         echo triple( $molecule, $RDFS . "subClassOf", $PRO . "PR_000000001" );
       }
     }
-    echo triple( $molecule, $OBO . "has_role", $CHEBI . "CHEBI_23888" ); // Drug
+    if ($chebiRow['max_phase'] == "4") {
+      echo triple( $molecule, $OBO . "has_role", $CHEBI . "CHEBI_23888" ); // Drug
+    }
 
     echo triple( $molecule, $OWL . "equivalentClass", "http://bio2rdf.org/chebi:" . $chebiRow['chebi_id'] );
 
