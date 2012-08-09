@@ -11,7 +11,7 @@ mysql_select_db($db) or die(mysql_error());
 # echo "<!-- Database was selected! -->\n";
 
 $allIDs = mysql_query(
-  "SELECT DISTINCT molregno FROM compound_records " . $limit
+  "SELECT DISTINCT molregno FROM molecule_dictionary " . $limit
 );
 
 $num = mysql_numrows($allIDs);
