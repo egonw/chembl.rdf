@@ -15,6 +15,7 @@ $OBO  =  "http://purl.obolibrary.org/obo#";
 $BODO = "http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#";
 $CHEM = "http://www.blueobelisk.org/chemistryblogs/";
 $NMR = "http://www.nmrshiftdb.org/onto#";
+$SNAP = "http://www.ifomis.org/bfo/1.1/snap#";
 $CHEMINF = "http://semanticscience.org/resource/";
 $CHEBI = "http://purl.org/obo/owl/CHEBI#";
 $PRO = $OBO;

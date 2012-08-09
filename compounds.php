@@ -30,6 +30,9 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   # get the compound type, ChEBI, and ChEMBL identifiers
   $chebi = mysql_query("SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = $molregno");
   if ($chebiRow = mysql_fetch_assoc($chebi)) {
+    // The BFO SNAP MaterialEntity is the closest thing that all these things adhere too...
+    // Let's hope this does not conflict with any of the used ontologies... for ChEBI we're safe, I think
+    echo triple( $molecule, $RDFS . "subClassOf", $SNAP . "MaterialEntity");
     if ($chebiRow['molecule_type']) {
       if ($chebiRow['molecule_type'] == "Small molecule") {
         echo triple( $molecule, $RDFS . "subClassOf", $CHEMINF . "CHEMINF_000000"); # chemical entity
