@@ -22,7 +22,7 @@ sql.eachRow(allMolregno) { row ->
   con = repos.getConnection();
   factory = repos.getValueFactory();
 
-  molURI = factory.createURI("http://data.kasabi.com/dataset/chembl-rdf/molecule/m" + row.molregno)
+  molURI = factory.createURI(props.rooturi . "molecule/m" + row.molregno)
 
   // the names
   allNames = "SELECT DISTINCT compound_name FROM compound_records WHERE molregno = " + row.molregno
