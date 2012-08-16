@@ -54,7 +54,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     echo data_triple( $target, $ONTO . "sequence", $row['protein_sequence'] );
   if ($row['ec_number']) {
     echo data_triple( $target, $DC . "identifier", $row['ec_number'] );
-    echo triple( $target, $OWL . "sameAs", "http://bio2rdf.org/ec:" . $row['ec_number'] );
+    echo triple( $target, $RDFS . "subClassOf", "http://bio2rdf.org/ec:" . $row['ec_number'] );
   }
   if ($row['protein_accession']) {
     echo data_triple( $target, $DC . "identifier",  "uniprot:" . $row['protein_accession'] );
