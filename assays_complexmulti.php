@@ -21,7 +21,7 @@ $allIDs = mysql_query(
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
-  $assay = $ASS . "a" . $row['assay_id'];
+  $assay = $CHEMBL . $row['chembl_id'];
 
   $props = mysql_query("SELECT DISTINCT * FROM assay2target WHERE assay_id = " . $row['assay_id']);
   while ($prop = mysql_fetch_assoc($props)) {
