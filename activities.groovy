@@ -32,8 +32,16 @@ sql.eachRow(allMolregno) { row ->
 
   actURI = factory.createURI(ACT + "a" + row.activity_id)
   con.add(actURI, RDF.TYPE, factory.createURI(ONTO + "Activity"))
-  con.add(actURI, factory.createURI(ONTO + "onAssay"), factory.createURI(ASS + "a" + row.assay_id))
-  con.add(actURI, factory.createURI(ONTO + "forMolecule"), factory.createURI(MOL + "m" + row.molregno))
+
+  // OK, we have to do some magic now, and resolve the CHEMBLxxx ids
+  assayCHEMBLid = "SELECT DISTINCT chembl_id FROM assays WHERE assay_id = " + row.assay_id
+  sql.eachRow(assayCHEMBLid) { assayRow ->
+    con.add(actURI, factory.createURI(ONTO + "onAssay"), factory.createURI(CHEMBL + assayRow.chembl_id))
+  }
+  molCHEMBLid = "SELECT DISTINCT chembl_id FROM molecule_dictionary WHERE molregno = " + row.molregno
+  sql.eachRow(molCHEMBLid) { molRow ->
+    con.add(actURI, factory.createURI(ONTO + "forMolecule"), factory.createURI(CHEMBL + molRow.chembl_id))
+  }
 
   if (row.doc_id)
     con.add(actURI, factory.createURI(CITO + "citesAsDataSource"), factory.createURI(RES + "r" + row.doc_id))
