@@ -33,6 +33,6 @@
   dcterms:license <http://creativecommons.org/licenses/by-sa/3.0/> .
 
 <> a void:DatasetDescription;
-  dcterms:title "A VoID Description of the ChEMBL-RDF dataset" .
-  dcterms:creator <http://egonw.github.com/#me> .
+  dcterms:title "A VoID Description of the ChEMBL-RDF dataset" ;
+  dcterms:creator <http://egonw.github.com/#me> ;
   foaf:primaryTopic :ChEMBLRDF .
