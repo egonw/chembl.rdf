@@ -18,7 +18,7 @@ $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
   $molregno = $row['molregno'];
-  $molecule = $CHEMBL . $chebiRow['chembl_id'];
+  $molecule = $CHEMBL . $row['chembl_id'];
 
   # get the literature references
   $refs = mysql_query("SELECT DISTINCT doc_id FROM compound_records WHERE molregno = $molregno");
