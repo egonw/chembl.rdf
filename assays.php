@@ -21,7 +21,7 @@ $allIDs = mysql_query(
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
-  $assay = $ASS . "a" . $row['assay_id'];
+  $assay = $CHEMBL . $row['chembl_id'];
   echo triple( $assay, $RDF . "type", $ONTO . "Assay" );
 
   $chembl = $CHEMBL . $row['chembl_id'];
