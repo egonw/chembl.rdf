@@ -14,7 +14,7 @@ new File("vars.properties").withInputStream { stream -> props.load(stream) }
 def url = "jdbc:mysql://localhost/" + props.dbprefix + props.version
 def sql = Sql.newInstance(url, props.user, props.pwd, "com.mysql.jdbc.Driver")
 
-allMolregno = "SELECT DISTINCT molregno FROM molecule_dictionary " + props.limit
+allMolregno = "SELECT DISTINCT molregno, chembl_id FROM molecule_dictionary " + props.limit
 
 sql.eachRow(allMolregno) { row ->
   def repos = new SailRepository(new MemoryStore())

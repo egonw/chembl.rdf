@@ -11,14 +11,14 @@ mysql_select_db($db) or die(mysql_error());
 # echo "<!-- Database was selected! -->\n";
 
 $allIDs = mysql_query(
-  "SELECT DISTINCT molregno FROM molecule_dictionary " . $limit
+  "SELECT DISTINCT molregno, chembl_id FROM molecule_dictionary " . $limit
 );
 
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
   $molregno = $row['molregno'];
-  $molecule = $MOL . "m" . $molregno;
+  $molecule = $CHEMBL . $chebiRow['chembl_id'];
 
   # get the literature references
   $refs = mysql_query("SELECT DISTINCT doc_id FROM compound_records WHERE molregno = $molregno");
@@ -55,12 +55,9 @@ while ($row = mysql_fetch_assoc($allIDs)) {
 
     echo triple( $molecule, $OWL . "equivalentClass", "http://bio2rdf.org/chebi:" . $chebiRow['chebi_id'] );
 
-    $chembl = $CHEMBL . $chebiRow['chembl_id'];
-    echo triple( $chembl, $OWL . "equivalentClass", $molecule );
-    echo triple( $molecule, $OWL . "equivalentClass", $chembl );
     echo data_triple( $molecule, $RDFS . "label", $chebiRow['chembl_id'] );
-    $chemblChemInfRes = $chembl . "/chemblid";
-    echo triple($chembl, $CHEMINF . "CHEMINF_000200", $chemblChemInfRes);
+    $chemblChemInfRes = $molecule . "/chemblid";
+    echo triple($molecule, $CHEMINF . "CHEMINF_000200", $chemblChemInfRes);
     echo triple($chemblChemInfRes, $RDF . "type", $CHEMINF . "CHEMINF_000412");
     echo data_triple($chemblChemInfRes, $CHEMINF . "SIO_000300", $chebiRow['chembl_id']);
   }
