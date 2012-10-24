@@ -16,19 +16,24 @@ def sql = Sql.newInstance(url, props.user, props.pwd, "com.mysql.jdbc.Driver")
 
 allMolregno = "SELECT DISTINCT molregno, chembl_id FROM molecule_dictionary " + props.limit
 
+CHEMBL = props.rooturi + "chemblid/";
+xsdStringURI = "http://www.w3.org/2001/XMLSchema#string"
+
 sql.eachRow(allMolregno) { row ->
   def repos = new SailRepository(new MemoryStore())
   repos.initialize()
   con = repos.getConnection();
   factory = repos.getValueFactory();
 
-  molURI = factory.createURI(props.rooturi + "molecule/m" + row.molregno)
+  molURI = factory.createURI(CHEMBL + row.chembl_id)
 
   // the names
   allNames = "SELECT DISTINCT compound_name FROM compound_records WHERE molregno = " + row.molregno
   sql.eachRow(allNames) { nameRow ->
     if (nameRow['compound_name'] != null) {
-      con.add(molURI, RDFS.LABEL, factory.createLiteral(nameRow['compound_name']))
+      con.add(molURI, RDFS.LABEL,
+        factory.createLiteral(nameRow['compound_name'], factory.createURI(xsdStringURI))
+      )
     }
   }
 
@@ -36,7 +41,9 @@ sql.eachRow(allMolregno) { row ->
   allNames = "SELECT DISTINCT synonyms FROM molecule_synonyms WHERE molregno = " + row.molregno
   sql.eachRow(allNames) { nameRow ->
     if (nameRow['synonyms'] != null) {
-      con.add(molURI, RDFS.LABEL, factory.createLiteral(nameRow['synonyms']))
+      con.add(molURI, RDFS.LABEL, nameRow['synonyms'],
+        factory.createLiteral(nameRow['compound_name'], factory.createURI(xsdStringURI))
+      )
     }
   }
 
