@@ -1,4 +1,4 @@
-    
+<?php include 'vars.php'; ?>
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -16,14 +16,16 @@
   foaf:homepage <https://github.com/egonw/chembl.rdf> ;
   dcterms:title "ChEMBL-RDF" ;
   dcterms:description "RDF data extracted from ChEMBL, a CC-BY-SA database developed at the EBI by J. Overington et al." ;
-  dcterms:publisher "http://egonw.github.com/#me" ;
-  dcterms:created "" ;
-  dcterms:modified "" ;
-  void:uriSpace "http://linkedchemistry.info/chembl/" ;
-  pav:version "13_ops2" ; 
-  pav:importedOn "2012-10-24" ; 
-  pav:importedBy "http://egonw.github.com/#me" ; 
-  pav:importedFrom "ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_13/" ; 
+<?php
+  print("  dcterms:publisher \"" . $importedBy . "\" ;\n");
+  print("  dcterms:created \"" . "\" ;\n");
+  print("  dcterms:modified \"" . "\" ;\n");
+  print("  void:uriSpace \"" . $rooturi . "\" ;\n");
+  print("  pav:version \"" . $version . "_" . $subversion . "\" ; \n");
+  print("  pav:importedOn \"" . $importedOn . "\" ; \n");
+  print("  pav:importedBy \"" . $importedBy . "\" ; \n");
+  print("  pav:importedFrom \"ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_" . $version . "/\" ; \n");
+?>
   void:vocabulary <http://xmlns.com/foaf/0.1/> ;
   void:vocabulary <http://purl.org/dc/terms/>;
   void:vocabulary <http://purl.org/spar/cito/> ;
