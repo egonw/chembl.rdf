@@ -10,7 +10,7 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix pav: <http://purl.org/pav/> .
 
-@prefix : <#> .
+<?php print("@prefix : <" . $rooturi . "void.ttl#> .\n"); ?>
 
 :ChEMBLRDF a void:Dataset ;
   foaf:homepage <https://github.com/egonw/chembl.rdf> ;
