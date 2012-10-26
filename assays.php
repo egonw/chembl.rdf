@@ -52,12 +52,13 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   while ($prop = mysql_fetch_assoc($props)) {
     if ($prop['tid']) {
       $targetURI = $TRG . "t" . $prop['tid'];
-      echo triple( $assay, $ONTO . "hasTarget", $targetURI );
       if ($prop['confidence_score']) {
         $targetScore = $assay . "/score/t" . $prop['tid'];
         echo triple( $assay, $ONTO . "hasTargetScore", $targetScore);
         echo triple( $targetScore, $ONTO . "forTarget", $targetURI);
-        echo typeddata_triple( $targetScore, $ONTO . "hasConfScore", $prop['confidence_score'], $XSD . "int" );
+        echo typeddata_triple( $targetScore, $ONTO . "hasRelationshipType", $prop['relationship_type'], $XSD . "string" );
+        echo typeddata_triple( $targetScore, $ONTO . "isComplex", $prop['complex'], $XSD . "int" );
+        echo typeddata_triple( $targetScore, $ONTO . "isMulti", $prop['multi'], $XSD . "int" );
       }
     }
   }
