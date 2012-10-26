@@ -29,7 +29,7 @@ $allIDs = mysql_query("SELECT DISTINCT * FROM docs WHERE doc_id > 0 " . $limit);
 $num = mysql_numrows($allIDs);
 
 while ($row = mysql_fetch_assoc($allIDs)) {
-  $resource = $RES . "r" . $row['doc_id'];
+  $resource = $CHEMBL . $row['chembl_id'];
   echo triple( $resource, $RDF . "type", $BIBO . "Article" );
   if ($row['doi']) {
     echo data_triple( $resource, $BIBO . "doi", $row['doi'] );

@@ -23,8 +23,12 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   # get the literature references
   $refs = mysql_query("SELECT DISTINCT doc_id FROM compound_records WHERE molregno = $molregno");
   while ($refRow = mysql_fetch_assoc($refs)) {
-    if ($refRow['doc_id'])
-      echo triple( $molecule, $CITO . "citesAsDataSource", $RES . "r" . $refRow['doc_id']);
+    if ($refRow['doc_id']) {
+      $docProps = mysql_query("SELECT DISTINCT chembl_id FROM docs WHERE doc_id = " . $refRow['doc_id']);
+      while ($docProp = mysql_fetch_assoc($docProps)) {
+        echo triple( $molecule, $CITO . "citesAsDataSource", $CHEMBL . $docProp['chembl_id']);
+      }
+    }
   }
 
   # get the compound type, ChEBI, and ChEMBL identifiers

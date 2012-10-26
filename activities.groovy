@@ -43,8 +43,12 @@ sql.eachRow(allMolregno) { row ->
     con.add(actURI, factory.createURI(ONTO + "forMolecule"), factory.createURI(CHEMBL + molRow.chembl_id))
   }
 
-  if (row.doc_id)
-    con.add(actURI, factory.createURI(CITO + "citesAsDataSource"), factory.createURI(RES + "r" + row.doc_id))
+  if (row.doc_id) {
+    docCHEMBLid = "SELECT DISTINCT chembl_id FROM docs WHERE doc_id = " + row.doc_id
+    sql.eachRow(docCHEMBLid) { docRow ->
+      con.add(actURI, factory.createURI(CITO + "citesAsDataSource"), factory.createURI(CHEMBL + docRow.chembl_id))
+    }
+  }
   if (row.relation)
     con.add(actURI, factory.createURI(ONTO + "relation"), factory.createLiteral(row.relation))
 

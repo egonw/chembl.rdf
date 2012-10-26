@@ -45,8 +45,12 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     $description = str_replace("\"", "\\\"", $description);
     echo data_triple( $assay, $ONTO . "hasDescription", $description );
   }
-  if ($row['doc_id'])
-    echo triple( $assay, $CITO . "citesAsDataSource", $RES . "r" . $row['doc_id'] );
+  if ($row['doc_id']) {
+    $docProps = mysql_query("SELECT DISTINCT chembl_id FROM docs WHERE doc_id = " . $row['doc_id']);
+    while ($docProp = mysql_fetch_assoc($docProps)) {
+      echo triple( $assay, $CITO . "citesAsDataSource", $CHEMBL . $docProp['chembl_id'] );
+    }
+  }
 
   $props = mysql_query("SELECT DISTINCT * FROM assay2target WHERE assay_id = " . $row['assay_id']);
   while ($prop = mysql_fetch_assoc($props)) {
