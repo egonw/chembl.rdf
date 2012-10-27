@@ -67,8 +67,6 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   }
   if ($row['protein_accession']) {
     echo data_triple( $target, $DC . "identifier",  "uniprot:" . $row['protein_accession'] );
-    echo triple( $target, $OWL . "sameAs", "http://bio2rdf.org/uniprot:" . $row['protein_accession'] );
-    echo triple( $target, $SKOS . "exactMatch", $UNIPROT . $row['protein_accession'] );
   }
   if ($row['tax_id'])
     echo triple( $target, $ONTO . "hasTaxonomy", "http://bio2rdf.org/taxonomy:" . $row['tax_id'] );
