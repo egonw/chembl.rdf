@@ -66,9 +66,9 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     }
   }
   if ($row['assay_type']) {
-    $props = mysql_query("SELECT DISTINCT * FROM assay_type WHERE assay_type = " . $row['assay_type']);
+    $props = mysql_query("SELECT DISTINCT * FROM assay_type WHERE assay_type = '" . $row['assay_type'] . "'");
     while ($prop = mysql_fetch_assoc($props)) {
-      echo triple( $assay, $ONTO . "hasAssayType", $ONTO . $props['assay_desc'] );
+      echo triple( $assay, $ONTO . "hasAssayType", $ONTO . $prop['assay_desc'] );
     }
   }
 }
