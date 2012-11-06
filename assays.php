@@ -13,8 +13,7 @@ mysql_select_db($db) or die(mysql_error());
 # echo "<!-- Database was selected! -->\n";
 
 $allIDs = mysql_query(
-    "SELECT DISTINCT * FROM assays, assay_type " .
-    "WHERE assays.assay_type = assay_type.assay_type" .
+    "SELECT DISTINCT * FROM assays " .
     $limit
 );
 
@@ -66,7 +65,12 @@ while ($row = mysql_fetch_assoc($allIDs)) {
       }
     }
   }
-  echo triple( $assay, $ONTO . "hasAssayType", $ONTO . $row['assay_desc'] );
+  if ($row['assay_type']) {
+    $props = mysql_query("SELECT DISTINCT * FROM assay_type WHERE assay_type = " . $row['assay_type']);
+    while ($prop = mysql_fetch_assoc($props)) {
+      echo triple( $assay, $ONTO . "hasAssayType", $ONTO . $props['assay_desc'] );
+    }
+  }
 }
 
 ?>
