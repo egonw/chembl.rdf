@@ -16,6 +16,24 @@ $allIDs = mysql_query(
 
 $num = mysql_numrows($allIDs);
 
+$mastervoid = $rooturi . "void.ttl#";
+$masterset = $mastervoid . "ChEMBLRDF";
+$thisset = $mastervoid . "ChEMBLInternalMapping";
+echo triple( $thisset, $RDF . "type", $VOID . "Linkset" );
+$chebiset = $mastervoid . "ChEBI";
+echo triple( $chebiset, $RDF . "type", $VOID . "Dataset" );
+
+echo triple( $masterset, $VOID . "subset" , $thisset );
+echo "\n";
+echo triple( $thisset, $DCT . "title", "ChEMBL - ChEBI OWL mappings" ) ;
+echo triple( $thisset, $DCT . "description", "Mappings between ChEMBL compounds and the ChEBI ontology.") ;
+echo triple( $thisset, $VOID . "subjectsTarget", $thisset) ;
+echo triple( $thisset, $VOID . "objectsTarget", $chebiset);
+echo triple( $thisset, $VOID . "linkPredicate", $SKOS . "exactMatch" );
+echo triple( $thisset, $DCT . "created", "2012-06-11" ) ;
+echo triple( $thisset, $DCT . "license", $license ) ;
+echo "\n";
+
 while ($row = mysql_fetch_assoc($allIDs)) {
   $molregno = $row['molregno'];
   $molecule = $MOL . "m" . $molregno;

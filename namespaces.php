@@ -7,11 +7,17 @@ $XSD = "http://www.w3.org/2001/XMLSchema#";
 $SKOS = "http://www.w3.org/2004/02/skos/core#";
 
 $DC = "http://purl.org/dc/elements/1.1/";
+$DCT = "http://purl.org/dc/terms/";
 $BIBO = "http://purl.org/ontology/bibo/";
 $FOAF = "http://xmlns.com/foaf/0.1/";
 $CITO = "http://purl.org/spar/cito/";
 $SKOS = "http://www.w3.org/2004/02/skos/core#";
 $QUDT = "http://qudt.org/schema/qudt#";
+$VOID = "http://rdfs.org/ns/void#";
+$WV = "http://vocab.org/waiver/terms/norms";
+$SD = "http://www.w3.org/ns/sparql-service-description#";
+$PAV = "http://purl.org/pav/";
+$DUL = "http://ontologydesignpatterns.org/ont/dul/DUL.owl#";
 
 $OBO  =  "http://purl.obolibrary.org/obo#";
 $BODO = "http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#";
