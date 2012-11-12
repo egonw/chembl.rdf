@@ -11,7 +11,7 @@ mysql_select_db($db) or die(mysql_error());
 # echo "<!-- Database was selected! -->\n";
 
 $allIDs = mysql_query(
-  "SELECT DISTINCT molregno FROM compound_records " . $limit
+  "SELECT DISTINCT molregno, chembl_id FROM molecule_dictionary " . $limit
 );
 
 $num = mysql_numrows($allIDs);
@@ -36,7 +36,7 @@ echo "\n";
 
 while ($row = mysql_fetch_assoc($allIDs)) {
   $molregno = $row['molregno'];
-  $molecule = $MOL . "m" . $molregno;
+  $molecule = $CHEMBL . $row['chembl_id'];
 
   # get the compound type, ChEBI, and ChEMBL identifiers
   $chebi = mysql_query("SELECT DISTINCT chebi_par_id FROM molecule_dictionary WHERE molregno = $molregno");
