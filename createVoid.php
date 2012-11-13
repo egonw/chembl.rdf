@@ -17,12 +17,14 @@
   dcterms:title "ChEMBL-RDF" ;
   dcterms:description "RDF data extracted from ChEMBL, a CC-BY-SA database developed at the EBI by J. Overington et al." ;
 <?php
-  print("  dcterms:publisher \"" . $importedBy . "\" ;\n");
-  print("  dcterms:created \"" . "\" ;\n");
-  print("  dcterms:modified \"" . "\" ;\n");
+  $current_date = gmDate("Y-m-d\TH:i:s");
+  print("  pav:authoredBy <" . $importedBy . "> ;\n");
+  print("  pav:authoredOn \"" . $current_date . "\"^^xsd:dateTime ;\n");
+  print("  pav:createdWith <https://raw.github.com/openphacts/chembl.rdf/master/createVoid.php> ;\n");
+  // print("  dcterms:modified \"" . "\" ;\n");
   print("  void:uriSpace \"" . $rooturi . "\" ;\n");
   print("  pav:version \"" . $version . "_" . $subversion . "\" ; \n");
-  print("  pav:importedOn \"" . $importedOn . "\" ; \n");
+  print("  pav:importedOn \"" . $importedOn . "\"^^xsd:dateTime ; \n");
   print("  pav:importedBy \"" . $importedBy . "\" ; \n");
   print("  pav:importedFrom \"ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_" . $version . "/\" ; \n");
 ?>
