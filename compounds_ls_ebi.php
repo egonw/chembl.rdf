@@ -1,20 +1,18 @@
 <?php header('Content-type: text/n3');
 
-include 'vars.php';
 include 'namespaces.php';
 include 'functions.php';
 
-mysql_connect("localhost", $user, $pwd) or die(mysql_error());
-# echo "<!-- Connection to the server was successful! -->\n";
+$ini = parse_ini_file("vars.properties");
+$rooturi = $ini["rooturi"];
+$db = $ini["dbprefix"] . $ini["version"];
 
-mysql_select_db($db) or die(mysql_error());
-# echo "<!-- Database was selected! -->\n";
+$con = mysqli_connect(ini_get("mysqli.default_host"), ini_get("mysqli.default_user"), ini_get("mysqli.default_pw"), $db);
+if (mysqli_connect_errno($con)) die(mysqli_connect_errno($con));
 
-$allIDs = mysql_query(
-  "SELECT DISTINCT molregno, chembl_id FROM molecule_dictionary " . $limit
+$allIDs = mysqli_query($con,
+  "SELECT DISTINCT molregno, chembl_id FROM molecule_dictionary " . $ini["limit"]
 );
-
-$num = mysql_numrows($allIDs);
 
 $chebiSpace = "http://purl.obolibrary.org/obo/";
 
@@ -42,16 +40,16 @@ echo triple( $thisset, $VOID . "subjectsTarget", $molset) ;
 echo triple( $thisset, $VOID . "objectsTarget", $chebiset);
 echo triple( $thisset, $VOID . "linkPredicate", $SKOS . "exactMatch" );
 echo triple( $thisset, $DCT . "created", "2012-06-11" ) ;
-echo triple( $thisset, $DCT . "license", $license ) ;
+echo triple( $thisset, $DCT . "license", $ini["license"] ) ;
 echo "\n";
 
-while ($row = mysql_fetch_assoc($allIDs)) {
+while ($row = mysqli_fetch_assoc($allIDs)) {
   $molregno = $row['molregno'];
   $molecule = $CHEMBL . $row['chembl_id'];
 
   # get the compound type, ChEBI, and ChEMBL identifiers
-  $chebi = mysql_query("SELECT DISTINCT chebi_par_id FROM molecule_dictionary WHERE molregno = $molregno");
-  if ($chebiRow = mysql_fetch_assoc($chebi)) {
+  $chebi = mysqli_query($con, "SELECT DISTINCT chebi_par_id FROM molecule_dictionary WHERE molregno = $molregno");
+  if ($chebiRow = mysqli_fetch_assoc($chebi)) {
     $chebiid = $chebiRow['chebi_par_id'];
     if ($chebiid) {
       echo triple( $molecule, $SKOS . "exactMatch", $chebiSpace . "CHEBI_" . $chebiid );

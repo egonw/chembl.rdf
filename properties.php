@@ -4,17 +4,17 @@ include 'vars.php';
 include 'namespaces.php';
 include 'functions.php';
 
-mysql_connect("localhost", $user, $pwd) or die(mysql_error());
+mysqli_connect("localhost", $user, $pwd) or die(mysqli_error());
 # echo "<!-- Connection to the server was successful! -->\n";
 
-mysql_select_db($db) or die(mysql_error());
+mysqli_select_db($db) or die(mysqli_error());
 # echo "<!-- Database was selected! -->\n";
 
-$allIDs = mysql_query(
+$allIDs = mysqli_query(
   "SELECT * FROM compound_properties " . $limit
 );
 
-$num = mysql_numrows($allIDs);
+$num = mysqli_numrows($allIDs);
 
 # CHEMINF mappings
 $descs = array(
@@ -50,7 +50,7 @@ $descTypes = array(
   "mw_freebase" => "double",
 );
 
-while ($row = mysql_fetch_assoc($allIDs)) {
+while ($row = mysqli_fetch_assoc($allIDs)) {
   $molregno = $row['molregno'];
   $molecule = $MOL . "m" . $molregno;
 

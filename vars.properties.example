@@ -1,8 +1,15 @@
+; edit this file and save it as var.properties
+
+[input]
 version=13
-rooturi=http://data.kasabi.com/dataset/chembl-rdf/
-
+importedOn=2012-10-24T10:30:01
+importedBy=http://egonw.github.com/#me
 dbprefix=chembl_
-user=user
-pwd=secret
 
+[conversion]
+mysqliini=/etc/php5/conf.d/20-mysqli.ini
 limit=LIMIT 1
+
+[output]
+subversion=6
+rooturi=http://linkedchemistry.info/chembl/

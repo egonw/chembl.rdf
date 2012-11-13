@@ -2,24 +2,21 @@
 
 <?php 
 
-include 'vars.php';
 include 'namespaces.php';
 include 'functions.php';
 
-mysql_connect("localhost", $user, $pwd) or die(mysql_error());
-# echo "<!-- Connection to the server was successful! -->\n";
+$ini = parse_ini_file("vars.properties");
+$rooturi = $ini["rooturi"];
+$db = $ini["dbprefix"] . $ini["version"];
 
-mysql_select_db($db) or die(mysql_error());
-# echo "<!-- Database was selected! -->\n";
+$con = mysqli_connect(ini_get("mysqli.default_host"), ini_get("mysqli.default_user"), ini_get("mysqli.default_pw"), $db);
+if (mysqli_connect_errno($con)) die(mysqli_connect_errno($con));
 
-$allIDs = mysql_query(
-    "SELECT DISTINCT * FROM assays " .
-    $limit
+$allIDs = mysqli_query($con,
+    "SELECT DISTINCT * FROM assays " . $ini["limit"]
 );
 
-$num = mysql_numrows($allIDs);
-
-while ($row = mysql_fetch_assoc($allIDs)) {
+while ($row = mysqli_fetch_assoc($allIDs)) {
   $assay = $CHEMBL . $row['chembl_id'];
   echo triple( $assay, $RDF . "type", $ONTO . "Assay" );
 
@@ -42,14 +39,14 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     echo data_triple( $assay, $ONTO . "hasDescription", $description );
   }
   if ($row['doc_id']) {
-    $docProps = mysql_query("SELECT DISTINCT chembl_id FROM docs WHERE doc_id = " . $row['doc_id']);
-    while ($docProp = mysql_fetch_assoc($docProps)) {
+    $docProps = mysqli_query($con, "SELECT DISTINCT chembl_id FROM docs WHERE doc_id = " . $row['doc_id']);
+    while ($docProp = mysqli_fetch_assoc($docProps)) {
       echo triple( $assay, $CITO . "citesAsDataSource", $CHEMBL . $docProp['chembl_id'] );
     }
   }
 
-  $props = mysql_query("SELECT DISTINCT * FROM assay2target WHERE assay_id = " . $row['assay_id']);
-  while ($prop = mysql_fetch_assoc($props)) {
+  $props = mysqli_query($con, "SELECT DISTINCT * FROM assay2target WHERE assay_id = " . $row['assay_id']);
+  while ($prop = mysqli_fetch_assoc($props)) {
     if ($prop['tid']) {
       $targetURI = $TRG . "t" . $prop['tid'];
       if ($prop['confidence_score']) {
@@ -63,8 +60,8 @@ while ($row = mysql_fetch_assoc($allIDs)) {
     }
   }
   if ($row['assay_type']) {
-    $props = mysql_query("SELECT DISTINCT * FROM assay_type WHERE assay_type = '" . $row['assay_type'] . "'");
-    while ($prop = mysql_fetch_assoc($props)) {
+    $props = mysqli_query($con, "SELECT DISTINCT * FROM assay_type WHERE assay_type = '" . $row['assay_type'] . "'");
+    while ($prop = mysqli_fetch_assoc($props)) {
       echo triple( $assay, $ONTO . "hasAssayType", $ONTO . $prop['assay_desc'] );
     }
   }

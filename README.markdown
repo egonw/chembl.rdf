@@ -63,7 +63,12 @@ ChEMBL 13, OpenRDF (aka Sesame), SLF4J, and the MySQL JDBC plugin.
 
 # Installation
 
-The scripts expect a script only readble by the server software called vars.php, with content like:
+For PHP the MySQL server user and password are configured in a file called like
+mysqli.ini, for example on Debian:
+
+    /etc/php5/conf.d/20-mysqli.ini
+
+The scripts expect a script only readble by the server software called vars.properties, with content like:
 
     <?php
 

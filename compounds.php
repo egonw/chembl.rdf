@@ -1,39 +1,37 @@
 <?php header('Content-type: text/n3');
 
-include 'vars.php';
 include 'namespaces.php';
 include 'functions.php';
 
-mysql_connect("localhost", $user, $pwd) or die(mysql_error());
-# echo "<!-- Connection to the server was successful! -->\n";
+$ini = parse_ini_file("vars.properties");
+$rooturi = $ini["rooturi"];
+$db = $ini["dbprefix"] . $ini["version"];
 
-mysql_select_db($db) or die(mysql_error());
-# echo "<!-- Database was selected! -->\n";
+$con = mysqli_connect(ini_get("mysqli.default_host"), ini_get("mysqli.default_user"), ini_get("mysqli.default_pw"), $db);
+if (mysqli_connect_errno($con)) die(mysqli_connect_errno($con));
 
-$allIDs = mysql_query(
-  "SELECT DISTINCT molregno, chembl_id FROM molecule_dictionary " . $limit
+$allIDs = mysqli_query($con,
+  "SELECT DISTINCT molregno, chembl_id FROM molecule_dictionary " . $ini["limit"]
 );
 
-$num = mysql_numrows($allIDs);
-
-while ($row = mysql_fetch_assoc($allIDs)) {
+while ($row = mysqli_fetch_assoc($allIDs)) {
   $molregno = $row['molregno'];
   $molecule = $CHEMBL . $row['chembl_id'];
 
   # get the literature references
-  $refs = mysql_query("SELECT DISTINCT doc_id FROM compound_records WHERE molregno = $molregno");
-  while ($refRow = mysql_fetch_assoc($refs)) {
+  $refs = mysqli_query($con, "SELECT DISTINCT doc_id FROM compound_records WHERE molregno = $molregno");
+  while ($refRow = mysqli_fetch_assoc($refs)) {
     if ($refRow['doc_id']) {
-      $docProps = mysql_query("SELECT DISTINCT chembl_id FROM docs WHERE doc_id = " . $refRow['doc_id']);
-      while ($docProp = mysql_fetch_assoc($docProps)) {
+      $docProps = mysqli_query($con, "SELECT DISTINCT chembl_id FROM docs WHERE doc_id = " . $refRow['doc_id']);
+      while ($docProp = mysqli_fetch_assoc($docProps)) {
         echo triple( $molecule, $CITO . "citesAsDataSource", $CHEMBL . $docProp['chembl_id']);
       }
     }
   }
 
   # get the compound type, ChEBI, and ChEMBL identifiers
-  $chebi = mysql_query("SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = $molregno");
-  if ($chebiRow = mysql_fetch_assoc($chebi)) {
+  $chebi = mysqli_query($con, "SELECT DISTINCT * FROM molecule_dictionary WHERE molregno = $molregno");
+  if ($chebiRow = mysqli_fetch_assoc($chebi)) {
     // The BFO SNAP MaterialEntity is the closest thing that all these things adhere too...
     // Let's hope this does not conflict with any of the used ontologies... for ChEBI we're safe, I think
     echo triple( $molecule, $RDFS . "subClassOf", $SNAP . "MaterialEntity");
@@ -67,8 +65,8 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   }
 
   # get the structure information
-  $structs = mysql_query("SELECT DISTINCT * FROM compound_structures WHERE molregno = $molregno");
-  while ($struct = mysql_fetch_assoc($structs)) {
+  $structs = mysqli_query($con, "SELECT DISTINCT * FROM compound_structures WHERE molregno = $molregno");
+  while ($struct = mysqli_fetch_assoc($structs)) {
     if ($struct['molformula']) {
       $molform = $struct['molformula'];
       $molform = str_replace(" ", "", $molform);
@@ -107,8 +105,8 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   }
 
   # get parent/child information
-  $hierarchies = mysql_query("SELECT DISTINCT * FROM molecule_hierarchy WHERE molregno = $molregno");
-  while ($hierarchy = mysql_fetch_assoc($hierarchies)) {
+  $hierarchies = mysqli_query($con, "SELECT DISTINCT * FROM molecule_hierarchy WHERE molregno = $molregno");
+  while ($hierarchy = mysqli_fetch_assoc($hierarchies)) {
     if ($hierarchy['parent_molregno'] != $molregno) {
       $parent = $MOL . "m" . $hierarchy['parent_molregno'];
       echo triple( $molecule, $ONTO . "parentCompound", $parent );

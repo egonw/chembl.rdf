@@ -10,9 +10,10 @@ import org.openrdf.rio.ntriples.NTriplesWriter
 
 def props = new Properties()
 new File("vars.properties").withInputStream { stream -> props.load(stream) }
+if (props.mysqliini) new File(props.mysqliini).withInputStream { stream -> props.load(stream) }
 
 def url = "jdbc:mysql://localhost/" + props.dbprefix + props.version
-def sql = Sql.newInstance(url, props.user, props.pwd, "com.mysql.jdbc.Driver")
+def sql = Sql.newInstance(url, props["mysqli.default_user"], props["mysqli.default_pw"], "com.mysql.jdbc.Driver")
 
 allMolregno = "SELECT DISTINCT * FROM activities " + props.limit
 

@@ -2,20 +2,18 @@
 
 <?php
 
-include 'vars.php';
 include 'namespaces.php';
 include 'functions.php';
 include 'to.php';
 
-mysql_connect("localhost", $user, $pwd) or die(mysql_error());
-# echo "<!-- Connection to the server was successful! -->\n";
+$ini = parse_ini_file("vars.properties");
+$rooturi = $ini["rooturi"];
+$db = $ini["dbprefix"] . $ini["version"];
 
-mysql_select_db($db) or die(mysql_error());
-# echo "<!-- Database was selected! -->\n";
+$con = mysqli_connect(ini_get("mysqli.default_host"), ini_get("mysqli.default_user"), ini_get("mysqli.default_pw"), $db);
+if (mysqli_connect_errno($con)) die(mysqli_connect_errno($con));
 
-$allIDs = mysql_query("SELECT DISTINCT * FROM target_dictionary" . $limit);
-
-$num = mysql_numrows($allIDs);
+$allIDs = mysqli_query($con, "SELECT DISTINCT * FROM target_dictionary " . $ini["limit"]);
 
 function appendTo($appendTo, $string) {
   if (strlen($string) > 0) {
@@ -24,7 +22,7 @@ function appendTo($appendTo, $string) {
   return $appendTo;
 }
 
-while ($row = mysql_fetch_assoc($allIDs)) {
+while ($row = mysqli_fetch_assoc($allIDs)) {
   $target = $CHEMBL . $row['chembl_id'];
 
   if ($row['protein_accession']) {

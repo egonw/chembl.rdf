@@ -6,10 +6,10 @@ include 'vars.php';
 include 'namespaces.php';
 include 'functions.php';
 
-mysql_connect("localhost", $user, $pwd) or die(mysql_error());
+mysqli_connect("localhost", $user, $pwd) or die(mysqli_error());
 # echo "<!-- Connection to the server was successful! -->\n";
 
-mysql_select_db($db) or die(mysql_error());
+mysqli_select_db($db) or die(mysqli_error());
 # echo "<!-- Database was selected! -->\n";
 
 $NS = "http://www.openphacts.org/chembl/target/TARONT";
@@ -67,8 +67,8 @@ echo "<?php\n";
 echo "\$array = [\n";
 
 # classifications
-$class = mysql_query("SELECT DISTINCT * FROM target_class");
-while ($classRow = mysql_fetch_assoc($class)) {
+$class = mysqli_query("SELECT DISTINCT * FROM target_class");
+while ($classRow = mysqli_fetch_assoc($class)) {
   $ontology["ops:higher"] = $root;
   $ontology["ops:stack"] = "";
   $ontology = level($classRow, "l1", $ontology);
