@@ -16,18 +16,29 @@ $allIDs = mysql_query(
 
 $num = mysql_numrows($allIDs);
 
+$chebiSpace = "http://purl.obolibrary.org/obo/";
+
 $mastervoid = $rooturi . "void.ttl#";
 $masterset = $mastervoid . "ChEMBLRDF";
+
 $thisset = $mastervoid . "ChEMBLInternalMapping";
 echo triple( $thisset, $RDF . "type", $VOID . "Linkset" );
+echo triple( $masterset, $VOID . "subset" , $thisset );
+
+$molset = $mastervoid . "ChEMBLIDs";
+echo triple( $molset, $RDF . "type", $VOID . "Dataset" );
+echo data_triple( $molset, $VOID . "uriSpace", $CHEMBL );
+echo triple( $masterset, $VOID . "subset" , $molset );
+
 $chebiset = $mastervoid . "ChEBI";
 echo triple( $chebiset, $RDF . "type", $VOID . "Dataset" );
+echo data_triple( $chebiset, $VOID . "uriSpace", $chebiSpace );
 
 echo triple( $masterset, $VOID . "subset" , $thisset );
 echo "\n";
 echo triple( $thisset, $DCT . "title", "ChEMBL - ChEBI OWL mappings" ) ;
-echo triple( $thisset, $DCT . "description", "Mappings between ChEMBL compounds and the ChEBI ontology.") ;
-echo triple( $thisset, $VOID . "subjectsTarget", $thisset) ;
+echo data_triple( $thisset, $DCT . "description", "Mappings between ChEMBL compounds and the ChEBI ontology.") ;
+echo triple( $thisset, $VOID . "subjectsTarget", $molset) ;
 echo triple( $thisset, $VOID . "objectsTarget", $chebiset);
 echo triple( $thisset, $VOID . "linkPredicate", $SKOS . "exactMatch" );
 echo triple( $thisset, $DCT . "created", "2012-06-11" ) ;
@@ -43,7 +54,7 @@ while ($row = mysql_fetch_assoc($allIDs)) {
   if ($chebiRow = mysql_fetch_assoc($chebi)) {
     $chebiid = $chebiRow['chebi_par_id'];
     if ($chebiid) {
-      echo triple( $molecule, $SKOS . "exactMatch", "http://purl.obolibrary.org/obo/CHEBI_" . $chebiid );
+      echo triple( $molecule, $SKOS . "exactMatch", $chebiSpace . "CHEBI_" . $chebiid );
     }
   }
 
