@@ -8,6 +8,8 @@ import org.openrdf.rio.ntriples.NTriplesWriter
 
 // export CLASSPATH=$(JARS=(*.jar); IFS=:; echo "${JARS[*]}")
 
+xsdStringURI = "http://www.w3.org/2001/XMLSchema#string"
+
 def props = new Properties()
 new File("vars.properties").withInputStream { stream -> props.load(stream) }
 if (props.mysqliini) new File(props.mysqliini).withInputStream { stream -> props.load(stream) }
@@ -51,11 +53,11 @@ sql.eachRow(allMolregno) { row ->
     }
   }
   if (row.relation)
-    con.add(actURI, factory.createURI(ONTO + "relation"), factory.createLiteral(row.relation))
+    con.add(actURI, factory.createURI(ONTO + "relation"), factory.createLiteral(row.relation, factory.createURI(xsdStringURI)))
 
   if (row.standard_value) {
     type = row.standard_type
-    con.add(actURI, factory.createURI(ONTO + "type"), factory.createLiteral(type))
+    con.add(actURI, factory.createURI(ONTO + "type"), factory.createLiteral(type, factory.createURI(xsdStringURI)))
 
     // now do the units: check if we need to use QUDT and if we normalize
     units = row.standard_units
@@ -63,7 +65,7 @@ sql.eachRow(allMolregno) { row ->
     con.add(actURI, factory.createURI(ONTO + "standardValue"), factory.createLiteral((float)row.standard_value))
     if (units != null) {
       // units are sometimes null, but the value should always be given
-      con.add(actURI, factory.createURI(ONTO + "standardUnits"), factory.createLiteral(units))
+      con.add(actURI, factory.createURI(ONTO + "standardUnits"), factory.createLiteral(units, factory.createURI(xsdStringURI)))
     }
   }
 
