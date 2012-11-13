@@ -1,20 +1,18 @@
 <?php header('Content-type: text/n3');
 
-include 'vars.php';
 include 'namespaces.php';
 include 'functions.php';
 
-mysqli_connect("localhost", $user, $pwd) or die(mysqli_error());
-# echo "<!-- Connection to the server was successful! -->\n";
+$ini = parse_ini_file("vars.properties");
+$rooturi = $ini["rooturi"];
+$db = $ini["dbprefix"] . $ini["version"];
 
-mysqli_select_db($db) or die(mysqli_error());
-# echo "<!-- Database was selected! -->\n";
+$con = mysqli_connect(ini_get("mysqli.default_host"), ini_get("mysqli.default_user"), ini_get("mysqli.default_pw"), $db);
+if (mysqli_connect_errno($con)) die(mysqli_connect_errno($con));
 
-$allIDs = mysqli_query(
-  "SELECT * FROM compound_properties " . $limit
+$allIDs = mysqli_query($con,
+  "SELECT * FROM chembl_id_lookup, compound_properties WHERE chembl_id_lookup.entity_id = compound_properties.molregno " . $ini["limit"]
 );
-
-$num = mysqli_numrows($allIDs);
 
 # CHEMINF mappings
 $descs = array(
@@ -52,7 +50,7 @@ $descTypes = array(
 
 while ($row = mysqli_fetch_assoc($allIDs)) {
   $molregno = $row['molregno'];
-  $molecule = $MOL . "m" . $molregno;
+  $molecule = $CHEMBL . $row['chembl_id'];
 
   foreach ($descs as $value => $cheminf) {
     if ($row[$value]) {

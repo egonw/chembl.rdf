@@ -2,7 +2,7 @@ all: assays activities compounds targets docs
 
 assays: assays.nt
 activities: activities.nt activities_qudt.nt
-compounds: compounds.nt compounds_labels.nt compounds_ls_ebi.nt
+compounds: compounds.nt compounds_labels.nt compounds_ls_ebi.nt compounds_properties.nt
 targets: targets.nt targets_ls_bio2rdf.nt targets_ls_uniprot.nt
 docs: docs.nt docs_ls_crossref.nt docs_ls_pubmed.nt
 
@@ -20,6 +20,9 @@ activities_qudt.nt: activities_qudt.groovy
 
 compounds.nt: compounds.php
 	@php compounds.php > compounds.nt
+
+compounds_properties.nt: compounds_properties.php
+	@php compounds_properties.php > compounds_properties.nt
 
 compounds_labels.nt: compounds_labels.groovy
 	@groovy compounds_labels.groovy > compounds_labels.nt
