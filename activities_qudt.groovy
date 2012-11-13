@@ -62,6 +62,7 @@ ASS = props.rooturi + "assay/"
 OPS = "http://www.openphacts.org/chembl/onto/#"
 
 unitFactory = UnitFactory.getInstance();
+xsd = "http://www.w3.org/2001/XMLSchema#"
 
 sql.eachRow(allMolregno) { row ->
   def repos = new SailRepository(new MemoryStore())
@@ -82,7 +83,7 @@ sql.eachRow(allMolregno) { row ->
       // first output the value as QUDT
       con.add(actURI,
         factory.createURI(OPS + "standardValue"),
-        factory.createLiteral((double)row.standard_value)
+        factory.createLiteral((float)row.standard_value)
       )
       con.add(actURI,
         factory.createURI(OPS + "standardUnit"),
@@ -103,7 +104,7 @@ sql.eachRow(allMolregno) { row ->
               normalizedQuantity = quantity.convertTo(normalizedUnit)
               con.add(actURI,
                 factory.createURI(OPS + "normalisedValue"),
-                factory.createLiteral(normalizedQuantity.value)
+                factory.createLiteral((float)normalizedQuantity.value)
               )
               con.add(actURI,
                 factory.createURI(OPS + "normalisedUnit"),
