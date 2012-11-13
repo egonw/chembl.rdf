@@ -42,8 +42,8 @@ sql.eachRow(allMolregno) { row ->
   allNames = "SELECT DISTINCT synonyms FROM molecule_synonyms WHERE molregno = " + row.molregno
   sql.eachRow(allNames) { nameRow ->
     if (nameRow['synonyms'] != null) {
-      con.add(molURI, RDFS.LABEL, nameRow['synonyms'],
-        factory.createLiteral(nameRow['compound_name'], factory.createURI(xsdStringURI))
+      con.add(molURI, RDFS.LABEL,
+        factory.createLiteral(nameRow['synonyms'], factory.createURI(xsdStringURI))
       )
     }
   }
