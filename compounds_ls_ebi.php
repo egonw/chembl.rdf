@@ -19,6 +19,7 @@ $chebiSpace = "http://purl.obolibrary.org/obo/";
 $mastervoid = $rooturi . "void.ttl#";
 $masterset = $mastervoid . "ChEMBLRDF";
 
+$current_date = gmDate("Y-m-d\TH:i:s");
 $thisset = $mastervoid . "ChEMBLInternalMapping";
 echo triple( $thisset, $RDF . "type", $VOID . "Linkset" );
 echo triple( $masterset, $VOID . "subset" , $thisset );
@@ -34,12 +35,12 @@ echo data_triple( $chebiset, $VOID . "uriSpace", $chebiSpace );
 
 echo triple( $masterset, $VOID . "subset" , $thisset );
 echo "\n";
-echo triple( $thisset, $DCT . "title", "ChEMBL - ChEBI OWL mappings" ) ;
+echo data_triple( $thisset, $DCT . "title", "ChEMBL - ChEBI OWL mappings" ) ;
 echo data_triple( $thisset, $DCT . "description", "Mappings between ChEMBL compounds and the ChEBI ontology.") ;
 echo triple( $thisset, $VOID . "subjectsTarget", $molset) ;
 echo triple( $thisset, $VOID . "objectsTarget", $chebiset);
 echo triple( $thisset, $VOID . "linkPredicate", $SKOS . "exactMatch" );
-echo triple( $thisset, $DCT . "created", "2012-06-11" ) ;
+echo typeddata_triple( $thisset, $DCT . "created",  $current_date, $XSD . "dateTime") ;
 echo triple( $thisset, $DCT . "license", $ini["license"] ) ;
 echo "\n";
 
