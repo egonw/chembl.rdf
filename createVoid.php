@@ -1,4 +1,11 @@
-<?php include 'vars.php'; ?>
+<?php
+  $ini = parse_ini_file("vars.properties");
+  $rooturi = $ini["rooturi"];
+  $version = $ini["version"];
+  $subversion = $ini["subversion"];
+  $importedOn = $ini["importedOn"];
+  $importedBy = $ini["importedBy"];
+?>
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
