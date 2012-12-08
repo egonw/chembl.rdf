@@ -13,3 +13,4 @@ limit=LIMIT 1
 [output]
 subversion=6
 rooturi=http://linkedchemistry.info/chembl/
+datadump=http://semantics.bigcat.unimaas.nl/chembl/
