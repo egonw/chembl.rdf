@@ -5,6 +5,7 @@ include 'functions.php';
 
 $ini = parse_ini_file("vars.properties");
 $rooturi = $ini["rooturi"];
+$importedBy = $ini["importedBy"];
 $db = $ini["dbprefix"] . $ini["version"];
 
 $con = mysqli_connect(ini_get("mysqli.default_host"), ini_get("mysqli.default_user"), ini_get("mysqli.default_pw"), $db);
@@ -21,16 +22,20 @@ $masterset = $mastervoid . "ChEMBLRDF";
 
 $current_date = gmDate("Y-m-d\TH:i:s");
 $thisset = $mastervoid . "ChEMBLInternalMapping";
+echo triple( $thisset , $PAV . "createdBy",  $importedBy );
+echo typeddata_triple( $thisset, $PAV . "createdOn", $current_date,  $XSD . "dateTime" );
+echo triple( $thisset , $PAV . "authoredBy",  $importedBy );
+echo typeddata_triple( $thisset, $PAV . "authoredOn", $current_date,  $XSD . "dateTime" );
 echo triple( $thisset, $RDF . "type", $VOID . "Linkset" );
 echo triple( $masterset, $VOID . "subset" , $thisset );
 
 $molset = $mastervoid . "ChEMBLIDs";
-echo triple( $molset, $RDF . "type", $VOID . "Dataset" );
+# echo triple( $molset, $RDF . "type", $VOID . "Dataset" );
 echo data_triple( $molset, $VOID . "uriSpace", $CHEMBL );
 echo triple( $masterset, $VOID . "subset" , $molset );
 
 $chebiset = $mastervoid . "ChEBI";
-echo triple( $chebiset, $RDF . "type", $VOID . "Dataset" );
+# echo triple( $chebiset, $RDF . "type", $VOID . "Dataset" );
 echo data_triple( $chebiset, $VOID . "uriSpace", $chebiSpace );
 
 echo triple( $masterset, $VOID . "subset" , $thisset );
@@ -40,8 +45,8 @@ echo data_triple( $thisset, $DCT . "description", "Mappings between ChEMBL compo
 echo triple( $thisset, $VOID . "subjectsTarget", $molset) ;
 echo triple( $thisset, $VOID . "objectsTarget", $chebiset);
 echo triple( $thisset, $VOID . "linkPredicate", $SKOS . "exactMatch" );
-echo typeddata_triple( $thisset, $DCT . "created",  $current_date, $XSD . "dateTime") ;
 echo triple( $thisset, $DCT . "license", $ini["license"] ) ;
+echo triple( $thisset, $DUL . "expresses", $CHEMINF . "CHEMINF_000407");
 echo "\n";
 
 while ($row = mysqli_fetch_assoc($allIDs)) {

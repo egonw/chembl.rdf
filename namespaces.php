@@ -20,7 +20,7 @@ $VOID = "http://rdfs.org/ns/void#";
 $WV = "http://vocab.org/waiver/terms/norms";
 $SD = "http://www.w3.org/ns/sparql-service-description#";
 $PAV = "http://purl.org/pav/";
-$DUL = "http://ontologydesignpatterns.org/ont/dul/DUL.owl#";
+$DUL = "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#";
 
 $OBO  =  "http://purl.obolibrary.org/obo#";
 $BODO = "http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#";
