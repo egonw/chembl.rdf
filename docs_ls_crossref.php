@@ -17,7 +17,6 @@ $allIDs = mysqli_query($con, "SELECT DISTINCT * FROM docs WHERE doc_id > 0 " . $
 while ($row = mysqli_fetch_assoc($allIDs)) {
   $resource = $CHEMBL . $row['chembl_id'];
   if ($row['doi']) {
-    echo data_triple( $resource, $BIBO . "doi", $row['doi'] );
     echo triple( $resource, $OWL . "sameAs",  "http://dx.doi.org/" . $row['doi'] );
   }
 }
