@@ -14,7 +14,7 @@ if (mysqli_connect_errno($con)) die(mysqli_connect_errno($con));
 # VOID
 $mastervoid = $rooturi . "void.ttl#";
 $masterset = $mastervoid . "ChEMBLRDF";
-$thisset = $mastervoid . "ChEMBLInternalMapping";
+$thisset = $mastervoid . "ChEMBLChEBIMapping";
 $thisSetTitle = "ChEMBL - ChEBI OWL mappings";
 $thisSetDescription = "Mappings between ChEMBL compounds and the ChEBI ontology.";
 $sourceSet = $mastervoid . "ChEMBLIDs";
