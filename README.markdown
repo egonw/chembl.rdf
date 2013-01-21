@@ -1,4 +1,3 @@
-
 # About
 
 ChEMBL is medicinal chemistry database by the team of dr. J. Overington at the EBI.
@@ -18,15 +17,15 @@ Or as SNORQL at:
 
   http://rdf.farmbio.uu.se/chembl/snorql
 
-Additionally, the data is available as Linked Data via Kasabi:
+Additionally, the data is available as Linked Data via LinkedChemistry.info:
 
-  http://kasabi.com/dataset/chembl-rdf
+  http://linkedchemistry.info
 
 # Download
 
-Alternatively, you can download the full set of triples as n3 from:
+Alternatively, you can download the full set of triples as n3 or n-triples from:
 
-  http://semantics.bigcat.unimaas.nl/chembl12/
+  http://semantics.bigcat.unimaas.nl/chembl/
 
 # Copyright / License
 
