@@ -110,11 +110,17 @@ sql.eachRow(allMolregno) { row ->
                 factory.createURI(OPS + "normalisedUnit"),
                 factory.createURI(normalizedUnit.resource.toString())
               )
+            } else {
+              // println "# WARN: normalized unit == null or equals the original: " + normalizedUnit
             }
           } else {
             println "# WARN: wanting to normalize $type $units, but no normalization found: " + normalizationMappings[type]
           }
+        } else {
+          // println "# WARN: no normalized unit defined for -> '$type'"
         }
+      } else {
+        // println "# WARN: no originalUnit -> $originalUnit"
       }
     }
   }
