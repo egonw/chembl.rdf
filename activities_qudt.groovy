@@ -72,7 +72,7 @@ sql.eachRow(allMolregno) { row ->
 
   actURI = factory.createURI(ACT + "a" + row.activity_id)
 
-  if (row.standard_value) {
+  if (row.standard_value != null) {
     type = row.standard_type
 
     // now do the units: check if we need to use QUDT and if we normalize
