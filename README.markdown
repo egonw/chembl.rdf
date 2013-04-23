@@ -21,6 +21,14 @@ Additionally, the data is available as Linked Data via LinkedChemistry.info:
 
   http://linkedchemistry.info
 
+# Citation
+
+If you use this (3rd party) RDF version of ChEMBL, please cite this paper. It is currently under review:
+
+E.L. Willighagen, A. Waagmeester, O. Spjuth, P. Ansell, A.J. Williams, V. Tkachenko,
+J. Hastings, B. Chen, D.J. Wild, The ChEMBL database as Linked Open Data,
+In preparation
+
 # Download
 
 Alternatively, you can download the full set of triples as n3 or n-triples from:
