@@ -27,7 +27,7 @@ If you use this (3rd party) RDF version of ChEMBL, please cite this paper. It is
 
 E.L. Willighagen, A. Waagmeester, O. Spjuth, P. Ansell, A.J. Williams, V. Tkachenko,
 J. Hastings, B. Chen, D.J. Wild, The ChEMBL database as Linked Open Data,
-In preparation
+2013, J. Cheminformatics, accepted.
 
 # Download
 
