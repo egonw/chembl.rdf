@@ -52,13 +52,10 @@ The ChEMBL FAQ explains how you can fullfil the attribution part of the license:
 
   https://www.ebi.ac.uk/chembldb/index.php/faq#faq29
 
-If you use this RDF version of ChEMBL, you should cite this paper, pending
-a more dedicated paper, where the RDF version of ChEMBL has been used and
-demonstrated:
+If you use this RDF version of ChEMBL, you should cite the above
+mentioned JChemInf paper.
 
-  http://www.jbiomedsem.com/content/2/S1/S6
-
-Authors that contributed (see also the Git commit history) are:
+Authors that contributed to the RDF structure (see also the Git commit history) are:
 
   Egon Willighagen, Peter Ansell
 
