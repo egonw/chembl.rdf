@@ -8,8 +8,10 @@ It is detailed in this paper (doi:10.1093/nar/gkr777):
 
   http://nar.oxfordjournals.org/content/early/2011/09/22/nar.gkr777.short
 
-This project develops, releases, and hosts a RDF version of ChEMBL. The main SPARQL
-end point is available from Uppsala University at:
+This project develops, releases, and hosts a RDF version of ChEMBL, independent from
+the ChEMBL team who make their own RDF version.
+
+The main SPARQL end point is available from Uppsala University at:
 
   http://rdf.farmbio.uu.se/chembl/sparql
 
@@ -27,7 +29,7 @@ If you use this (3rd party) RDF version of ChEMBL, please cite this paper. It is
 
 E.L. Willighagen, A. Waagmeester, O. Spjuth, P. Ansell, A.J. Williams, V. Tkachenko,
 J. Hastings, B. Chen, D.J. Wild, The ChEMBL database as Linked Open Data,
-2013, J. Cheminformatics, accepted.
+2013, J. Cheminformatics, 2013, 5:23 doi:10.1186/1758-2946-5-23, http://www.jcheminf.com/content/5/1/23/abstract
 
 # Download
 
