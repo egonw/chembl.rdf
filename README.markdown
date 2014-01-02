@@ -4,9 +4,9 @@ ChEMBL is medicinal chemistry database by the team of dr. J. Overington at the E
 
   http://www.ebi.ac.uk/chembl/
 
-It is detailed in this paper (doi:10.1093/nar/gkr777):
+It is detailed in this paper (doi:10.1093/nar/gkt1031):
 
-  http://nar.oxfordjournals.org/content/early/2011/09/22/nar.gkr777.short
+  http://nar.oxfordjournals.org/content/42/D1/D1083
 
 This project develops, releases, and hosts a RDF version of ChEMBL, independent from
 the ChEMBL team who make their own RDF version.
