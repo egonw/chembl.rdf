@@ -33,9 +33,9 @@ J. Hastings, B. Chen, D.J. Wild, The ChEMBL database as Linked Open Data,
 
 # Download
 
-Alternatively, you can download the full set of triples as n3 or n-triples from:
+Alternatively, you can download the full set of triples as n3 or n-triples from www.dataverse.nl:
 
-  http://semantics.bigcat.unimaas.nl/chembl/
+  http://hdl.handle.net/10411/10279
 
 # Copyright / License
 
