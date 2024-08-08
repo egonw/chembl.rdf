@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: Please cite the following works when using this software.
+type: software
+authors:
+  - family-names: Willighagen
+    given-names: Egon
+  - family-names: Waagmeester
+    given-names: Andra
+  - family-names: Spjuth
+    given-names: Ola
+  - family-names: Ansell
+    given-names: Peter
+  - family-names: Williams
+    given-names: Antony John
+  - family-names: Tkachenko
+    given-names: Valery
+  - family-names: Hastings
+    given-names: Janna
+  - family-names: Chen
+    given-names: Bin
+  - family-names: Wild
+    given-names: David J.
+doi: 10.1186/1758-2946-5-23
+identifiers:
+  - type: doi
+    value: 10.1186/1758-2946-5-23
+  - type: other
+    value: urn:issn:1758-2946
+  - type: other
+    value: pmcid:3700754
+  - type: other
+    value: pmid:23657106
+keywords:
+  - ChEMBL
+  - Semantic Web
+  - bioinformatics
+  - pharmacology
+  - linked open data
+  - linked data
+  - open data
+  - database
+title: The ChEMBL database as linked open data
